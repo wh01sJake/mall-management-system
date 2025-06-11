@@ -38,9 +38,9 @@ public class MPGenerator {
         // Configure the connection to your database.
         // IMPORTANT: Change the username and password to your actual database credentials.
         DataSourceConfig dataSourceConfig = new DataSourceConfig.Builder(
-                "jdbc:mysql://localhost:3306/mall?serverTimezone=UTC", // Database URL
+                "jdbc:mysql://localhost:3306/mall", // Database URL
                 "root",       // Your DB username
-                "1234!"        // Your DB password
+                "1234"        // Your DB password
         ).build();
 
         // 2. GLOBAL CONFIGURATION
@@ -51,7 +51,7 @@ public class MPGenerator {
         globalConfigBuilder.outputDir(projectPath + "/mall-admin/src/main/java");
 
         // Set the author name to be added in the comments of generated files.
-        globalConfigBuilder.author("Your Name");
+        globalConfigBuilder.author("Jake");
 
         // Set to true if you want to automatically open the output directory after generation.
         globalConfigBuilder.openDir(false);
