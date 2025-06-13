@@ -1,7 +1,7 @@
 package com.intelijake.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.intelijake.pojo.AdminUser;
+import com.intelijake.pojo.Admin;
 
 /**
  * <p>
@@ -12,6 +12,6 @@ import com.intelijake.pojo.AdminUser;
  * @since 2025-06-11
  */
 
-public interface AdminUserMapper extends BaseMapper<AdminUser> {
+public interface AdminMapper extends BaseMapper<Admin> {
 
 }
