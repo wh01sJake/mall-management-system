@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class AdminUser implements Serializable {
+public class Admin implements Serializable {
 
 
     /**
@@ -39,6 +39,11 @@ public class AdminUser implements Serializable {
     private String email;
 
     private String phone;
+
+    /**
+     * Avatar image path
+     */
+    private String avatar;
 
     /**
      * Role: 0-Admin, 1-Regular Staff
