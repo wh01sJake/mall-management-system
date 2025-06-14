@@ -161,11 +161,11 @@
 					</el-icon>
 					<span>Admin portal</span>
 				</el-menu-item>
-				<el-menu-item index="/student">
+				<el-menu-item index="/product">
 					<el-icon>
 						<Promotion/>
 					</el-icon>
-					<span>Student management</span>
+					<span>Product management</span>
 				</el-menu-item>
                 <el-menu-item index="/classInfo">
                     <el-icon>
