@@ -133,12 +133,18 @@
     }
 
     import {useTokenStore} from '@/store/token.js'
+    import WangEditor from "@/components/WangEditor.vue";
 
     const tokenStore = useTokenStore()
 
     const headers = ref({
         Authorization: tokenStore.token
     })
+
+    const onEditorChange = (detail) => {
+      console.log(detail)
+      product.value.detail = detail
+    }
 
 
 
@@ -197,7 +203,7 @@
     </el-card>
 
     <!--添加、编辑弹出框-->
-    <el-dialog v-model="dialogFormVisible" :title="title" width="500" :lock-scroll="false">
+    <el-dialog v-model="dialogFormVisible" :title="title" width="70%" :lock-scroll="false">
         <el-form :model="product">
             <el-form-item label="name" :label-width="60">
                 <el-input v-model="product.name" autocomplete="off" />
@@ -229,7 +235,8 @@
             </el-upload>
             </el-form-item>
             <el-form-item label="detail" :label-width="60">
-              <el-input v-model="product.detail" autocomplete="off" />
+              <WangEditor :initValue="product.detail" @getEditorContent="onEditorChange"
+                          v-if="dialogFormVisible" @close="dialogFormVisible = false"></WangEditor>
             </el-form-item>
         </el-form>
         <template #footer>
