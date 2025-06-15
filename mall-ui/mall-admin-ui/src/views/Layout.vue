@@ -165,13 +165,13 @@
 					<el-icon>
 						<Promotion/>
 					</el-icon>
-					<span>Product management</span>
+					<span>Product Management</span>
 				</el-menu-item>
-                <el-menu-item index="/classInfo">
+                <el-menu-item index="/category">
                     <el-icon>
                         <Promotion/>
                     </el-icon>
-                    <span>Class management</span>
+                    <span>Category Management</span>
                 </el-menu-item>
                 <el-menu-item index="/chart">
                     <el-icon>
