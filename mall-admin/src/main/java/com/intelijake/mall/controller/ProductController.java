@@ -4,6 +4,7 @@ package com.intelijake.mall.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.intelijake.mall.pojo.query.ProductQuery;
+import com.intelijake.mall.pojo.vo.ProductVO;
 import com.intelijake.mall.service.IProductService;
 import com.intelijake.mall.util.JwtUtil;
 import com.intelijake.mall.util.Result;
@@ -36,7 +37,7 @@ public class ProductController {
     @GetMapping("/list")
     public Result list(ProductQuery productQuery) {
 
-        IPage<Product> page = productService.list(productQuery);
+        IPage<ProductVO> page = productService.list(productQuery);
         return Result.ok(page);
     }
 

@@ -3,6 +3,7 @@ package com.intelijake.mall.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.intelijake.mall.pojo.query.ProductQuery;
+import com.intelijake.mall.pojo.vo.ProductVO;
 import com.intelijake.pojo.Product;
 
 /**
@@ -15,5 +16,5 @@ import com.intelijake.pojo.Product;
  */
 public interface IProductService extends IService<Product> {
 
-    IPage<Product> list(ProductQuery productQuery);
+    IPage<ProductVO> list(ProductQuery productQuery);
 }

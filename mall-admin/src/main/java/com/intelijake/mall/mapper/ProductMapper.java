@@ -1,6 +1,9 @@
 package com.intelijake.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.intelijake.mall.pojo.query.ProductQuery;
+import com.intelijake.mall.pojo.vo.ProductVO;
 import com.intelijake.pojo.Product;
 
 /**
@@ -13,4 +16,5 @@ import com.intelijake.pojo.Product;
  */
 public interface ProductMapper extends BaseMapper<Product> {
 
+    IPage<ProductVO> list(IPage<ProductVO> page, ProductQuery productQuery);
 }

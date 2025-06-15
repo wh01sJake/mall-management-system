@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.intelijake.mall.mapper.ProductMapper;
 import com.intelijake.mall.pojo.query.ProductQuery;
+import com.intelijake.mall.pojo.vo.ProductVO;
 import com.intelijake.mall.service.IProductService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.intelijake.pojo.Product;
@@ -28,12 +29,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     ProductMapper productMapper;
 
     @Override
-    public IPage<Product> list(ProductQuery productQuery) {
+    public IPage<ProductVO> list(ProductQuery productQuery) {
 
-        IPage<Product> page = new Page<>(productQuery.getPage(), productQuery.getLimit());
-        QueryWrapper<Product> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(!ObjectUtils.isEmpty(productQuery.getName()), "name", productQuery.getName());
-        productMapper.selectPage(page,queryWrapper);
+        IPage<ProductVO> page = new Page<>(productQuery.getPage(), productQuery.getLimit());
+
+        productMapper.list(page,productQuery);
         return page;
     }
 }
