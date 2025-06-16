@@ -1,6 +1,7 @@
 package com.intelijake.mall.inteceptor;
 
 import com.intelijake.mall.util.JwtUtil;
+import com.intelijake.mall.util.ThreadLocalUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -21,6 +22,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         try {
             Map<String, Object> map = JwtUtil.parseToken(token);
+
+            ThreadLocalUtil.set(map);
 
             return true;
         } catch (Exception e) {

@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -64,25 +64,25 @@ public class CustomerOrder implements Serializable {
      * Payment time
      */
     @TableField("payment_time")
-    private LocalDateTime paymentTime;
+    private Date paymentTime;
 
     /**
      * Shipping time
      */
     @TableField("shipping_time")
-    private LocalDateTime shippingTime;
+    private Date shippingTime;
 
     /**
      * Transaction completion time
      */
     @TableField("end_time")
-    private LocalDateTime endTime;
+    private Date endTime;
 
     /**
      * Transaction closing time
      */
     @TableField("close_time")
-    private LocalDateTime closeTime;
+    private Date closeTime;
 
     /**
      * Order status: 0-Cancelled, 1-Unpaid, 2-Paid, 3-Shipped, 4-Completed, 5-Closed
@@ -100,13 +100,13 @@ public class CustomerOrder implements Serializable {
      * Creation time
      */
     @TableField(value = "create_time", fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
+    private Date createTime;
 
     /**
      * Last update time
      */
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
 
 }

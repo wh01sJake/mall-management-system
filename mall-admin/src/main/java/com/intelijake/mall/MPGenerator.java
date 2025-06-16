@@ -26,7 +26,9 @@ public class MPGenerator {
 
     // 1. Set the names of the database tables you want to generate code for, separated by commas.
     // I have updated this list to match the translated table names from your SQL script.
-    private static final String DB_TABLES = "admin_user,customer,product_category,product,customer_order,order_item";
+//    private static final String DB_TABLES = "admin_user,customer,product_category,product,customer_order,order_item";
+    private static final String DB_TABLES = "oper_log";
+
 
     // 2. Set to true if you want to add Swagger annotations for API documentation.
     private static final Boolean ENABLE_SWAGGER = false;
@@ -54,7 +56,7 @@ public class MPGenerator {
         globalConfigBuilder.author("Jake");
 
         // Set to true if you want to automatically open the output directory after generation.
-        globalConfigBuilder.openDir(false);
+//        globalConfigBuilder.openDir(false);
 
         // Enable Swagger annotations if configured.
         if (ENABLE_SWAGGER) {
