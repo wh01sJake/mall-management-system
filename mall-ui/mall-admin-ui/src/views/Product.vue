@@ -158,6 +158,7 @@
 
       if (result.code == 0){
         topCategoryList.value = result.data
+
       }
     })
 
@@ -167,14 +168,28 @@
 
       console.log(value)
 
-      categoryApi.selectSecondCategoryListByParentId(value).then(result => {
+      productQuery.categoryId = ''
 
-        if (result.code == 0){
-          secondCategoryList.value = result.data
+        if(value){
+            categoryApi.selectSecondCategoryListByParentId(value).then(result => {
+
+                if (result.code == 0){
+                    secondCategoryList.value = result.data
+                }
+            })
         }
-      })
 
+    }
 
+    const detailDialogVisible = ref(false)
+
+    const detail = ref('')
+
+    const showDetail = (data) => {
+
+        detailDialogVisible.value = true
+
+        detail.value = data
     }
 
 
@@ -234,10 +249,11 @@
                 <img v-if="scope.row.mainImage" :src="scope.row.mainImage" style="max-height: 40px; max-width: 120px;" />
             </template>
         </el-table-column>
-        <el-table-column fixed="right" label="Operations">
+        <el-table-column align="center" width="200px" fixed="right" label="Operations">
             <template #default="{ row }">
-                <el-button type="primary" @click="showUpdateDialog(row.id)">编辑</el-button>
-                <el-button type="danger" @click="deleteById(row.id)">删除</el-button>
+                <el-button size="small" type="primary" @click="showUpdateDialog(row.id)">edit</el-button>
+                <el-button size="small" type="danger" @click="deleteById(row.id)">delete</el-button>
+                <el-button size="small" type="success" @click="showDetail(row.detail)">detail</el-button>
             </template>
         </el-table-column>
         </el-table>
@@ -254,7 +270,7 @@
     </el-card>
 
     <!--添加、编辑弹出框-->
-    <el-dialog v-model="dialogFormVisible" :title="title" width="70%" :lock-scroll="false">
+    <el-dialog v-model="dialogFormVisible" :title="Info" width="70%" :lock-scroll="false">
         <el-form :model="product">
             <el-form-item label="name" :label-width="60">
                 <el-input v-model="product.name" autocomplete="off" />
@@ -312,6 +328,18 @@
                 <el-button type="primary" @click="addOrUpdate">
                     confirm
                 </el-button>
+            </div>
+        </template>
+    </el-dialog>
+
+    //Detail Dialog
+
+    <el-dialog v-model="detailDialogVisible" :title="Info" width="500" :lock-scroll="false">
+        <div v-html="detail"></div>
+        <template #footer>
+            <div class="dialog-footer">
+                <el-button @click="detailDialogVisible = false">close</el-button>
+
             </div>
         </template>
     </el-dialog>

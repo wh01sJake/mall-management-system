@@ -143,6 +143,8 @@
 
 
 
+
+
 </script>
 
 <template>
@@ -178,10 +180,11 @@
                 <img v-if="scope.row.avatar" :src="scope.row.avatar" style="max-height: 40px; max-width: 120px;" />
             </template>
         </el-table-column>
-        <el-table-column fixed="right" label="Operations">
+
+        <el-table-column align="center" width="200px" fixed="right" label="Operations">
             <template #default="{ row }">
-                <el-button type="primary" @click="showUpdateDialog(row.id)">编辑</el-button>
-                <el-button type="danger" @click="deleteById(row.id)">删除</el-button>
+                <el-button size="small" type="primary" @click="showUpdateDialog(row.id)">edit</el-button>
+                <el-button size="small" type="danger" @click="deleteById(row.id)">delete</el-button>
             </template>
         </el-table-column>
         </el-table>
@@ -233,6 +236,8 @@
             </div>
         </template>
     </el-dialog>
+
+
 
 
 </template>
