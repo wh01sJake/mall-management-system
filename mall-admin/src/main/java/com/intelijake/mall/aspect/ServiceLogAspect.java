@@ -25,7 +25,9 @@ public class ServiceLogAspect {
 
 
 
-    @Pointcut(value = "execution(* com.intelijake.mall.service.impl.*.*(..))")
+//    @Pointcut(value = "execution(public * com.intelijake.mall.service.impl.*.*(..))")
+    @Pointcut(value = "@annotation(com.intelijake.mall.annotation.MyLog)")
+
     public void point(){
 
     }

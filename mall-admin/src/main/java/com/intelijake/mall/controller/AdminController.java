@@ -3,6 +3,7 @@ package com.intelijake.mall.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.intelijake.mall.annotation.MyLog;
 import com.intelijake.mall.pojo.dto.AdminPasswordDTO;
 import com.intelijake.mall.pojo.query.AdminQuery;
 import com.intelijake.mall.service.IAdminService;
@@ -41,12 +42,14 @@ public class AdminController {
         return Result.ok(page);
     }
 
+    @MyLog(module = "admin module")
     @DeleteMapping("/deleteById/{id}")
     public Result deleteById(@PathVariable Integer id) {
         adminService.removeById(id);
         return Result.ok("删除成功");
     }
 
+    @MyLog(module = "admin module")
     @DeleteMapping("/deleteAll/{ids}")
     public Result deleteAll(@PathVariable Integer[] ids) {
         adminService.removeBatchByIds(Arrays.asList(ids));

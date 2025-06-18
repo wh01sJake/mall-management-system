@@ -10,6 +10,7 @@ import cn.hutool.http.useragent.UserAgent;
 import cn.hutool.http.useragent.UserAgentUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.intelijake.mall.annotation.MyLog;
 import com.intelijake.mall.service.IOperLogService;
 import com.intelijake.mall.util.Result;
 import com.intelijake.mall.util.ThreadLocalUtil;
@@ -17,12 +18,18 @@ import com.intelijake.pojo.OperLog;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
@@ -65,7 +72,8 @@ public class OperLogAspect {
     /**
      * 日志切点
      */
-    @Pointcut("execution(public * com.intelijake.mall.controller.*.*(..))")
+//    @Pointcut("execution(public * com.intelijake.mall.controller.*.*(..))")
+    @Pointcut(value = "@annotation(com.intelijake.mall.annotation.MyLog)")
     public void operLogAspect() {
     }
 
@@ -82,13 +90,26 @@ public class OperLogAspect {
         OperLog operLog = new OperLog();
 
         Map<String, Object> map = ThreadLocalUtil.get();
-        if (map != null) {
+        if (!CollectionUtils.isEmpty(map)) {
             Integer id = (Integer) map.get("id");
             String name = (String) map.get("name");
             if (id != null) {
                 operLog.setAdminId(id);
                 operLog.setAdminName(name);
             }
+        }
+
+        //get module name through reflect
+
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
+        Method method = signature.getMethod();
+
+        MyLog annotation = method.getAnnotation(MyLog.class);
+
+        if(!ObjectUtils.isEmpty(annotation) && !ObjectUtils.isEmpty(annotation.module())){
+
+            operLog.setModule(annotation.module());
         }
 
         operLog.setStartTime(new Date());
