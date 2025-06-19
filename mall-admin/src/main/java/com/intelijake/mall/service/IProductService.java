@@ -17,4 +17,8 @@ import com.intelijake.pojo.Product;
 public interface IProductService extends IService<Product> {
 
     IPage<ProductVO> list(ProductQuery productQuery);
+
+    Product selectById(Integer id);
+
+    void update(Product product);
 }

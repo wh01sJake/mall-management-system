@@ -8,7 +8,6 @@ import com.intelijake.mall.pojo.query.ProductCategoryQuery;
 import com.intelijake.mall.service.IProductCategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.intelijake.pojo.ProductCategory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -23,8 +22,11 @@ import org.springframework.util.ObjectUtils;
 @Service
 public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMapper, ProductCategory> implements IProductCategoryService {
 
-    @Autowired
-    ProductCategoryMapper productCategoryMapper;
+    private final ProductCategoryMapper productCategoryMapper;
+
+    public ProductCategoryServiceImpl(ProductCategoryMapper productCategoryMapper) {
+        this.productCategoryMapper = productCategoryMapper;
+    }
 
     @Override
     public IPage<ProductCategory> list(ProductCategoryQuery productCategoryQuery) {

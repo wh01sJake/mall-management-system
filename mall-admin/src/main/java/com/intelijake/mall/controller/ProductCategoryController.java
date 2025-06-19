@@ -9,6 +9,8 @@ import com.intelijake.mall.util.JwtUtil;
 import com.intelijake.mall.util.Result;
 import com.intelijake.pojo.ProductCategory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -30,13 +32,27 @@ public class ProductCategoryController {
     @Autowired
     private IProductCategoryService ProductCategoryService;
 
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
+
 
 
 
     @GetMapping("/list")
     public Result list(ProductCategoryQuery ProductCategoryQuery) {
 
-        IPage<ProductCategory> page = ProductCategoryService.list(ProductCategoryQuery);
+        // use redis to cache the category list
+        //1. query if list existed in the redis
+        IPage<ProductCategory> page = (IPage<ProductCategory>) redisTemplate.opsForValue().get("page");
+
+        // 2. if null query db
+        if (ObjectUtils.isEmpty(page)){
+            page = ProductCategoryService.list(ProductCategoryQuery);
+
+            // update to redis
+            redisTemplate.opsForValue().set("page",page);
+        }
+
         return Result.ok(page);
     }
 
