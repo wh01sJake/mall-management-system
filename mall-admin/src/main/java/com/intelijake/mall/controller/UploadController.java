@@ -1,8 +1,10 @@
 package com.intelijake.mall.controller;
 
+import com.intelijake.mall.constant.RedisConstants;
 import com.intelijake.mall.util.AWSUtil;
 import com.intelijake.mall.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +26,9 @@ public class UploadController {
     @Autowired
     private AWSUtil AWSUtil;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @PostMapping("/upload")
     public Result upload(MultipartFile file){
         if (file == null || file.isEmpty()) {
@@ -44,6 +49,10 @@ public class UploadController {
         try {
             // 使用AWS S3上传文件
             String url = AWSUtil.uploadFile(newFileName, file.getInputStream(), file.getSize());
+
+            redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE,url);
+
+            System.out.println("add " + url + " to redis");
             return Result.ok("successfully uploaded", url);
         } catch (Exception e) {
             e.printStackTrace();

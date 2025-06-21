@@ -4,6 +4,7 @@ package com.intelijake.mall.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.intelijake.mall.annotation.MyLog;
+import com.intelijake.mall.constant.RedisConstants;
 import com.intelijake.mall.pojo.dto.AdminPasswordDTO;
 import com.intelijake.mall.pojo.query.AdminQuery;
 import com.intelijake.mall.service.IAdminService;
@@ -11,6 +12,7 @@ import com.intelijake.mall.util.JwtUtil;
 import com.intelijake.mall.util.Result;
 import com.intelijake.pojo.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -31,6 +33,9 @@ public class AdminController {
 
     @Autowired
     private IAdminService adminService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
 
@@ -60,6 +65,9 @@ public class AdminController {
     @PostMapping("/add")
     public Result add(@RequestBody Admin admin) {
         adminService.save(admin);
+
+        redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,admin.getAvatar());
+
         return Result.ok("添加成功");
     }
 
