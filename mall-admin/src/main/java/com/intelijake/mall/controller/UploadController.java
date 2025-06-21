@@ -1,13 +1,12 @@
 package com.intelijake.mall.controller;
 
+import com.intelijake.mall.util.AWSUtil;
 import com.intelijake.mall.util.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -21,6 +20,9 @@ import java.util.UUID;
 
 @RestController
 public class UploadController {
+
+    @Autowired
+    private AWSUtil AWSUtil;
 
     @PostMapping("/upload")
     public Result upload(MultipartFile file){
@@ -37,26 +39,16 @@ public class UploadController {
         }
 
         String suffix = avatarName.substring(avatarName.lastIndexOf("."));
-
         String newFileName = fileName + suffix;
 
-        String projectRoot = System.getProperty("user.dir");
-
-        // Create upload directory if it doesn't exist
-        String uploadDir = projectRoot + "/userpics/";
-        File dir = new File(uploadDir);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-
-        String filePath = uploadDir + newFileName;
-
         try {
-            file.transferTo(new File(filePath));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            // 使用AWS S3上传文件
+            String url = AWSUtil.uploadFile(newFileName, file.getInputStream(), file.getSize());
+            return Result.ok("successfully uploaded", url);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error("Upload failed: " + e.getMessage());
         }
-        return Result.ok("successfully uploaded",newFileName);
     }
 
     public static void main(String[] args) {

@@ -130,7 +130,7 @@
     }
 
     const handleAvatarSuccess = (result) => {
-        admin.value.avatar = '/api/pic/'+result.data
+        admin.value.avatar = result.data
     }
 
     import {useTokenStore} from '@/store/token.js'

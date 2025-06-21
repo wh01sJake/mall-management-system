@@ -137,7 +137,7 @@
     }
 
     const handleAvatarSuccess = (result) => {
-        adminUser.value.avatar = '/api/pic/'+result.data
+        adminUser.value.avatar = result.data
     }
 
 

@@ -37,3 +37,8 @@ build/
 ### Mac OS ###
 .DS_Store
 /userpics/
+
+### 敏感配置文件 ###
+**/application-local.yml
+**/application-dev.yml
+.env
