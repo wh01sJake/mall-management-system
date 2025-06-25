@@ -80,6 +80,7 @@ public class AdminController {
     @PutMapping("/update")
     public Result update(@RequestBody Admin admin) {
         adminService.updateById(admin);
+        redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,admin.getAvatar());
         return Result.ok("更新成功");
     }
 

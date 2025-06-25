@@ -3,6 +3,7 @@ package com.intelijake.mall.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.intelijake.mall.constant.RedisConstants;
 import com.intelijake.mall.pojo.query.ProductQuery;
 import com.intelijake.mall.pojo.vo.ProductVO;
 import com.intelijake.mall.service.IProductService;
@@ -10,6 +11,7 @@ import com.intelijake.mall.util.JwtUtil;
 import com.intelijake.mall.util.Result;
 import com.intelijake.pojo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -30,6 +32,9 @@ public class ProductController {
 
     @Autowired
     private IProductService productService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
 
 
@@ -57,6 +62,8 @@ public class ProductController {
     @PostMapping("/add")
     public Result add(@RequestBody Product product) {
         productService.save(product);
+        redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,product.getMainImage());
+
         return Result.ok("添加成功");
     }
 
@@ -70,7 +77,7 @@ public class ProductController {
     public Result update(@RequestBody Product product) {
 //        productService.updateById(product); // has to override this to enable cacheable
         productService.update(product);
-
+        redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,product.getMainImage());
         return Result.ok("更新成功");
     }
 
