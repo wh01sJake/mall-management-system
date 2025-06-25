@@ -33,4 +33,12 @@ public class ProductController {
        return Result.ok(list);
     }
 
+    @GetMapping("/selectById")
+    public Result<Product> selectById(Integer id){
+
+        Product product = productService.getById(id);
+
+        return Result.ok(product);
+    }
+
 }
