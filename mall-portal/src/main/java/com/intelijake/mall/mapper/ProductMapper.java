@@ -3,6 +3,8 @@ package com.intelijake.mall.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.intelijake.pojo.Product;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口

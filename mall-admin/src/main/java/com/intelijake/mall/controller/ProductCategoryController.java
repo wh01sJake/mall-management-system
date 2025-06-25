@@ -3,6 +3,7 @@ package com.intelijake.mall.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.intelijake.mall.constant.RedisConstants;
 import com.intelijake.mall.pojo.query.ProductCategoryQuery;
 import com.intelijake.mall.service.IProductCategoryService;
 import com.intelijake.mall.util.JwtUtil;
@@ -72,6 +73,7 @@ public class ProductCategoryController {
     @PostMapping("/add")
     public Result add(@RequestBody ProductCategory ProductCategory) {
         ProductCategoryService.save(ProductCategory);
+
         return Result.ok("添加成功");
     }
 

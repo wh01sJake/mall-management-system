@@ -3,6 +3,8 @@ package com.intelijake.mall.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.intelijake.pojo.Product;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,5 @@ import com.intelijake.pojo.Product;
  */
 public interface IProductService extends IService<Product> {
 
+    List<Product> selectByCategoryId(Integer id);
 }
