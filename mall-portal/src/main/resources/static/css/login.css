@@ -1,0 +1,210 @@
+body {
+    font-family: "MiSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-variant: tabular-nums;
+    font-feature-settings: "tnum", "tnum";
+}
+
+/* 
+  媒体查询设置不同屏幕下左边背景的宽度
+*/
+@media screen and (min-width:1000px) {
+    .wrap_bg {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .wrap_bg {
+        width: 375px;
+    }
+}
+
+.wrap {
+    /* 给父级元素设置弹性盒，两个块还一行显示 */
+    display: flex;
+}
+
+.wrap_bg {
+    height: 100vh;
+    /* 设置背景图片 */
+    background-image: url("../images/bg.jpg");
+    /* 缩放图片适应容器 */
+    background-size: cover;
+    /* 图片居中 */
+    background-position: 50%;
+}
+
+.login {
+    /* 占用弹性盒父元素的剩余空间 */
+    flex-grow: 1;
+    height: 100vh;
+}
+
+/* ---------------标题------------------- */
+.login_hd {
+    height: 40px;
+    padding: 20px;
+}
+
+/* 左 */
+.hd_left {
+    float: left;
+    font-size: 26px;
+    color: #333;
+    font-weight: 500;
+}
+
+.hd_left .logo {
+    width: 40px;
+    height: 40px;
+}
+
+/* 右 */
+.hd_right {
+    float: right;
+    margin-right: 20px;
+}
+
+.hd_right li {
+    float: left;
+    line-height: 40px;
+    margin: 0 10px;
+}
+
+.hd_right li a {
+    color: #838383;
+}
+
+.hd_right li:hover a {
+    color: #ff6700;
+}
+
+/* -------------登录主体内容------------ */
+
+.login_box {
+    padding-top: 20px;
+}
+
+.login_card {
+    width: 360px;
+    padding: 40px 45px;
+    /* 盒子居中显示 */
+    margin: 0 auto;
+    /* 阴影 */
+    box-shadow: 0 20px 50px 0 hsl(0deg 0% 64% / 10%);
+    position: relative;
+    /* 添加圆角 */
+    border-radius: 4;
+}
+
+/* -----标题------- */
+.login_card .title {
+    display: inline-block;
+    color: #333;
+    font: bold 24px/40px "黑体";
+    border-bottom: 4px solid #ff6700;
+}
+
+/* 二维码 */
+.login_card .two {
+    position: absolute;
+    right: 0px;
+    top: 0;
+}
+
+/* ------输入框和密码框------- */
+.user_box {
+    margin-top: 20px;
+}
+
+.user {
+    width: 354px;
+    height: 60px;
+    /* 设置怪异盒模型 */
+    box-sizing: border-box;
+    background: #fcf2f3;
+    /* 设置圆角 */
+    border-radius: 4px;
+    position: relative;
+}
+.user label{
+    color: #f04645;
+    font-weight: 400;
+    font-size: 17px;
+    position: absolute;
+    left:15px;
+    top:20px;
+    /* 添加过渡效果 */
+    transition: 0.5s;
+}
+.user input{
+    width: 80%;
+    height: 30px;    
+    margin-top:25px;
+    margin-left: 15px;
+    /* 去除input的边框 */
+    border: none;
+    /* 去除input的轮廓线 */
+    outline: none;
+    /*  */
+    font-size: 20px;
+    background: none;
+}
+
+/* ----光标进入input，让文字小点，位置靠上一点 */
+.user input:focus+label{
+    font-size: 12px;
+    top:8px
+}
+
+.user_box .user_msg{
+    font-size:12px;
+    color: #f04645;
+    margin: 10px auto 20px;
+}
+.login_btn{
+    width: 354px;
+    height: 60px;
+    background: #ff5c00;
+    text-align: center;
+    font:bold 18px/60px "黑体";
+    /* 去除边框 */
+    border: none;
+    color:#fff;
+    opacity: .4;
+    border-radius: 4px;
+}
+
+/* 登录说明 */
+.login_other{
+    line-height: 50px;
+    
+}
+.login_other a{
+    color: #ff5c00;
+    font-size: 16px;
+}
+.login_other .l_right{
+    float: right;
+}
+
+/*------- 登录方式 ------ */
+.login_method{
+    margin-top: 20px;
+    text-align: center;
+}
+/* 标题 */
+.login_method h3{
+    font-size: 17px;
+    color:#aaa;
+    line-height: 40px;
+}
+
+.method_list a{
+    display: inline-block;
+    margin: 0 10px;
+}
+.method_list img{
+    width: 40px;
+    height: 40px;
+}

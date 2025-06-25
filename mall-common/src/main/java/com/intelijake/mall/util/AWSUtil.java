@@ -6,11 +6,13 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 
 @Component
+@ConditionalOnProperty(prefix = "cloud.aws", name = "credentials.accessKey")
 public class AWSUtil {
 
     @Autowired

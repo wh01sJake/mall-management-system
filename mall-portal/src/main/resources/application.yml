@@ -34,13 +34,5 @@ mybatis-plus:
 server:
   port: 8081
 
-cloud:
-  aws:
-    credentials:
-      accessKey: ${AWS_ACCESS_KEY_ID:your-access-key-here}
-      secretKey: ${AWS_SECRET_ACCESS_KEY:your-secret-key-here}
-    region: ${AWS_REGION:eu-west-1}
-    s3:
-      bucket: ${AWS_S3_BUCKET:jake-mall-bucket}
 
 

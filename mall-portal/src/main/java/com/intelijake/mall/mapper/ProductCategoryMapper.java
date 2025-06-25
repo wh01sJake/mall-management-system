@@ -1,7 +1,10 @@
 package com.intelijake.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.intelijake.mall.pojo.vo.ProductCategoryVO;
 import com.intelijake.pojo.ProductCategory;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.intelijake.pojo.ProductCategory;
  */
 public interface ProductCategoryMapper extends BaseMapper<ProductCategory> {
 
+    List<ProductCategoryVO> listAll();
 }

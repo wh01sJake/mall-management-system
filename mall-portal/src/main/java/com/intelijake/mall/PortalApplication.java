@@ -15,10 +15,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * Version: 1.0
  */
 
-//@EnableScheduling
+@EnableScheduling
 @SpringBootApplication
-//@MapperScan("com.intelijake.mall.mapper")
-//@EnableCaching
+@MapperScan("com.intelijake.mall.mapper")
+@EnableCaching
 public class PortalApplication {
     public static void main(String[] args) {
         SpringApplication.run(PortalApplication.class, args);

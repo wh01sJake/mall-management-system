@@ -1,10 +1,14 @@
 package com.intelijake.mall.service.impl;
 
 import com.intelijake.mall.mapper.ProductCategoryMapper;
+import com.intelijake.mall.pojo.vo.ProductCategoryVO;
 import com.intelijake.mall.service.IProductCategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.intelijake.pojo.ProductCategory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +21,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMapper, ProductCategory> implements IProductCategoryService {
 
+    @Autowired
+    private  ProductCategoryMapper productCategoryMapper;
+
+
+    @Override
+    public List<ProductCategoryVO> listAll() {
+
+        return productCategoryMapper.listAll();
+    }
 }

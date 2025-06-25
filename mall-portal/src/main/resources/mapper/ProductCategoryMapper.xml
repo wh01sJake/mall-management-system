@@ -2,4 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.intelijake.mall.mapper.ProductCategoryMapper">
 
+    <resultMap id="categoryVOMap" type="productCategoryVO">
+        <id column="parentId" property="id"/>
+        <id column="parentName" property="name"/>
+        <collection property="childList" ofType="productCategoryVO">
+            <id column="id" property="id"/>
+            <id column="parentId" property="parentId"/>
+            <id column="name" property="name"/>
+        </collection>
+    </resultMap>
+
+    <select id="listAll" resultMap="categoryVOMap">
+        SELECT c1.id AS parentId, c1.`name` AS parentName, c2.id, c2.`name`,c2.parent_id
+        FROM product_category AS c1 INNER JOIN product_category as c2
+        ON c2.parent_id = c1.id
+    </select>
 </mapper>

@@ -1,7 +1,10 @@
 package com.intelijake.mall.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.intelijake.mall.pojo.vo.ProductCategoryVO;
 import com.intelijake.pojo.ProductCategory;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.intelijake.pojo.ProductCategory;
  */
 public interface IProductCategoryService extends IService<ProductCategory> {
 
+    List<ProductCategoryVO> listAll();
 }
