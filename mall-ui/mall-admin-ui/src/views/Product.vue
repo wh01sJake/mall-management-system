@@ -200,18 +200,18 @@
     <el-card class="">
     <template #header>
         <div class="header">
-            <el-button type="primary" @click="showAddDialog">添加</el-button>
-            <el-button type="primary" @click="deleteAll">批量删除</el-button>
+            <el-button type="primary" @click="showAddDialog">add</el-button>
+            <el-button type="primary" @click="deleteAll">bulk delete</el-button>
         </div>
     </template>
 
 
         <el-form :inline="true">
         <el-form-item label="name">
-            <el-input v-model="productQuery.name" placeholder="请输入名字" clearable/>
+            <el-input v-model="productQuery.name" placeholder="Enter a name" clearable/>
         </el-form-item>
           <el-form-item label="category" :label-width="60">
-            <el-select v-model="selectCategory" clearable placeholder="请选择一级分类" @change="selectChange" style="width: 200px">
+            <el-select v-model="selectCategory" clearable placeholder="Select Top Category" @change="selectChange" style="width: 200px">
               <el-option
                   v-for="category in topCategoryList"
                   :key="category.id"
@@ -219,7 +219,7 @@
                   :value="category.id"
               />
             </el-select>
-            <el-select v-model="productQuery.categoryId" clearable placeholder="请选择二级分类"  style="width: 200px">
+            <el-select v-model="productQuery.categoryId" clearable placeholder="Select Second Category"  style="width: 200px">
               <el-option
                   v-for="category in secondCategoryList"
                   :key="category.id"
@@ -276,7 +276,7 @@
                 <el-input v-model="product.name" autocomplete="off" />
             </el-form-item>
             <el-form-item label="categoryId" :label-width="60">
-              <el-select v-model="selectCategory" clearable placeholder="请选择一级分类" @change="selectChange" style="width: 200px">
+              <el-select v-model="selectCategory" clearable placeholder="Select Top Category" @change="selectChange" style="width: 200px">
                 <el-option
                     v-for="category in topCategoryList"
                     :key="category.id"
@@ -284,7 +284,7 @@
                     :value="category.id"
                 />
               </el-select>
-              <el-select v-model="product.categoryId" clearable placeholder="请选择二级分类"  style="width: 200px">
+              <el-select v-model="product.categoryId" clearable placeholder="Select Second Category"  style="width: 200px">
                 <el-option
                     v-for="category in secondCategoryList"
                     :key="category.id"

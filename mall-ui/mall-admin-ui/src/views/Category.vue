@@ -154,19 +154,19 @@
     <el-card class="">
     <template #header>
         <div class="header">
-            <el-button type="primary" @click="showAddDialog">添加</el-button>
-            <el-button type="primary" @click="deleteAll">批量删除</el-button>
+            <el-button type="primary" @click="showAddDialog">add</el-button>
+            <el-button type="primary" @click="deleteAll">bulk delete</el-button>
         </div>
     </template>
 
 
         <el-form :inline="true">
-        <el-form-item label="名字">
-            <el-input v-model="categoryQuery.name" placeholder="请输入名字" clearable/>
+        <el-form-item label="name">
+            <el-input v-model="categoryQuery.name" placeholder="please enter name" clearable/>
         </el-form-item>
 
         <el-form-item>
-            <el-button type="primary" @click="onSearch">搜索</el-button>
+            <el-button type="primary" @click="onSearch">search</el-button>
         </el-form-item>
         </el-form>
 
@@ -178,8 +178,8 @@
         <el-table-column align="center" width="200px" fixed="right" label="Operations">
 
             <template #default="{ row }">
-                <el-button type="primary" @click="showUpdateDialog(row.id)">编辑</el-button>
-                <el-button type="danger" @click="deleteById(row.id)">删除</el-button>
+                <el-button type="primary" @click="showUpdateDialog(row.id)">edit</el-button>
+                <el-button type="danger" @click="deleteById(row.id)">delete</el-button>
             </template>
         </el-table-column>
         </el-table>

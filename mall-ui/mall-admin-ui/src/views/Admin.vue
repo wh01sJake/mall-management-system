@@ -151,21 +151,21 @@
     <el-card class="">
     <template #header>
         <div class="header">
-            <el-button type="primary" @click="showAddDialog">添加</el-button>
-            <el-button type="primary" @click="deleteAll">批量删除</el-button>
+            <el-button type="primary" @click="showAddDialog">add</el-button>
+            <el-button type="primary" @click="deleteAll">bulk delete</el-button>
         </div>
     </template>
 
 
         <el-form :inline="true">
-        <el-form-item label="名字">
-            <el-input v-model="adminQuery.username" placeholder="请输入名字" clearable/>
+        <el-form-item label="username">
+            <el-input v-model="adminQuery.username" placeholder="enter a name" clearable/>
         </el-form-item>
-        <el-form-item label="邮箱">
-            <el-input v-model="adminQuery.email" placeholder="请输入邮箱" clearable/>
+        <el-form-item label="email">
+            <el-input v-model="adminQuery.email" placeholder="enter email" clearable/>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="onSearch">搜索</el-button>
+            <el-button type="primary" @click="onSearch">search</el-button>
         </el-form-item>
         </el-form>
 
