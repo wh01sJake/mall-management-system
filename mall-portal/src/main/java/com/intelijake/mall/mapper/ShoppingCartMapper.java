@@ -18,4 +18,6 @@ import java.util.List;
 public interface ShoppingCartMapper extends BaseMapper<ShoppingCart> {
 
     List<CartVO> list(CartQuery cartQuery);
+
+    void updateQuantity(ShoppingCart cart);
 }

@@ -37,7 +37,7 @@ public class ShoppingCartController {
 
         cart.setIsChecked(1);
 
-        shoppingCartService.save(cart);
+        shoppingCartService.add(cart);
 
         return Result.ok("add success");
 

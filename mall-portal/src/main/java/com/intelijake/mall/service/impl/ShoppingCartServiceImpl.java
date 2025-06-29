@@ -1,5 +1,6 @@
 package com.intelijake.mall.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.intelijake.mall.mapper.ShoppingCartMapper;
 import com.intelijake.mall.pojo.query.CartQuery;
 import com.intelijake.mall.pojo.vo.CartVO;
@@ -48,6 +49,23 @@ public class ShoppingCartServiceImpl extends ServiceImpl<ShoppingCartMapper, Sho
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public void add(ShoppingCart cart) {
+
+        QueryWrapper<ShoppingCart> wrapper = new QueryWrapper<>();
+
+        wrapper.eq("user_id",cart.getUserId());
+        wrapper.eq("product_id",cart.getProductId());
+        Long count = shoppingCartMapper.selectCount(wrapper);
+
+        if (count > 0){// product existed in the cart
+            shoppingCartMapper.updateQuantity(cart);
+        }
+        else {
+            shoppingCartMapper.insert(cart);
         }
     }
 }

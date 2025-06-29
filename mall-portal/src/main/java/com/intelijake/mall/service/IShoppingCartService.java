@@ -20,4 +20,6 @@ public interface IShoppingCartService extends IService<ShoppingCart> {
     List<CartVO> list(CartQuery cartQuery);
 
     boolean updateCheckedAllByUserId(Integer userId, Integer checked);
+
+    void add(ShoppingCart cart);
 }
