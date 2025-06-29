@@ -12,6 +12,7 @@
 	<script src="/js/jq_3.3.1_mi.js"></script>
     <script type="text/javascript" src="/layui/layui.js"></script>
 	<script src="/js/detail.js"></script>
+	<script src="/mylayer.js"></script>
 </head>
 <body>
 	 <div class="header">
@@ -32,7 +33,7 @@
                 <li><a href="#">登录</a><span>|</span></li>
                 <li><a href="#">注册</a><span>|</span></li>
                 <li><a href="./order.html">我的订单</a></li>
-               <li class="header_right_li"><a href="./cart.html"><i class="fa fa-shopping-cart" ></i>&nbsp; 购物车 ( 0 )</a>
+               <li class="header_right_li"><a href="cart_list.html"><i class="fa fa-shopping-cart" ></i>&nbsp; 购物车 ( 0 )</a>
 					<div>购物车中还没有商品，赶紧选购吧！</div>
 				</li>
             </ul>
@@ -303,7 +304,7 @@
       	        </div>
       	        <p id="totalPrice" style="color:#FF6A00;font-size: 25px;margin-left: 30px;">总计&nbsp;：&nbsp;699元</p>
       	    </div>
-      	    <div class="shop_detail_cart">加入购物车</div>
+      	    <div id="addToCart" class="shop_detail_cart">加入购物车</div>
       	    <p><i class="fa fa-check-circle-o"></i>  7天无理由退货  <i class="fa fa-check-circle-o"></i> 15天质量问题换货  <i class="fa fa-check-circle-o"></i> 365天保修 </p>
         </div>
       <div class="clear"></div>
@@ -422,8 +423,9 @@
         </div>  
     </div>
 <script>
-layui.use('carousel', function(){
+layui.use(['carousel','layer'], function(){
   var carousel = layui.carousel;
+  var layer = layui.layer;
   //建造实例
   carousel.render({
     elem: '#test1'
@@ -462,7 +464,28 @@ layui.use('carousel', function(){
 
 				}
 			}
-	)
+	);
+
+	$('#addToCart').click(function () {
+
+		$.ajax({
+			url: '/cart/add',
+			data: {'productId':id, 'quantity': 1},
+			method: 'POST',
+			success: function (result) {
+				console.log(result);
+				if (result.code===0){
+					mylayer.okUrl(result.msg,'/page/cart/list')
+				}
+			},
+			error: function (xhr) {
+				if (xhr.status === 401 || (xhr.responseJSON && xhr.responseJSON.code === 401)){
+
+					location.href = '/page/login';
+				}
+			}
+		})
+	})
 });
 
 

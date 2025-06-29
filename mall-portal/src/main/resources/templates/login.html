@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 设置网站标题 -->
+    <title>小米账号-登录</title>
+    <!-- 设置网站图标 -->
+    <link rel="icon" href="/images/favicon/favicon.ico">
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <!-- 引入login.css -->
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- 左边背景 -->
+        <div class="wrap_bg"></div>
+        <!-- 右边登录的内容 -->
+        <div class="login">
+            <!-- 上标题 -->
+            <div class="login_hd">
+                <div class="hd_left">
+                    <img src="/images/logo-mi2.png" class="logo">
+                    小米帐号
+                </div>
+
+                <ul class="hd_right">
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">中文(简体)</a></li>
+                </ul>
+            </div>
+
+            <div class="login_box">
+                <div class="login_card">
+                    <img src="/images/two.png" class="two">
+                    <h2 class="title">登录</h2>
+                    <!-- 账号 -->
+                    <form class="layui-form" action="">
+                        <div class="user_box">
+                            <div class="user">
+                                <input type="text" name="username" class="username">
+                            </div>
+                            <div class="user_msg">请输入账号</div>
+                        </div>
+                        <!-- 密码 -->
+                        <div class="user_box">
+                            <div class="user">
+                                <input type="password" name="password" class="password">
+                            </div>
+                            <div class="user_msg">请输入密码</div>
+                        </div>
+                        <!-- 登录按钮 -->
+                            <button class="login_btn" lay-submit lay-filter="formFilter">登录</button>
+                    </form>
+                    <!-- 登录说明 -->
+                    <div class="login_other">
+                        <a href="#" class="l_l">忘记密码？</a>
+                        <a href="#" class="l_right">手机号登录</a>
+                    </div>
+                    <!-- 登录方式 -->
+                    <div class="login_method">
+                        <h3>其他登录方式</h3>
+                        <div class="method_list">
+                            <a href="#"><img src="/images/qq.png" alt=""></a>
+                            <a href="#"><img src="/images/wx1.png" alt=""></a>
+                            <a href="#"><img src="/images/sina.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/jquery-2.1.4.js"></script>
+    <script src="/mylayer.js"></script>
+    <script src="/layui/layui.js"></script>
+
+    <script>
+        layui.use(['form'], function () {
+            var form = layui.form;
+            form.on('submit(formFilter)', function(data){
+                var field = data.field; // 获取表单字段值
+                console.log(field);
+                // 此处可执行 Ajax 等操作
+                $.post(
+                    '/customer/login',
+                    field,
+                    function (result) {
+                        console.log(result);
+                        if (result.code == 0) {
+                            mylayer.okUrl(result.msg, '/');
+                        }
+                    },
+                    'json'
+                );
+
+                return false; // 阻止默认 form 跳转
+            });
+        });
+    </script> 
+</body>
+</html>

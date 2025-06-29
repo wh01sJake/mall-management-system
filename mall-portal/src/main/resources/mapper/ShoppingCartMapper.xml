@@ -2,4 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.intelijake.mall.mapper.ShoppingCartMapper">
 
+    <select id="list" resultType="com.intelijake.mall.pojo.vo.CartVO">
+        SELECT c.id,
+               c.user_id AS customerId,
+               c.product_id AS productId,
+               p.`name` AS productName,
+               p.price AS productPrice,
+               p.main_image AS productMainImage,
+               c.quantity,
+               c.is_checked AS checked
+        FROM `shopping_cart` AS c
+        INNER JOIN product AS p ON c.product_id = p.id
+        <where>
+            <if test="customerId != null">
+                AND c.user_id = #{customerId}
+            </if>
+            <if test="isChecked != null">
+                AND c.is_checked = #{isChecked}
+            </if>
+            AND c.is_deleted = 0
+            AND p.is_deleted = 0
+        </where>
+    </select>
 </mapper>

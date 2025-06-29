@@ -1,7 +1,11 @@
 package com.intelijake.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.intelijake.mall.pojo.query.CartQuery;
+import com.intelijake.mall.pojo.vo.CartVO;
 import com.intelijake.pojo.ShoppingCart;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.intelijake.pojo.ShoppingCart;
  */
 public interface ShoppingCartMapper extends BaseMapper<ShoppingCart> {
 
+    List<CartVO> list(CartQuery cartQuery);
 }

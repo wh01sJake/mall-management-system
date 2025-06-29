@@ -40,18 +40,18 @@ public class ShoppingCart implements Serializable {
     /**
      * Is selected in cart (1: checked, 0: unchecked)
      */
-    private Byte isChecked;
+    private Integer isChecked;
 
     /**
      * Status (1: Active, 0: Disabled)
      */
-    private Byte status;
+    private Integer status;
 
     /**
      * Logical delete (1: deleted, 0: not deleted)
      */
     @TableLogic
-    private Byte isDeleted;
+    private Integer isDeleted;
 
     /**
      * Creation time

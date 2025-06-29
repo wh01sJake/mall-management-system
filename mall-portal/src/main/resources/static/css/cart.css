@@ -48,12 +48,12 @@ a{text-decoration: none;color: #ccc;cursor:pointer;}
 .cart .good-price{width:75px;padding-right: 84px;text-align: right;}
 
 .cart .good-num{width: 150px;text-align: center;}
-.good-num .num-input{padding:0;margin-top:24px;width: 150px;height: 40px;border:1px solid #e0e0e0;padding-top: 1px;}
-.num-input button{width: 38px;height:38px;text-align: center;line-height: 38px;color:#757575;background-color:#fff;font-size: 20px;}
+.good-num .num-input{padding:0;margin-top:24px;width: 150px;height: 40px;border:1px solid #e0e0e0;padding-top: 1px;display: flex;align-items: center;}
+.num-input button{width: 38px;height:38px;text-align: center;line-height: 38px;color:#757575;background-color:#fff;font-size: 20px;border: none;cursor: pointer;}
 .num-input button:hover{background-color: #e0e0e0}
-.num-input .minus{float: left;}
-.num-input .plus{float: right;}
-.num-input .num-value{float: left; width: 72px;height: 38px;text-align: center;font-size: 16px;}
+.num-input .minus{order: 1;}
+.num-input .num-value{order: 2;width: 72px;height: 38px;text-align: center;font-size: 16px;border: none;outline: none;}
+.num-input .plus{order: 3;}
 
 .cart .good-total-price{width: 120px;padding-right: 81px;text-align: right;color: #FF6A00;}
 .cart .operation{width: 80px;padding-right: 26px;text-align: center;}
