@@ -36,7 +36,7 @@ const login = () => {
 
 <template>
     <div class="login-bg">
-        <!-- 登录表单 -->
+        <!-- Login form -->
         <el-form class="form-login" size="large" autocomplete="off" :model="user" :rules="rules">
             <el-form-item>
                 <h1>Login</h1>
@@ -54,7 +54,7 @@ const login = () => {
                     <el-link type="primary" :underline="false">Forget Password?</el-link>
                 </div>
             </el-form-item>
-            <!-- 登录按钮 -->
+            <!-- Login button -->
             <el-form-item>
                 <el-button class="button" type="primary" auto-insert-space @click="login">Login</el-button>
             </el-form-item>

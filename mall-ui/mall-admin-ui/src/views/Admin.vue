@@ -28,6 +28,14 @@
     loadData()
 
     const onSearch = () => {
+        adminQuery.page = 1
+        loadData()
+    }
+
+    const onReset = () => {
+        adminQuery.username = ''
+        adminQuery.email = ''
+        adminQuery.page = 1
         loadData()
     }
 
@@ -40,7 +48,7 @@
                 confirmButtonText: 'Confirm',
                 cancelButtonText: 'Cancel',
                 type: 'warning',
-                lockScroll: false //防止抖动
+                lockScroll: false // Prevent scrolling
             }
         ).then(() => {
             adminApi.deleteById(id).then(result => {
@@ -70,7 +78,7 @@
                 confirmButtonText: 'Confirm',
                 cancelButtonText: 'Cancel',
                 type: 'warning',
-                lockScroll: false //防止抖动
+                lockScroll: false // Prevent scrolling
             }
         ).then(() => {
             adminApi.deleteAll(ids.value).then(result => {
@@ -148,28 +156,43 @@
 </script>
 
 <template>
-    <el-card class="">
-    <template #header>
-        <div class="header">
-            <el-button type="primary" @click="showAddDialog">add</el-button>
-            <el-button type="primary" @click="deleteAll">bulk delete</el-button>
-        </div>
-    </template>
+    <el-card class="admin-management">
+        <template #header>
+            <div class="header">
+                <h3>Admin Management</h3>
+                <div class="header-actions">
+                    <el-button type="primary" @click="showAddDialog">Add Admin</el-button>
+                    <el-button type="danger" @click="deleteAll">Bulk Delete</el-button>
+                </div>
+            </div>
+        </template>
 
-
-        <el-form :inline="true">
-        <el-form-item label="username">
-            <el-input v-model="adminQuery.username" placeholder="enter a name" clearable/>
-        </el-form-item>
-        <el-form-item label="email">
-            <el-input v-model="adminQuery.email" placeholder="enter email" clearable/>
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="onSearch">search</el-button>
-        </el-form-item>
+        <!-- Search Form -->
+        <el-form :inline="true" class="search-form">
+            <el-form-item label="Username">
+                <el-input
+                    v-model="adminQuery.username"
+                    placeholder="Enter username"
+                    clearable
+                    style="width: 200px"
+                />
+            </el-form-item>
+            <el-form-item label="Email">
+                <el-input
+                    v-model="adminQuery.email"
+                    placeholder="Enter email"
+                    clearable
+                    style="width: 200px"
+                />
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="onSearch">Search</el-button>
+                <el-button @click="onReset">Reset</el-button>
+            </el-form-item>
         </el-form>
 
-        <el-table :data="list" style="width: 100%" ref="multipleTableRef" @selection-change="handleSelectionChange">
+        <!-- Admin Table -->
+        <el-table :data="list" style="width: 100%" ref="multipleTableRef" @selection-change="handleSelectionChange" class="admin-table">
         <el-table-column type="selection" width="55" />
         <el-table-column fixed prop="id" label="ID"/>
         <el-table-column prop="username" label="username"/>
@@ -189,18 +212,19 @@
         </el-table-column>
         </el-table>
 
+        <!-- Pagination -->
         <el-pagination
             v-model:current-page="adminQuery.page"
             v-model:page-size="adminQuery.limit"
-            :page-sizes="[10, 20, 30, 40]"
+            :page-sizes="[10, 20, 30, 50]"
             layout="total, sizes, prev, pager, next, jumper"
             :total="total"
             @change="loadData"
-            style="margin-top: 20px; justify-content: flex-end"
+            class="pagination"
         />
     </el-card>
 
-    <!--添加、编辑弹出框-->
+    <!-- Add/Edit Dialog -->
     <el-dialog v-model="dialogFormVisible" :title="title" width="500" :lock-scroll="false">
         <el-form :model="admin">
             <el-form-item label="name" :label-width="60">
@@ -249,6 +273,40 @@
     height: 178px;
     display: block;
 }
+</style>
+
+<style scoped>
+.admin-management {
+    margin: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h3 {
+    margin: 0;
+    color: #303133;
+}
+
+.search-form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.admin-table {
+    margin-bottom: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
 .avatar-uploader .el-upload {
     border: 1px dashed var(--el-border-color);
     border-radius: 6px;
@@ -268,5 +326,27 @@
     width: 178px;
     height: 178px;
     text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .search-form {
+        padding: 15px;
+    }
+
+    .search-form .el-form-item {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .search-form .el-input {
+        width: 100% !important;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
 }
 </style>

@@ -1,278 +1,722 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>填写订单信息</title>
+    <title>Confirm Order - VapeHub</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
-    <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" href="/css/footer1.css">
-    <link rel="stylesheet" href="/css/shop.css">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/layui/css/layui.css">
-    <script src="/js/jq_3.3.1_mi.js"></script>
-    <script src="/layui/layui.all.js"></script>
-    <script src="/js/close.js"></script>
+
+    <!-- Modern CSS Framework -->
+    <link rel="stylesheet" href="/css/vape-modern.css">
+    <link rel="stylesheet" href="/css/vape-order.css">
+    <link rel="stylesheet" href="/css/vape-responsive.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- 购物车头部 -->
-    <div class="header">
-        <div class="content">
-            <div class="content-left">
-                <a href="" class="logo"></a>
-                <h1 class="title">确认订单</h1>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span>Need help? Call us 01 437 0320</span>
+                    <a href="mailto:info@vapehub.ie">info@vapehub.ie</a>
+                </div>
+                <div class="top-bar-right">
+                    <span>Follow Us</span>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="content-right">
-                <div class="userinfo">
-                    <div class="username">
-                        <a href="javascript:void(0)" class="toUserInfo">我是李磊</a>
-                        <ul>
-                            <li class="infoitem">个人中心</li>
-                            <li class="infoitem">评价晒单</li>
-                            <li class="infoitem">我的喜欢</li>
-                            <li class="infoitem">小米账户</li>
-                            <li class="infoitem">退出登录</li>
-                        </ul>
-                    </div>
-                    <i class="fa fa-angle-down fa-1x"></i>
-                </div>
-                <div class="toOrderDetail"><a href="/order.html">我的订单</a></div>
-            </div>
-        </div>
-    </div>
-    <!-- 主体内容 -->
-    <div class="close_content">
-        <div class="close_contenter">
-            <h1>收货地址</h1>
-            <div>
-                <div class="close_add">
-                 <h1>xxx</h1>
-                 <h6>177****2345</h6>
-                 <h6>河北 xx市 xx区 xx街道</h6>
-                 <h6>xx栋 1405室</h6>
-                    <span class="del">删除</span>
-                </div>
-                <div class="close_add">
-                    <h1>xxx</h1>
-                    <h6>177****2345</h6>
-                    <h6>河北 xx市 xx区 xx街道</h6>
-                    <h6>xx栋 1405室</h6>
-                    <span class="del">删除</span>
-                </div>
-                <div class="close_add1">
-                 <i class="fa fa-plus-square"></i>
-                 <h6>添加新地址</h6>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <h2>配送方式 <span style="color: #FF6A00;font-size: 13px;margin-left: 80px;">包邮</span></h2>
-            <div class="close_data">
-            <h3>配送时间</h3><h5 style="border-color:rgb(255,106,0)">不限送货时间：周一至周日</h5><h5>工作日送货：周一至周五</h5><h5>双休日、假日送货：周六至周日</h5>
-            </div>
-            <h2 style="border: none;margin-top:0px; ">发票<span style="color: #FF6A00;font-size: 13px;margin-left: 125px;">电子发票&nbsp;&nbsp;  个人  &nbsp;&nbsp;商品明细&nbsp;&nbsp;  修改 ></span></h2>
-            <h4>商品及优惠券 <a href="/cart.html">返回购物车&nbsp; <i class="fa fa-chevron-right"></i> </a></h4>
-            <div class="close_shop">
-                <p>
-                    <img src="/static/img/pms (2).jpg"><a href="/detail.html">红米6A 全网通版 2GB内存 16GB  </a>599元 x 1
-                    <span >599元</span>
-                </p>
-                <p><img src="/static/img/pms (1).jpg"><a>小米8 SE 全网通版 4GB内存 64GB 金色  </a>1799元 x 1
-                    <span>1799元</span> 
-                </p>
-                <div class="clear"></div>
-            </div>
-            <div class="close_much">
-                <div class="close_much_left">
-                  <p><i class="fa fa-plus-square"></i>使用优惠券</p>
-                  <p><i class="fa fa-plus-square"></i>使用小米礼品卡</p>
-                </div>
-                <div class="close_much_right">
-                   <p>商品件数  :<span>3件</span></p> 
-                   <p>商品总价  :<span>4999元</span></p> 
-                   <p>优惠活动  :<span>-0元</span></p> 
-                   <p>优惠券抵扣  :<span>-0元</span></p> 
-                   <p>运费  :<span>0元</span></p> 
-                   <p style="height: 50px;line-height:50px; ">应付总额  :<span class="zong">4999 <b> 元</b></span></p>                  
-                </div>
-                <div class="clear"></div>
-            </div> 
-        </div>
-        <div class="close_clear">
-              <a href="/close.html"><button class="submit-cart">立即下单</button></a>
         </div>
     </div>
 
-    <!--   网页底部   -->
-    <div class="footer-top">
-        <div class="footer-top_li">
-            <div class="footer-top_li_1">
-                <a href="#"><i class="fa fa-wrench"></i>预约维修服务</a><span></span>
-                <a href="#"><i class="fa fa-rotate-right "></i>7天无理由退货</a><span></span>
-                <a href="#"><i class="fa fa-refresh"></i>15天免费换货</a><span></span>
-                <a href="#"><i class="fa fa-gift"></i>满150元包邮</a><span></span>
-                <a href="#"><i class="fa fa-map-marker"></i>520余家售后网点</a>
-            </div>
-            <span class="separate"></span>
-            <div class="footer-top_li_2">
-                <div class="footer-top_li_a">
-                    <dl>
-                        <dt>帮助中心</dt>
-                        <dd><a href="">账户管理</a></dd>
-                        <dd><a href="">购物指南</a></dd>
-                        <dd><a href="">订单操作</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>服务支持</dt>
-                        <dd><a href="">售后政策</a></dd>
-                        <dd><a href="">自助服务</a></dd>
-                        <dd><a href="">相关下载</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>线下门店</dt>
-                        <dd><a href="">小米之家</a></dd>
-                        <dd><a href="">服务网点</a></dd>
-                        <dd><a href="">授权体验店</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>关于小米</dt>
-                        <dd><a href="">了解小米</a></dd>
-                        <dd><a href="">加入小米</a></dd>
-                        <dd><a href="">投资者关系</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>关注我们</dt>
-                        <dd><a href="">新浪微博</a></dd>
-                        <dd><a href="">官网微博</a></dd>
-                        <dd><a href="">联系我们</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>特色服务</dt>
-                        <dd><a href="">F码通道</a></dd>
-                        <dd><a href="">礼物码</a></dd>
-                        <dd><a href="">防伪查询</a></dd>
-                    </dl>
-                    <div class="connect">
-                        <p class="telephone">Feir-520-1314</p>
-                        <p class="time">周一至周日 8:00-18:00<br>(仅收市话费)</p>
-                        <button><span class="fa fa-commenting "></span> 联系客服</button>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/vapehub-logo.png" alt="VapeHub" class="logo-img">
+                        <span class="logo-text">VapeHub</span>
+                    </a>
+                </div>
+
+                <!-- Checkout Progress -->
+                <div class="checkout-progress">
+                    <div class="progress-step completed">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                    </div>
+                    <div class="progress-line completed"></div>
+                    <div class="progress-step active">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Checkout</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <i class="fas fa-check"></i>
+                        <span>Complete</span>
                     </div>
                 </div>
-                <div class="footer-top_li_b"></div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <div class="account-menu">
+                        <a href="/page/login" class="account-link">
+                            <i class="fas fa-user"></i>
+                            <span>Login / Signup</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="footer-bottom_li">
-            <div class="footer-bottom_li_1">
-                <img src="/static/img/footlogo.png" alt="" class="logoBottom">
+    </header>
+
+    <!-- Main Content -->
+    <main class="order-confirm-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <a href="/page/cart/list">Cart</a>
+                <span>/</span>
+                <span>Checkout</span>
+            </nav>
+
+            <!-- Order Confirmation Content -->
+            <div class="order-content">
+                <!-- Left Column -->
+                <div class="order-details">
+                    <!-- Shipping Address Section -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2><i class="fas fa-map-marker-alt"></i> Shipping Address</h2>
+                            <button class="add-address-btn" id="add-address-btn">
+                                <i class="fas fa-plus"></i>
+                                Add New Address
+                            </button>
+                        </div>
+
+                        <div class="address-list" id="address-list">
+                            <!-- Addresses will be loaded dynamically -->
+                        </div>
+
+                        <!-- Add Address Form -->
+                        <div class="address-form" id="address-form" style="display: none;">
+                            <h3>Add New Address</h3>
+                            <form id="new-address-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="first-name">First Name *</label>
+                                        <input type="text" id="first-name" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="last-name">Last Name *</label>
+                                        <input type="text" id="last-name" name="lastName" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address-line1">Address Line 1 *</label>
+                                    <input type="text" id="address-line1" name="addressLine1" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address-line2">Address Line 2</label>
+                                    <input type="text" id="address-line2" name="addressLine2">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City *</label>
+                                        <input type="text" id="city" name="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="county">County *</label>
+                                        <input type="text" id="county" name="county" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="eircode">Eircode</label>
+                                        <input type="text" id="eircode" name="eircode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="isDefault" value="1">
+                                        <span class="checkmark"></span>
+                                        Set as default address
+                                    </label>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary" id="cancel-address">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Save Address</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Section -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                        </div>
+
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="card" checked>
+                                <div class="payment-card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit/Debit Card</span>
+                                    <div class="card-icons">
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <i class="fab fa-cc-amex"></i>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment-method" value="paypal">
+                                <div class="payment-card">
+                                    <i class="fab fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Order Notes Section -->
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2><i class="fas fa-sticky-note"></i> Order Notes</h2>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="order-notes" placeholder="Special instructions for your order (optional)" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h2>Order Summary</h2>
+
+                        <!-- Order Items -->
+                        <div class="order-items" id="order-items">
+                            <!-- Items will be loaded dynamically -->
+                        </div>
+
+                        <!-- Summary Totals -->
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span>Subtotal (<span id="total-items">0</span> items):</span>
+                                <span id="subtotal">€0.00</span>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="shipping-cost">Free</span>
+                            </div>
+
+                            <div class="summary-row discount-row" id="discount-row" style="display: none;">
+                                <span>Discount:</span>
+                                <span id="discount-amount">-€0.00</span>
+                            </div>
+
+                            <hr>
+
+                            <div class="summary-row total-row">
+                                <span><strong>Total:</strong></span>
+                                <span id="total-amount"><strong>€0.00</strong></span>
+                            </div>
+                        </div>
+
+                        <!-- Place Order Button -->
+                        <button class="place-order-btn" id="place-order-btn" disabled>
+                            <i class="fas fa-lock"></i>
+                            Place Order
+                        </button>
+
+                        <!-- Security Notice -->
+                        <div class="security-notice">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Your payment information is secure and encrypted</span>
+                        </div>
+                    </div>
+
+                    <!-- Promo Code -->
+                    <div class="promo-card">
+                        <h3>Have a promo code?</h3>
+                        <div class="promo-input-group">
+                            <input type="text" id="promo-code" placeholder="Enter promo code">
+                            <button class="apply-promo-btn" id="apply-promo-btn">Apply</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer-bottom_li_2">
-                <div class="footer-bottom_li_a">
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Information</h3>
                     <ul>
-                        <li>小米商城<span></span></li>
-                        <li>MIUI<span></span></li>
-                        <li>米家<span></span></li>
-                        <li>米聊<span></span></li>
-                        <li>多看<span></span></li>
-                        <li>游戏<span></span></li>
-                        <li>路由器<span></span></li>
-                        <li>米粉卡<span></span></li>
-                        <li>政企服务<span></span></li>
-                        <li>小米天猫店<span></span></li>
-                        <li>隐私政策<span></span></li>
-                        <li>问题反馈<span></span></li>
-                        <li>Select Region</li>
+                        <li><a href="/pages/about-us">About Us</a></li>
+                        <li><a href="/pages/contact-us">Contact Us</a></li>
+                        <li><a href="/pages/delivery-shipping">Delivery & Shipping</a></li>
+                        <li><a href="/pages/terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="/pages/privacy-policy">Privacy policy</a></li>
+                        <li><a href="/pages/return-policy">Return Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-bottom_li_b">
-                    <a href="">©mi.com</a>
-                    京ICP证110507号
-                    <a href="">京ICP备10046444号</a>
-                    <a href="">京公网安备11010802020134号</a>
-                    <a href="">京网文[2014]0059-0009号</a>
-                    <br>
-                    违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <div class="contact-info">
+                        <p><strong>VapeHub</strong></p>
+                        <p>Unit 17, George's Street Arcade</p>
+                        <p>South Great George's Street, Dublin 2,</p>
+                        <p>D02 DH79</p>
+                        <p>01 437 0320</p>
+                        <p>info@vapehub.ie</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-bottom_li_3">
-                <img src="/static/img/footericon1.png" alt="" class="icon">
-                <img src="/static/img/footericon2.png" alt="" class="icon">
-                <img src="/static/img/footericon3.png" alt="" class="icon">
-                <img src="/static/img/footericon4.png" alt="" class="icon">
-                <img src="/static/img/footericon5.png" alt="" class="icon">
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p><strong>YOU MUST BE 18+ TO PURCHASE ANYTHING ON THIS SITE</strong></p>
+                    <p><strong>Company Registration No.:</strong> 644874</p>
+                    <p><strong>VAT Registration Number:</strong> IE3611438FH</p>
+                    <p>© VapeHub</p>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="footer-bottom_li_4">
-               探索黑科技，小米为发烧而生！
-            </div>   
-        </div>  
-    </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/vape-modern.js"></script>
+
     <script>
-        layui.use('form', function(){
-            var form = layui.form;
-            form.render();
+        // Order Confirmation Page JavaScript
+        let checkoutItems = [];
+        let selectedAddress = null;
+        let selectedPaymentMethod = 'card';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initOrderConfirm();
+            initEventListeners();
         });
-        //弹窗
-        $('.close_add1').click(function(){
-            layer.open({
-                area:['900px'],
-                title: '填写新地址',
-                content:
-                '   <form class="layui-form  layui-col-space10" action="">\n' +
-                '        <div class="layui-form-item  layui-col-space10">\n' +
-                '            <div class="layui-col-md6">\n' +
-                '                <input type="text" name="title" required  lay-verify="required" placeholder="姓名" autocomplete="off" class="layui-input">\n' +
-                '            </div>\n' +
-                '            <div class="layui-col-md6">\n' +
-                '                <input type="text" name="password" required lay-verify="required" placeholder="手机号" autocomplete="off" class="layui-input">\n' +
-                '            </div>\n' +
-                '        </div>\n' +
-                '        <div class="layui-form-item  layui-col-space10">\n' +
-                '            <div class="layui-col-md4" >\n' +
-                '                <select name="province" id="" style="display: block;" lay-filter="city">' +
-                '                   <option value="">请选择你的省</option>' +
-                '                   <option value="1">北京</option>   ' +
-                '                   <option value="2">上海</option>   ' +
-                '                   <option value="3">广州</option>   ' +
-                '                   <option value="4">深圳</option>   ' +
-                '                   <option value="5">安徽</option>   ' +
-                '                </select>' +
-                '            </div>\n' +
-                '            <div class="layui-col-md4" >\n' +
-                '                <select name="city" id="" style="display: block;" lay-filter="city">' +
-                '                   <option value="">请选择你的城市</option>' +
-                '                   <option value="1">合肥</option>   ' +
-                '                   <option value="2">北京</option>   ' +
-                '                   <option value="3">上海</option>   ' +
-                '                   <option value="4">深圳</option>   ' +
-                '                </select>' +
-                '            </div>\n' +
-                '            <div class="layui-col-md4" >\n' +
-                '                <select name="area" id="" style="display: block;" lay-filter="city">' +
-                '                   <option value="">请选择你的区</option>' +
-                '                   <option value="1">蜀山</option>   ' +
-                '                   <option value="2">肥东</option>   ' +
-                '                   <option value="3">肥西</option>   ' +
-                '                   <option value="4">政务区</option>   ' +
-                '                </select>' +
-                '            </div>\n' +
-                '        </div>\n' +
-                '        <div class="layui-col-md12">\n' +
-                '            <div class="layui-col-md12">\n' +
-                '                <textarea name="desc" placeholder="详细地址" class="layui-textarea"></textarea>\n' +
-                '            </div>\n' +
-                '        </div>\n' +
-                '        <div class="layui-form-item  layui-col-space10">\n' +
-                '            <div class="layui-col-md6">\n' +
-                '                <input type="password" name="password" required lay-verify="required" placeholder="邮政编码" autocomplete="off" class="layui-input">\n' +
-                '            </div>\n' +
-                '            <div class="layui-col-md6">\n' +
-                '                <input type="password" name="password" required lay-verify="required" placeholder="地址标签" autocomplete="off" class="layui-input">\n' +
-                '            </div>\n' +
-                '        </div>\n' +
-                '    </form>'
+
+        function initOrderConfirm() {
+            // Load checkout items from localStorage
+            checkoutItems = JSON.parse(localStorage.getItem('checkoutItems') || '[]');
+
+            if (checkoutItems.length === 0) {
+                // Redirect back to cart if no items
+                showMessage('No items selected for checkout', 'warning');
+                setTimeout(() => {
+                    window.location.href = '/page/cart/list';
+                }, 2000);
+                return;
+            }
+
+            loadAddresses();
+            renderOrderItems();
+            updateOrderSummary();
+        }
+
+        function initEventListeners() {
+            // Add address button
+            document.getElementById('add-address-btn').addEventListener('click', function() {
+                document.getElementById('address-form').style.display = 'block';
+                this.style.display = 'none';
             });
-        })
 
+            // Cancel address form
+            document.getElementById('cancel-address').addEventListener('click', function() {
+                document.getElementById('address-form').style.display = 'none';
+                document.getElementById('add-address-btn').style.display = 'block';
+                document.getElementById('new-address-form').reset();
+            });
 
+            // New address form submission
+            document.getElementById('new-address-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveNewAddress();
+            });
+
+            // Payment method selection
+            document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    selectedPaymentMethod = this.value;
+                    updatePlaceOrderButton();
+                });
+            });
+
+            // Place order button
+            document.getElementById('place-order-btn').addEventListener('click', function() {
+                placeOrder();
+            });
+
+            // Apply promo code
+            document.getElementById('apply-promo-btn').addEventListener('click', function() {
+                const promoCode = document.getElementById('promo-code').value.trim();
+                if (promoCode) {
+                    applyPromoCode(promoCode);
+                }
+            });
+        }
+
+        function loadAddresses() {
+            // Load addresses from backend API
+            $.get('/shipping/list', function(result) {
+                console.log('Shipping addresses result:', result);
+                if (result.code === 0 && result.data) {
+                    renderAddresses(result.data);
+                } else {
+                    console.error('Failed to load addresses:', result.msg);
+                    renderAddresses([]);
+                }
+            }).fail(function(xhr) {
+                console.error('Address loading failed:', xhr);
+                if (xhr.status === 401) {
+                    // User not logged in, redirect to login
+                    window.location.href = '/page/login?redirect=' + encodeURIComponent(window.location.pathname);
+                } else {
+                    renderAddresses([]);
+                    showMessage('Failed to load shipping addresses', 'error');
+                }
+            });
+        }
+
+        function renderAddresses(addresses) {
+            const addressList = document.getElementById('address-list');
+
+            if (addresses.length === 0) {
+                addressList.innerHTML = '<p class="no-addresses">No saved addresses. Please add a new address.</p>';
+                return;
+            }
+
+            let html = '';
+            addresses.forEach((address, index) => {
+                const isSelected = index === 0;
+                if (isSelected) selectedAddress = address;
+
+                html += `
+                    <div class="address-card ${isSelected ? 'selected' : ''}" data-address-id="${address.id}">
+                        <div class="address-header">
+                            <label class="radio-container">
+                                <input type="radio" name="shipping-address" value="${address.id}" ${isSelected ? 'checked' : ''}>
+                                <span class="radio-checkmark"></span>
+                            </label>
+                            <div class="address-name">
+                                <strong>${address.receiverName || address.receiver_name}</strong>
+                                ${address.isDefault || address.is_default ? '<span class="default-badge">Default</span>' : ''}
+                            </div>
+                        </div>
+                        <div class="address-details">
+                            <p>${address.addressLine1 || address.address_line_1}</p>
+                            ${(address.addressLine2 || address.address_line_2) ? `<p>${address.addressLine2 || address.address_line_2}</p>` : ''}
+                            <p>${address.townCity || address.town_city}</p>
+                            ${(address.eircode) ? `<p>${address.eircode}</p>` : ''}
+                            <p>Phone: ${address.receiverPhone || address.receiver_phone}</p>
+                        </div>
+                        <div class="address-actions">
+                            <button class="edit-address-btn" data-address-id="${address.id}">Edit</button>
+                            <button class="delete-address-btn" data-address-id="${address.id}">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            addressList.innerHTML = html;
+
+            // Add event listeners for address selection
+            document.querySelectorAll('input[name="shipping-address"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const addressId = parseInt(this.value);
+                    selectedAddress = addresses.find(addr => addr.id === addressId);
+
+                    // Update visual selection
+                    document.querySelectorAll('.address-card').forEach(card => {
+                        card.classList.remove('selected');
+                    });
+                    this.closest('.address-card').classList.add('selected');
+
+                    updatePlaceOrderButton();
+                });
+            });
+
+            updatePlaceOrderButton();
+        }
+
+        function renderOrderItems() {
+            const orderItemsContainer = document.getElementById('order-items');
+
+            let html = '';
+            checkoutItems.forEach(item => {
+                const itemImage = item.productMainImage || item.image || '/images/default-product.jpg';
+                const itemName = item.productName || item.name;
+                const itemPrice = item.productPrice || item.price;
+
+                html += `
+                    <div class="order-item">
+                        <div class="item-image">
+                            <img src="${itemImage}" alt="${itemName}">
+                        </div>
+                        <div class="item-details">
+                            <h4>${itemName}</h4>
+                            <p>€${itemPrice} x ${item.quantity}</p>
+                        </div>
+                        <div class="item-total">
+                            €${(itemPrice * item.quantity).toFixed(2)}
+                        </div>
+                    </div>
+                `;
+            });
+
+            orderItemsContainer.innerHTML = html;
+        }
+
+        function updateOrderSummary() {
+            const totalItems = checkoutItems.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = checkoutItems.reduce((sum, item) => {
+                const itemPrice = item.productPrice || item.price;
+                return sum + (itemPrice * item.quantity);
+            }, 0);
+            const shipping = subtotal >= 35 ? 0 : 5.99;
+            const total = subtotal + shipping;
+
+            document.getElementById('total-items').textContent = totalItems;
+            document.getElementById('subtotal').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('shipping-cost').textContent = shipping === 0 ? 'Free' : `€${shipping.toFixed(2)}`;
+            document.getElementById('total-amount').innerHTML = `<strong>€${total.toFixed(2)}</strong>`;
+        }
+
+        function updatePlaceOrderButton() {
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            const canPlaceOrder = selectedAddress && selectedPaymentMethod && checkoutItems.length > 0;
+
+            placeOrderBtn.disabled = !canPlaceOrder;
+        }
+
+        function saveNewAddress() {
+            const formData = new FormData(document.getElementById('new-address-form'));
+            const addressData = Object.fromEntries(formData.entries());
+
+            // Map form fields to backend format
+            const backendData = {
+                receiverName: `${addressData.firstName} ${addressData.lastName}`,
+                receiverPhone: addressData.phone,
+                addressLine1: addressData.addressLine1,
+                addressLine2: addressData.addressLine2 || null,
+                townCity: addressData.city,
+                eircode: addressData.eircode || null,
+                isDefault: addressData.isDefault ? 1 : 0
+            };
+
+            console.log('Saving new address:', backendData);
+
+            // Save address via API with JSON content type
+            $.ajax({
+                url: '/shipping/add',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(backendData),
+                success: function(result) {
+                    if (result.code === 0) {
+                        showMessage('Address saved successfully!', 'success');
+
+                        // Hide form and show add button
+                        document.getElementById('address-form').style.display = 'none';
+                        document.getElementById('add-address-btn').style.display = 'block';
+                        document.getElementById('new-address-form').reset();
+
+                        // Reload addresses
+                        loadAddresses();
+                    } else {
+                        showMessage(result.msg || 'Failed to save address', 'error');
+                    }
+                },
+                error: function(xhr) {
+                    console.error('Address save failed:', xhr);
+                    if (xhr.status === 401) {
+                        window.location.href = '/page/login?redirect=' + encodeURIComponent(window.location.pathname);
+                    } else {
+                        showMessage('Failed to save address', 'error');
+                    }
+                }
+            });
+        }
+
+        function applyPromoCode(code) {
+            // Simulate promo code validation
+            const validCodes = {
+                'SAVE10': 0.1,
+                'WELCOME5': 0.05,
+                'NEWUSER': 0.15
+            };
+
+            if (validCodes[code.toUpperCase()]) {
+                const discount = validCodes[code.toUpperCase()];
+                const subtotal = checkoutItems.reduce((sum, item) => {
+                    const itemPrice = item.productPrice || item.price;
+                    return sum + (itemPrice * item.quantity);
+                }, 0);
+                const discountAmount = subtotal * discount;
+
+                document.getElementById('discount-row').style.display = 'flex';
+                document.getElementById('discount-amount').textContent = `-€${discountAmount.toFixed(2)}`;
+
+                showMessage(`Promo code applied! You saved €${discountAmount.toFixed(2)}`, 'success');
+                document.getElementById('promo-code').value = '';
+                updateOrderSummary();
+            } else {
+                showMessage('Invalid promo code', 'error');
+            }
+        }
+
+        function placeOrder() {
+            if (!selectedAddress) {
+                showMessage('Please select a shipping address', 'warning');
+                return;
+            }
+
+            if (!selectedPaymentMethod) {
+                showMessage('Please select a payment method', 'warning');
+                return;
+            }
+
+            // Calculate order totals
+            const subtotal = checkoutItems.reduce((sum, item) => {
+                const itemPrice = item.productPrice || item.price;
+                return sum + (itemPrice * item.quantity);
+            }, 0);
+            const shipping = subtotal >= 35 ? 0 : 5.99;
+            const total = subtotal + shipping;
+
+            const orderData = {
+                shippingId: selectedAddress.id,
+                paymentAmount: total,
+                paymentType: selectedPaymentMethod === 'card' ? 1 : 2, // 1=card, 2=paypal
+                postageFee: shipping,
+                orderNotes: document.getElementById('order-notes').value || null
+            };
+
+            console.log('Placing order:', orderData);
+
+            // Show loading state
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            const originalText = placeOrderBtn.innerHTML;
+            placeOrderBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            placeOrderBtn.disabled = true;
+
+            // Place order via API with JSON content type
+            $.ajax({
+                url: '/order/add',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(orderData),
+                success: function(result) {
+                    if (result.code === 0) {
+                        // Clear cart items
+                        localStorage.removeItem('checkoutItems');
+                        localStorage.removeItem('cart');
+
+                        showMessage('Order placed successfully!', 'success');
+
+                        // Redirect to order list
+                        setTimeout(() => {
+                            window.location.href = '/page/order/list';
+                        }, 2000);
+                    } else {
+                        showMessage(result.msg || 'Failed to place order', 'error');
+                        placeOrderBtn.innerHTML = originalText;
+                        placeOrderBtn.disabled = false;
+                    }
+                },
+                error: function(xhr) {
+                    console.error('Order placement failed:', xhr);
+                    if (xhr.status === 401) {
+                        window.location.href = '/page/login?redirect=' + encodeURIComponent(window.location.pathname);
+                    } else {
+                        showMessage('Failed to place order', 'error');
+                        placeOrderBtn.innerHTML = originalText;
+                        placeOrderBtn.disabled = false;
+                    }
+                }
+            });
+        }
+
+        function showMessage(message, type = 'info') {
+            // Simple message display
+            let messageEl = document.getElementById('confirm-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'confirm-message';
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    color: white;
+                    font-weight: bold;
+                    z-index: 1000;
+                    max-width: 300px;
+                `;
+                document.body.appendChild(messageEl);
+            }
+
+            // Set message and styling based on type
+            messageEl.textContent = message;
+            messageEl.style.backgroundColor = type === 'success' ? '#28a745' :
+                                            type === 'error' ? '#dc3545' :
+                                            type === 'warning' ? '#ffc107' : '#17a2b8';
+            messageEl.style.display = 'block';
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 3000);
+        }
     </script>
 </body>
 </html>

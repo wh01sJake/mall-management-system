@@ -28,6 +28,16 @@
     loadData()
 
     const onSearch = () => {
+        productQuery.page = 1
+        loadData()
+    }
+
+    const onReset = () => {
+        productQuery.name = ''
+        productQuery.categoryId = ''
+        selectCategory.value = null
+        secondCategoryList.value = []
+        productQuery.page = 1
         loadData()
     }
 
@@ -40,7 +50,7 @@
                 confirmButtonText: 'Confirm',
                 cancelButtonText: 'Cancel',
                 type: 'warning',
-                lockScroll: false //防止抖动
+                lockScroll: false // Prevent scrolling
             }
         ).then(() => {
             productApi.deleteById(id).then(result => {
@@ -70,7 +80,7 @@
                 confirmButtonText: 'Confirm',
                 cancelButtonText: 'Cancel',
                 type: 'warning',
-                lockScroll: false //防止抖动
+                lockScroll: false // Prevent scrolling
             }
         ).then(() => {
             productApi.deleteAll(ids.value).then(result => {
@@ -197,45 +207,66 @@
 </script>
 
 <template>
-    <el-card class="">
-    <template #header>
-        <div class="header">
-            <el-button type="primary" @click="showAddDialog">add</el-button>
-            <el-button type="primary" @click="deleteAll">bulk delete</el-button>
-        </div>
-    </template>
+    <el-card class="product-management">
+        <template #header>
+            <div class="header">
+                <h3>Product Management</h3>
+                <div class="header-actions">
+                    <el-button type="primary" @click="showAddDialog">Add Product</el-button>
+                    <el-button type="danger" @click="deleteAll">Bulk Delete</el-button>
+                </div>
+            </div>
+        </template>
 
-
-        <el-form :inline="true">
-        <el-form-item label="name">
-            <el-input v-model="productQuery.name" placeholder="Enter a name" clearable/>
-        </el-form-item>
-          <el-form-item label="category" :label-width="60">
-            <el-select v-model="selectCategory" clearable placeholder="Select Top Category" @change="selectChange" style="width: 200px">
-              <el-option
-                  v-for="category in topCategoryList"
-                  :key="category.id"
-                  :label="category.name"
-                  :value="category.id"
-              />
-            </el-select>
-            <el-select v-model="productQuery.categoryId" clearable placeholder="Select Second Category"  style="width: 200px">
-              <el-option
-                  v-for="category in secondCategoryList"
-                  :key="category.id"
-                  :label="category.name"
-                  :value="category.id"
-              />
-            </el-select>
-
-          </el-form-item>
-
-        <el-form-item>
-            <el-button type="primary" @click="onSearch">search</el-button>
-        </el-form-item>
+        <!-- Search Form -->
+        <el-form :inline="true" class="search-form">
+            <el-form-item label="Name">
+                <el-input
+                    v-model="productQuery.name"
+                    placeholder="Enter product name"
+                    clearable
+                    style="width: 200px"
+                />
+            </el-form-item>
+            <el-form-item label="Category">
+                <el-select
+                    v-model="selectCategory"
+                    clearable
+                    placeholder="Select Top Category"
+                    @change="selectChange"
+                    style="width: 200px"
+                >
+                    <el-option
+                        v-for="category in topCategoryList"
+                        :key="category.id"
+                        :label="category.name"
+                        :value="category.id"
+                    />
+                </el-select>
+            </el-form-item>
+            <el-form-item label="Sub Category">
+                <el-select
+                    v-model="productQuery.categoryId"
+                    clearable
+                    placeholder="Select Sub Category"
+                    style="width: 200px"
+                >
+                    <el-option
+                        v-for="category in secondCategoryList"
+                        :key="category.id"
+                        :label="category.name"
+                        :value="category.id"
+                    />
+                </el-select>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="onSearch">Search</el-button>
+                <el-button @click="onReset">Reset</el-button>
+            </el-form-item>
         </el-form>
 
-        <el-table :data="list" style="width: 100%" ref="multipleTableRef" @selection-change="handleSelectionChange">
+        <!-- Product Table -->
+        <el-table :data="list" style="width: 100%" ref="multipleTableRef" @selection-change="handleSelectionChange" class="product-table">
         <el-table-column type="selection" width="55" />
         <el-table-column fixed prop="id" label="ID"/>
         <el-table-column prop="name" label="name"/>
@@ -258,18 +289,19 @@
         </el-table-column>
         </el-table>
 
+        <!-- Pagination -->
         <el-pagination
             v-model:current-page="productQuery.page"
             v-model:page-size="productQuery.limit"
-            :page-sizes="[10, 20, 30, 40]"
+            :page-sizes="[10, 20, 30, 50]"
             layout="total, sizes, prev, pager, next, jumper"
             :total="total"
             @change="loadData"
-            style="margin-top: 20px; justify-content: flex-end"
+            class="pagination"
         />
     </el-card>
 
-    <!--添加、编辑弹出框-->
+    <!-- Add/Edit Dialog -->
     <el-dialog v-model="dialogFormVisible" :title="Info" width="70%" :lock-scroll="false">
         <el-form :model="product">
             <el-form-item label="name" :label-width="60">
@@ -354,6 +386,37 @@
     height: 178px;
     display: block;
 }
+.product-management {
+    margin: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h3 {
+    margin: 0;
+    color: #303133;
+}
+
+.search-form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.product-table {
+    margin-bottom: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
 .avatar-uploader .el-upload {
     border: 1px dashed var(--el-border-color);
     border-radius: 6px;
@@ -373,5 +436,28 @@
     width: 178px;
     height: 178px;
     text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .search-form {
+        padding: 15px;
+    }
+
+    .search-form .el-form-item {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .search-form .el-input,
+    .search-form .el-select {
+        width: 100% !important;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
 }
 </style>

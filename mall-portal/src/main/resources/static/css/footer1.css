@@ -1,4 +1,4 @@
-/*底部*/
+/* Footer */
 .footer-top{}
 .footer-top_li{width: 1226px;margin: 0px auto;}
 .footer-top_li_1{width: 1126px;height: 80px;margin: 0px auto;line-height: 80px;}
@@ -19,7 +19,7 @@ dl,dd,dt{
     margin:0;
 }
 
-/*底部top*/
+/* Footer top */
 .footer-top_li_a dl{
     display: block;
     float: left;
@@ -76,7 +76,7 @@ dl,dd,dt{
 }
 
 
-/*底部bottom*/
+/* Footer bottom */
 .footer-bottom_li_1,.footer-bottom_li_2,.footer-bottom_li_3{
     float: left;
     margin-right: 10px;
@@ -86,7 +86,7 @@ dl,dd,dt{
     margin-top: 15px;
     width:1226px;
     text-align: center;
-    font-family: "楷体";
+    font-family: "Inter", sans-serif;
     font-size: 24px;
     color: #ccc;
 }

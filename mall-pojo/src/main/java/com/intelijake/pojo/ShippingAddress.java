@@ -50,8 +50,10 @@ public class ShippingAddress implements Serializable {
      */
     private String receiverMobile;
 
+    @TableField("address_line_1")
     private String addressLine1;
 
+    @TableField("address_line_2")
     private String addressLine2;
 
     private String townCity;
@@ -61,12 +63,12 @@ public class ShippingAddress implements Serializable {
     /**
      * Is this the default address? (1: Yes, 0: No)
      */
-    private Byte isDefault;
+    private Integer isDefault;
 
     /**
      * Status (1: Active, 0: Inactive)
      */
-    private Byte status;
+    private Integer status;
 
     /**
      * Logical delete (1: deleted, 0: not deleted)

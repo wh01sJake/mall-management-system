@@ -9,24 +9,24 @@ var mylayer = {
 		layer.confirm(
 			content,
 			{icon : 3},
-			function(index){//点击确认触发
-				console.log("点击了确认");
+			function(index){// Confirm button clicked
+				console.log("Confirm clicked");
 				location.href = url;
 				layer.close(index);
 			},
-			function(index) {//点击取消触发
-				console.log("点击了取消");
+			function(index) {// Cancel button clicked
+				console.log("Cancel clicked");
 			}
 		);
 	},
-	// 表达成功的消息
+	// Success message
 	okMsg : function(content) {
 		layer.msg(
 			content,
 			{icon : 1, time : 3000}
 		);
 	},
-	// 表达失败的消息
+	// Error message
 	errorMsg : function(content) {
 		layer.msg(
 			content,

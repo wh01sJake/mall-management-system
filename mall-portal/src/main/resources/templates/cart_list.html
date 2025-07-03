@@ -1,329 +1,681 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
-    <title>小米商城</title>
+    <title>Shopping Cart - VapeHub</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
-    <link rel="stylesheet" href="/css/cart.css">
-    <link rel="stylesheet" type="text/css" href="/css/content.css">
-    <link rel="stylesheet" href="/css/footer1.css">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-    <style>
-        .empty-cart-message {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-            font-size: 16px;
-            border: 1px dashed #ddd;
-            margin: 20px 0;
-            background-color: #f9f9f9;
-        }
 
-        .fa-check {
-            cursor: pointer;
-            transition: color 0.2s;
-        }
+    <!-- Modern CSS Framework -->
+    <link rel="stylesheet" href="/css/vape-modern.css">
+    <link rel="stylesheet" href="/css/vape-cart.css">
+    <link rel="stylesheet" href="/css/vape-responsive.css">
 
-        .fa-check.checked {
-            color: #ff6a00 !important;
-        }
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .minus, .plus {
-            cursor: pointer;
-            border: 1px solid #ddd;
-            background: #fff;
-            padding: 2px 8px;
-            margin: 0 2px;
-        }
-
-        .minus:hover, .plus:hover {
-            background: #f0f0f0;
-        }
-
-        .fa-times {
-            cursor: pointer;
-            color: #999;
-            transition: color 0.2s;
-        }
-
-        .fa-times:hover {
-            color: #ff0000;
-        }
-
-        /* 数量输入框样式优化 */
-        .num-input {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-
-        .num-input button {
-            flex-shrink: 0;
-            border: 1px solid #e0e0e0 !important;
-        }
-
-        .num-input .num-value {
-            flex: 1;
-            border-left: none !important;
-            border-right: none !important;
-        }
-    </style>
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- 购物车头部 -->
-    <div class="header">
-        <div class="content">
-            <div class="content-left">
-                <a href="" class="logo"></a>
-                <h1 class="title">我的购物车</h1>
-                <h6 class="notice">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</h6>
-            </div>
-            <div class="content-right">
-                <div class="userinfo">
-                    <div class="username">
-                        <a href="javascript:void(0)" class="toUserInfo">我是李磊</a>
-                        <ul>
-                            <li class="infoitem">个人中心</li>
-                            <li class="infoitem">评价晒单</li>
-                            <li class="infoitem">我的喜欢</li>
-                            <li class="infoitem">小米账户</li>
-                            <li class="infoitem">退出登录</li>
-                        </ul>
-                    </div>
-                    <i class="fa fa-angle-down fa-1x"></i>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span>Need help? Call us 01 437 0320</span>
+                    <a href="mailto:info@vapehub.ie">info@vapehub.ie</a>
                 </div>
-                <div class="toOrderDetail"><a href="/order.html">我的订单</a></div>
+                <div class="top-bar-right">
+                    <span>Follow Us</span>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
     </div>
-    
 
-    <!-- 购物车躯干部分 -->
-    <div class="trunk">
-        <!--购物车-->
-        <div class="cart" id="cartList">
-            <div id="cartTitle"  class="list list-title">
-                <div class="select select-all"><i class="fa fa-check" id="check-all"></i>全选</div>
-                <div class="good-img"></div>
-                <div class="good-name" style="font-size:14px; ">商品名称</div>
-                <div class="good-price">单价</div>
-                <div class="good-num">数量</div>
-                <div class="good-total-price"style="color:#424242;">小计</div>
-                <div class="operation">操作</div>
-            </div>
-
-            <div class="list list-total">
-                <div class="list-total-left">
-                    <span class="notice"><a href="">继续购物</a></span>
-                    <span class="statistics">共 <span class="all-count">0</span> 件商品，已选择 <span class="select-count">0</span> 件</span>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/vapehub-logo.png" alt="VapeHub" class="logo-img">
+                        <span class="logo-text">VapeHub</span>
+                    </a>
                 </div>
-                <div class="list-total-right">
-                    <div class="total-price">合计: <span class="sum-price">0</span> 元</div>
-                    <a href="/page/order/confirm"><button class="submit-cart">去结算</button></a>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <div class="account-menu">
+                        <a href="/page/login" class="account-link">
+                            <i class="fas fa-user"></i>
+                            <span>Login / Signup</span>
+                        </a>
+                    </div>
+                    <div class="cart-menu">
+                        <a href="/page/cart/list" class="cart-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                            <span>Cart</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <!--其他商品推荐-->
-        <div class="recommend" style="margin-top: 60px;">
-            <p>买购物车中商品的人还买了</p>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/collections/new-in" class="nav-link">New In</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/disposable-vape-bar" class="nav-link">Disposable Vape Bars</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-liquids" class="nav-link">E-Liquids</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-cigarettes" class="nav-link">E-Cigarettes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/coils" class="nav-link">Coils</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/nic-salts" class="nav-link">Nic Salts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/pods" class="nav-link">Pods</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/tanks" class="nav-link">Tanks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/accessories" class="nav-link">Accessories</a>
+                </li>
+            </ul>
         </div>
-  
-    <div class="content-bottom">
-            <div class="content-bottom1">
-                <!--手机-->
-                <div class="content-bottom1_shop">
-                    <div class="content-bottom1_shop1"></div>
-                    <div class="content-bottom1_shop2">
-                        <div class="content-bottom1_1">
-                            <div class="content-bottom1_a">
-                                <img class="bottomImg" src="/static/img/buy/手机1.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">小米5X 4GB+64GB </a> </h3>
-                                <p class="bottomDesc">光学变焦双摄，拍人更美</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">1499 元</span>
-                                </p>
-                            </div>
-                            <div class="content-bottom1_b">
-                                <span class="bottomFlagRed">享八折</span>
-                                <img class="bottomImg" src="/static/img/buy/手机2.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">小米MIX 2 全陶瓷尊享版 </a></h3>
-                                <p class="bottomDesc">全面屏2.0，Unibody 全陶瓷</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">3699元</span>
-                                    <del>4699 元</del>
-                                </p>
-                            </div>
-                            <div class="content-bottom1_c">
-                                <img class="bottomImg" src="/static/img/buy/手机3.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">红米5A 2GB内存 </a></h3>
-                                <p class="bottomDesc">8天超长待机，137g轻巧机身</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">599元</span>
-                                </p>
-                            </div>
-                            <div class="content-bottom1_d">
-                                <img class="bottomImg" src="/static/img/buy/手机4.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">红米5 Plus 3GB+32GB </a></h3>
-                                <p class="bottomDesc">全面屏手机，4000mAh大电量</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">999元</span>
-                                </p>
+    </nav>
+    <!-- Main Content -->
+    <main class="cart-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>Shopping Cart</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Shopping Cart</h1>
+                <p>Review your items and proceed to checkout</p>
+            </div>
+
+            <!-- Cart Content -->
+            <div class="cart-content">
+                <!-- Cart Items -->
+                <div class="cart-items-section">
+                    <div class="cart-header">
+                        <div class="select-all-section">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="select-all-checkbox">
+                                <span class="checkmark"></span>
+                                Select All
+                            </label>
+                        </div>
+                        <div class="cart-actions">
+                            <button class="clear-cart-btn" id="clear-cart-btn">
+                                <i class="fas fa-trash"></i>
+                                Clear Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cart Items List -->
+                    <div class="cart-items-list" id="cart-items-list">
+                        <!-- Cart items will be loaded dynamically -->
+                    </div>
+
+                    <!-- Empty Cart Message -->
+                    <div class="empty-cart" id="empty-cart" style="display: none;">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any items to your cart yet.</p>
+                        <a href="/page/product/list" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+
+                        <div class="summary-row">
+                            <span>Subtotal (<span id="total-items">0</span> items):</span>
+                            <span id="subtotal">€0.00</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="shipping-cost">Free</span>
+                        </div>
+
+                        <div class="summary-row discount-row" id="discount-row" style="display: none;">
+                            <span>Discount:</span>
+                            <span id="discount-amount">-€0.00</span>
+                        </div>
+
+                        <hr>
+
+                        <div class="summary-row total-row">
+                            <span><strong>Total:</strong></span>
+                            <span id="total-amount"><strong>€0.00</strong></span>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="promo-code-section">
+                            <div class="promo-input-group">
+                                <input type="text" id="promo-code" placeholder="Enter promo code">
+                                <button class="apply-promo-btn" id="apply-promo-btn">Apply</button>
                             </div>
                         </div>
-                        <div class="content-bottom1_2">
-                            <div class="content-bottom1_e">
-                                <img class="bottomImg" src="/static/img/buy/手机5.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">红米S2 3GB+32GB </a></h3>
-                                <p class="bottomDesc">前置1600万超大像素智能美拍</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">999元</span>
-                                </p>
-                            </div>
-                            <div class="content-bottom1_f">
-                                <img class="bottomImg" src="/static/img/buy/手机6.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">小米Note 3 4GB+64GB </a></h3>
-                                <p class="bottomDesc">1600万美颜自拍，2倍变焦双摄</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">1799元</span>
-                                    <del>1999元</del>
-                                </p>
-                            </div>
-                            <div class="content-bottom1_g">
-                                <img class="bottomImg" src="/static/img/buy/手机7.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">红米5 2GB+16GB </a></h3>
-                                <p class="bottomDesc">5.7英寸全面屏，前置柔光自拍</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">799元</span>
-                                </p>
-                            </div>
-                            <div class="content-bottom1_h">
-                                <img class="bottomImg" src="/static/img/buy/手机8.jpg" alt="">
-                                <h3 class="bottomTitle"><a href="">小米Max 2 4GB+64GB </a></h3>
-                                <p class="bottomDesc">6.44''大屏，5300mAh 充电宝级的大电量</p>
-                                <p class="bottomPrice">
-                                    <span style="color:#ff6709">1499元</span>
-                                    <del>1699元</del>
-                                </p>
-                            </div>
+
+                        <!-- Checkout Button -->
+                        <button class="checkout-btn" id="checkout-btn" disabled>
+                            <i class="fas fa-lock"></i>
+                            Proceed to Checkout
+                        </button>
+
+                        <!-- Continue Shopping -->
+                        <a href="/page/product/list" class="continue-shopping">
+                            <i class="fas fa-arrow-left"></i>
+                            Continue Shopping
+                        </a>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-truck"></i>
+                            <span>Free Delivery over €35</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-undo"></i>
+                            <span>Easy Returns</span>
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
-        </div>
-      </div>  
 
-
-     <!--   网页底部   -->
-    <div class="footer-top">
-        <div class="footer-top_li">
-            <div class="footer-top_li_1">
-                <a href="#"><i class="fa fa-wrench"></i>预约维修服务</a><span></span>
-                <a href="#"><i class="fa fa-rotate-right "></i>7天无理由退货</a><span></span>
-                <a href="#"><i class="fa fa-refresh"></i>15天免费换货</a><span></span>
-                <a href="#"><i class="fa fa-gift"></i>满150元包邮</a><span></span>
-                <a href="#"><i class="fa fa-map-marker"></i>520余家售后网点</a>
-            </div>
-            <span class="separate"></span>
-            <div class="footer-top_li_2">
-                <div class="footer-top_li_a">
-                    <dl>
-                        <dt>帮助中心</dt>
-                        <dd><a href="">账户管理</a></dd>
-                        <dd><a href="">购物指南</a></dd>
-                        <dd><a href="">订单操作</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>服务支持</dt>
-                        <dd><a href="">售后政策</a></dd>
-                        <dd><a href="">自助服务</a></dd>
-                        <dd><a href="">相关下载</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>线下门店</dt>
-                        <dd><a href="">小米之家</a></dd>
-                        <dd><a href="">服务网点</a></dd>
-                        <dd><a href="">授权体验店</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>关于小米</dt>
-                        <dd><a href="">了解小米</a></dd>
-                        <dd><a href="">加入小米</a></dd>
-                        <dd><a href="">投资者关系</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>关注我们</dt>
-                        <dd><a href="">新浪微博</a></dd>
-                        <dd><a href="">官网微博</a></dd>
-                        <dd><a href="">联系我们</a></dd>
-                    </dl>
-                    <dl>
-                        <dt>特色服务</dt>
-                        <dd><a href="">F码通道</a></dd>
-                        <dd><a href="">礼物码</a></dd>
-                        <dd><a href="">防伪查询</a></dd>
-                    </dl>
-                    <div class="connect">
-                        <p class="telephone">Feir-520-1314</p>
-                        <p class="time">周一至周日 8:00-18:00<br>(仅收市话费)</p>
-                        <button><span class="fa fa-commenting "></span> 联系客服</button>
-                    </div>
+            <!-- Recommended Products -->
+            <div class="recommended-products">
+                <h2>You might also like</h2>
+                <div class="product-grid" id="recommended-products">
+                    <!-- Recommended products will be loaded dynamically -->
                 </div>
-                <div class="footer-top_li_b"></div>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="footer-bottom_li">
-            <div class="footer-bottom_li_1">
-                <img src="/static/img/footlogo.png" alt="" class="logoBottom">
-            </div>
-            <div class="footer-bottom_li_2">
-                <div class="footer-bottom_li_a">
+    </main>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Information</h3>
                     <ul>
-                        <li>小米商城<span></span></li>
-                        <li>MIUI<span></span></li>
-                        <li>米家<span></span></li>
-                        <li>米聊<span></span></li>
-                        <li>多看<span></span></li>
-                        <li>游戏<span></span></li>
-                        <li>路由器<span></span></li>
-                        <li>米粉卡<span></span></li>
-                        <li>政企服务<span></span></li>
-                        <li>小米天猫店<span></span></li>
-                        <li>隐私政策<span></span></li>
-                        <li>问题反馈<span></span></li>
-                        <li>Select Region</li>
+                        <li><a href="/pages/about-us">About Us</a></li>
+                        <li><a href="/pages/contact-us">Contact Us</a></li>
+                        <li><a href="/pages/delivery-shipping">Delivery & Shipping</a></li>
+                        <li><a href="/pages/terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="/pages/privacy-policy">Privacy policy</a></li>
+                        <li><a href="/pages/return-policy">Return Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-bottom_li_b">
-                    <a href="">©mi.com</a>
-                    京ICP证110507号
-                    <a href="">京ICP备10046444号</a>
-                    <a href="">京公网安备11010802020134号</a>
-                    <a href="">京网文[2014]0059-0009号</a>
-                    <br>
-                    违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <div class="contact-info">
+                        <p><strong>VapeHub</strong></p>
+                        <p>Unit 17, George's Street Arcade</p>
+                        <p>South Great George's Street, Dublin 2,</p>
+                        <p>D02 DH79</p>
+                        <p>01 437 0320</p>
+                        <p>info@vapehub.ie</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <div class="footer-bottom_li_3">
-                <img src="/static/img/footericon1.png" alt="" class="icon">
-                <img src="/static/img/footericon2.png" alt="" class="icon">
-                <img src="/static/img/footericon3.png" alt="" class="icon">
-                <img src="/static/img/footericon4.png" alt="" class="icon">
-                <img src="/static/img/footericon5.png" alt="" class="icon">
-            </div>
-            <div class="footer-bottom_li_4">
-               探索黑科技，小米为发烧而生！
-            </div>   
-        </div>  
-    </div>
-</body>
-<script src="/js/jq_3.3.1_mi.js"></script>
-<script src="/layui/layui.js"></script>
-<script src="/mylayer.js"></script>
-<script src="/js/cart-fixed.js"></script>
 
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p><strong>YOU MUST BE 18+ TO PURCHASE ANYTHING ON THIS SITE</strong></p>
+                    <p><strong>Company Registration No.:</strong> 644874</p>
+                    <p><strong>VAT Registration Number:</strong> IE3611438FH</p>
+                    <p>© VapeHub</p>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/vape-modern.js"></script>
+
+    <script>
+        // Cart Page JavaScript
+        let cart = [];
+        let selectedItems = [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initCart();
+            initEventListeners();
+            loadRecommendedProducts();
+        });
+
+        function initCart() {
+            // Load cart from backend API
+            loadCartFromBackend();
+        }
+
+        function loadCartFromBackend() {
+            $.get('/cart/list', function(result) {
+                console.log('Cart data from backend:', result);
+                if (result.code === 0 && result.data) {
+                    cart = result.data;
+                    renderCart();
+                    updateCartSummary();
+                    updateCartCount();
+                } else {
+                    console.error('Failed to load cart:', result.msg);
+                    cart = [];
+                    renderCart();
+                    updateCartSummary();
+                    updateCartCount();
+                }
+            }).fail(function(xhr) {
+                console.error('Cart loading failed:', xhr);
+                if (xhr.status === 401) {
+                    // User not logged in, redirect to login
+                    window.location.href = '/page/login?redirect=' + encodeURIComponent(window.location.pathname);
+                } else {
+                    // Fallback to localStorage for offline functionality
+                    cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    renderCart();
+                    updateCartSummary();
+                    updateCartCount();
+                }
+            });
+        }
+
+        function initEventListeners() {
+            // Select all checkbox
+            document.getElementById('select-all-checkbox').addEventListener('change', function() {
+                const isChecked = this.checked;
+                const checkboxes = document.querySelectorAll('.item-checkbox');
+
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = isChecked;
+                });
+
+                updateSelectedItems();
+                updateCartSummary();
+            });
+
+            // Clear cart button
+            document.getElementById('clear-cart-btn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    clearCart();
+                }
+            });
+
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                if (selectedItems.length === 0) {
+                    showMessage('Please select items to checkout', 'warning');
+                    return;
+                }
+
+                // Save selected items for checkout
+                localStorage.setItem('checkoutItems', JSON.stringify(selectedItems));
+                window.location.href = '/page/order/confirm';
+            });
+
+            // Apply promo code
+            document.getElementById('apply-promo-btn').addEventListener('click', function() {
+                const promoCode = document.getElementById('promo-code').value.trim();
+                if (promoCode) {
+                    applyPromoCode(promoCode);
+                }
+            });
+        }
+        function renderCart() {
+            const cartItemsList = document.getElementById('cart-items-list');
+            const emptyCart = document.getElementById('empty-cart');
+
+            if (cart.length === 0) {
+                cartItemsList.style.display = 'none';
+                emptyCart.style.display = 'flex';
+                document.getElementById('checkout-btn').disabled = true;
+                return;
+            }
+
+            cartItemsList.style.display = 'block';
+            emptyCart.style.display = 'none';
+
+            let html = '';
+            cart.forEach((item, index) => {
+                html += `
+                    <div class="cart-item" data-index="${index}">
+                        <div class="item-select">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="item-checkbox" data-index="${index}" ${item.checked ? 'checked' : ''}>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="item-image">
+                            <img src="${item.productMainImage || item.image || '/images/default-product.jpg'}" alt="${item.productName || item.name}">
+                        </div>
+
+                        <div class="item-details">
+                            <h3 class="item-name">${item.productName || item.name}</h3>
+                            <p class="item-brand">VapeHub</p>
+                            <div class="item-price">€${item.productPrice || item.price}</div>
+                        </div>
+
+                        <div class="item-quantity">
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                                <input type="number" value="${item.quantity}" min="1" max="10" onchange="updateQuantity(${index}, this.value)">
+                                <button class="qty-btn plus" onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                            </div>
+                        </div>
+
+                        <div class="item-total">
+                            €${((item.productPrice || item.price) * item.quantity).toFixed(2)}
+                        </div>
+
+                        <div class="item-actions">
+                            <button class="remove-btn" onclick="removeItem(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsList.innerHTML = html;
+
+            // Add event listeners for checkboxes
+            document.querySelectorAll('.item-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateSelectedItems();
+                    updateCartSummary();
+                });
+            });
+
+            // Initialize selected items based on checked state from backend
+            updateSelectedItems();
+            updateCartSummary();
+        }
+
+        function updateQuantity(index, newQuantity) {
+            newQuantity = parseInt(newQuantity);
+            if (newQuantity < 1) newQuantity = 1;
+            if (newQuantity > 10) newQuantity = 10;
+
+            const item = cart[index];
+
+            // Update quantity on backend with JSON
+            $.ajax({
+                url: '/cart/update',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    id: item.id,
+                    quantity: newQuantity
+                }),
+                success: function(result) {
+                    if (result.code === 0) {
+                        item.quantity = newQuantity;
+                        renderCart();
+                        updateCartSummary();
+                        updateCartCount();
+                    } else {
+                        showMessage('Failed to update quantity', 'error');
+                    }
+                },
+                error: function() {
+                    showMessage('Failed to update quantity', 'error');
+                }
+            });
+        }
+
+        function removeItem(index) {
+            if (confirm('Remove this item from your cart?')) {
+                const item = cart[index];
+
+                $.ajax({
+                    url: '/cart/deleteById',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        id: item.id
+                    }),
+                    success: function(result) {
+                        if (result.code === 0) {
+                            cart.splice(index, 1);
+                            renderCart();
+                            updateCartSummary();
+                            updateCartCount();
+                            showMessage('Item removed from cart', 'success');
+                        } else {
+                            showMessage('Failed to remove item', 'error');
+                        }
+                    },
+                    error: function() {
+                        showMessage('Failed to remove item', 'error');
+                    }
+                });
+            }
+        }
+
+        function clearCart() {
+            // Clear all items from backend by removing each item
+            const promises = cart.map(item => {
+                return $.ajax({
+                    url: '/cart/deleteById',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ id: item.id })
+                });
+            });
+
+            Promise.all(promises).then(() => {
+                cart = [];
+                selectedItems = [];
+                renderCart();
+                updateCartSummary();
+                updateCartCount();
+                showMessage('Cart cleared', 'success');
+            }).catch(() => {
+                showMessage('Failed to clear cart', 'error');
+            });
+        }
+
+        function updateSelectedItems() {
+            selectedItems = [];
+            const checkboxes = document.querySelectorAll('.item-checkbox:checked');
+
+            checkboxes.forEach(checkbox => {
+                const index = parseInt(checkbox.dataset.index);
+                selectedItems.push(cart[index]);
+            });
+
+            // Update select all checkbox
+            const selectAllCheckbox = document.getElementById('select-all-checkbox');
+            const allCheckboxes = document.querySelectorAll('.item-checkbox');
+            selectAllCheckbox.checked = allCheckboxes.length > 0 && checkboxes.length === allCheckboxes.length;
+        }
+
+        function updateCartSummary() {
+            const totalItems = selectedItems.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = selectedItems.reduce((sum, item) => sum + ((item.productPrice || item.price) * item.quantity), 0);
+            const shipping = subtotal >= 35 ? 0 : 5.99;
+            const total = subtotal + shipping;
+
+            document.getElementById('total-items').textContent = totalItems;
+            document.getElementById('subtotal').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('shipping-cost').textContent = shipping === 0 ? 'Free' : `€${shipping.toFixed(2)}`;
+            document.getElementById('total-amount').innerHTML = `<strong>€${total.toFixed(2)}</strong>`;
+
+            // Enable/disable checkout button
+            const checkoutBtn = document.getElementById('checkout-btn');
+            checkoutBtn.disabled = selectedItems.length === 0;
+
+            if (subtotal >= 35 && subtotal < 50) {
+                document.getElementById('shipping-cost').innerHTML = 'Free <small>(saved €5.99)</small>';
+            }
+        }
+
+        function applyPromoCode(code) {
+            // Simulate promo code validation
+            const validCodes = {
+                'SAVE10': 0.1,
+                'WELCOME5': 0.05,
+                'NEWUSER': 0.15
+            };
+
+            if (validCodes[code.toUpperCase()]) {
+                const discount = validCodes[code.toUpperCase()];
+                const subtotal = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const discountAmount = subtotal * discount;
+
+                document.getElementById('discount-row').style.display = 'flex';
+                document.getElementById('discount-amount').textContent = `-€${discountAmount.toFixed(2)}`;
+
+                showMessage(`Promo code applied! You saved €${discountAmount.toFixed(2)}`, 'success');
+                document.getElementById('promo-code').value = '';
+                updateCartSummary();
+            } else {
+                showMessage('Invalid promo code', 'error');
+            }
+        }
+
+        function loadRecommendedProducts() {
+            // Load some random products as recommendations
+            $.get('/product/list', { limit: 4 }, function(result) {
+                if (result.code === 0 && result.data && result.data.records) {
+                    renderRecommendedProducts(result.data.records);
+                }
+            });
+        }
+
+        function renderRecommendedProducts(products) {
+            const container = document.getElementById('recommended-products');
+
+            let html = '';
+            products.forEach(product => {
+                html += `
+                    <div class="product-card">
+                        <a href="/page/product/detail?id=${product.id}">
+                            <div class="product-image">
+                                <img src="${product.mainImage || '/images/default-product.jpg'}" alt="${product.name}">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">${product.brand || 'VapeHub'}</div>
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-price">€${product.price}</div>
+                                <div class="product-stock">In stock</div>
+                            </div>
+                        </a>
+                        <button class="add-to-cart-btn" onclick="addToCart('${product.id}', '${product.name}', '${product.price}', '${product.mainImage || '/images/default-product.jpg'}')">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function updateCartCount() {
+            // Update cart count in header
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElements = document.querySelectorAll('.cart-count');
+            cartCountElements.forEach(element => {
+                element.textContent = totalItems;
+            });
+        }
+
+        function showMessage(message, type = 'info') {
+            // Simple message display
+            const messageClass = type === 'success' ? 'alert-success' :
+                                type === 'error' ? 'alert-danger' : 'alert-info';
+
+            // Create or update message element
+            let messageEl = document.getElementById('cart-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'cart-message';
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    color: white;
+                    font-weight: bold;
+                    z-index: 1000;
+                    max-width: 300px;
+                `;
+                document.body.appendChild(messageEl);
+            }
+
+            // Set message and styling based on type
+            messageEl.textContent = message;
+            messageEl.style.backgroundColor = type === 'success' ? '#28a745' :
+                                            type === 'error' ? '#dc3545' : '#17a2b8';
+            messageEl.style.display = 'block';
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
 </html>

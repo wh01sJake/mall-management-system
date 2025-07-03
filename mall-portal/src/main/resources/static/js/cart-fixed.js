@@ -220,7 +220,7 @@ function setupEventHandlers() {
 
         console.log('Deleting cart item ID:', cartItemId);
 
-        if (confirm('确认要删除这个商品吗？')) {
+        if (confirm('Are you sure you want to remove this item?')) {
             $.ajax({
                 url: '/cart/deleteById',
                 type: 'POST',
@@ -235,18 +235,18 @@ function setupEventHandlers() {
                         updateCartSummary();
                         checkAllStatus();
 
-                        // 检查是否还有商品
+                        // Check if cart is empty
                         if ($('.list-item').length === 0) {
-                            $('#cartTitle').after('<div class="empty-cart-message">购物车为空，快去选购商品吧！</div>');
+                            $('#cartTitle').after('<div class="empty-cart-message">Your cart is empty. Start shopping now!</div>');
                         }
                     } else {
                         console.error('Delete failed:', result.message);
-                        alert('删除失败: ' + result.message);
+                        alert('Delete failed: ' + result.message);
                     }
                 },
                 error: function(xhr, status, error) {
                     console.error('Delete item error:', error);
-                    alert('删除失败，请重试');
+                    alert('Delete failed, please try again');
                 }
             });
         }
@@ -259,13 +259,13 @@ function setupEventHandlers() {
         var $this = $(this);
         var $input = $this.siblings('input');
         var currentValue = parseInt($input.val()) || 1;
-        var newValue = Math.max(1, currentValue - 1); // 最小值为1
+        var newValue = Math.max(1, currentValue - 1); // Minimum value is 1
         var cartItemId = $this.parents('.list-item').attr('id');
 
         console.log('Current quantity:', currentValue, 'New quantity:', newValue);
 
         if (newValue !== currentValue) {
-            // 发送更新请求
+            // Send update request
             $.ajax({
                 url: '/cart/update',
                 type: 'POST',
@@ -304,7 +304,7 @@ function setupEventHandlers() {
 
         console.log('Current quantity:', currentValue, 'New quantity:', newValue);
 
-        // 发送更新请求
+        // Send update request
         $.ajax({
             url: '/cart/update',
             type: 'POST',
@@ -368,18 +368,18 @@ function updateQuantityAndPrice($button, newQuantity) {
     var $priceElement = $listItem.find('.good-price');
     var $totalPriceElement = $listItem.find('.good-total-price');
 
-    // 获取单价（去掉"元"字符）
-    var unitPriceText = $priceElement.text().replace('元', '');
+    // Get unit price (remove currency symbol)
+    var unitPriceText = $priceElement.text().replace('€', '').replace('元', '');
     var unitPrice = parseFloat(unitPriceText) || 0;
 
-    // 计算新的总价
+    // Calculate new total price
     var newTotalPrice = (unitPrice * newQuantity).toFixed(2);
 
     console.log('Unit price:', unitPrice, 'New total price:', newTotalPrice);
 
-    // 更新总价显示
-    $totalPriceElement.text(newTotalPrice + '元');
+    // Update total price display
+    $totalPriceElement.text('€' + newTotalPrice);
 
-    // 更新购物车汇总
+    // Update cart summary
     updateCartSummary();
 }

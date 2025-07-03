@@ -2,26 +2,26 @@ ul {  list-style: none;  }
 
 h1, h2, h3, h4, h5, h6 {  margin: 0;  padding: 0;  font-weight: normal; }
 
-/*大导航下面的六个小css块样式*/
+/* Navigation blocks styling */
 .content-picli_1 li       {  width: 33%;  height: 60px;  color: #ccc;  font-size: 14px;  float: left;  text-align: center;  margin-top: 20px;  }
 .content-picli_1 li span  {  width: 100%;  height: 30px;  float: left;  text-align: center;  }
 .content-picli_1 li:hover {  color: #eee;  }
 
-/*小米闪购的长广告   覆盖mi.css*/
+/* Banner advertisement styling */
 .content-pic {  margin: 30px 0;  }
 
-/*重写二级标题样式,包括小米闪购和下面的一堆二级标题*/
+/* Secondary title styling for flash sales and other sections */
 .content-picshop h2,
 .content-bottom h2      { height: 56px;  line-height: 50px;  font-size: 22px;  padding-top: 20px;  margin: 0;  font-weight: 300;  }
 .content-bottom h2 .tab { float: right;  color: #424242;  font-size: 16px;  font-weight: normal;  line-height: 60px;  }
 
-/*优化长广告         覆盖mi.css*/
+/* Banner advertisement optimization */
 .content-bottom2_pic,
 .content-bottom3_pic,
 .content-bottom7_pic { margin-top: 40px;  }
 
-/*小米闪购*/
-/*重写height和padding-top   覆盖mi.css*/
+/* Flash sales section */
+/* Height and padding-top styling */
 .content-picshop3,
 .content-picshop4,
 .content-picshop5,
@@ -58,16 +58,16 @@ h1, h2, h3, h4, h5, h6 {  margin: 0;  padding: 0;  font-weight: normal; }
 .picshopDesc  {   width: 100%; font-size: 12px; color: #b0b0b0;  text-align: center;  margin: 8px 0 12px;  -ms-text-overflow: ellipsis;  text-overflow: ellipsis;  white-space: nowrap;  overflow: hidden;  }
 .picshopPrice {   width: 100%; text-align: center;font-size: 13px;  color: #b0b0b0;  }
 
-/*手机*/
-/*重写手机item的paddint-top和height  覆盖mi.css*/
+/* Product items */
+/* Product item padding-top and height styling */
 .content-bottom1_1 div,
 .content-bottom1_2 div {position: relative;  padding-top: 20px;  height: 280px;  background-color: #fff;  }
 
-/*手机 / 视频后面的查看更多*/
+/* View more button styling */
 .content-bottom1_li .tab span ,
 .content-bottom0_li .tab span{  float: right;  width: 20px;  height: 20px;  margin-top: 20px;  margin-left: 10px;  line-height: 18px;  text-align: center;  border-radius: 10px;  background-color: #b0b0b0;  color: #fff;  }
 
-/*红/绿色优惠小标记*/
+/* Red/Green discount badges */
 .bottomFlagRed,
 .bottomFlagGreen {  position: absolute;  top: 0;  left: 50%;  margin-left: -32px;  width: 64px;  height: 18px;  font-size: 12px;  color: #fff;  line-height: 18px;  text-align: center;  }
 

@@ -1,6 +1,8 @@
 package com.intelijake.pojo;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -31,6 +33,7 @@ public class OrderItem implements Serializable {
     private Integer userId;
 
     @TableField("order_no")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long orderNo;
 
     /**

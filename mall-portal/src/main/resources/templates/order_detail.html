@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Order Details - VapeHub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
+
+    <!-- Modern CSS Framework -->
+    <link rel="stylesheet" href="/css/vape-modern.css">
+    <link rel="stylesheet" href="/css/vape-order.css">
+    <link rel="stylesheet" href="/css/vape-responsive.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span>Need help? Call us 01 437 0320</span>
+                    <a href="mailto:info@vapehub.ie">info@vapehub.ie</a>
+                </div>
+                <div class="top-bar-right">
+                    <span>Follow Us</span>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/vapehub-logo.png" alt="VapeHub" class="logo-img">
+                        <span class="logo-text">VapeHub</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <div class="account-menu">
+                        <a href="/page/login" class="account-link">
+                            <i class="fas fa-user"></i>
+                            <span>My Account</span>
+                        </a>
+                    </div>
+                    <div class="cart-menu">
+                        <a href="/page/cart/list" class="cart-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                            <span>Cart</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/collections/new-in" class="nav-link">New In</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/disposable-vape-bar" class="nav-link">Disposable Vape Bars</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-liquids" class="nav-link">E-Liquids</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-cigarettes" class="nav-link">E-Cigarettes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/coils" class="nav-link">Coils</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/nic-salts" class="nav-link">Nic Salts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/pods" class="nav-link">Pods</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/tanks" class="nav-link">Tanks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/accessories" class="nav-link">Accessories</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="order-detail-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <a href="/order_list.html">My Orders</a>
+                <span>/</span>
+                <span>Order Details</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Order Details</h1>
+                <p>View your order information and tracking details</p>
+            </div>
+
+            <!-- Order Details Content -->
+            <div class="order-detail-content">
+                <!-- Order Summary Card -->
+                <div class="order-summary-card">
+                    <div class="order-header">
+                        <div class="order-info">
+                            <h2 id="order-number">Order #ORD-2024-001</h2>
+                            <p id="order-date">Placed on January 15, 2024</p>
+                        </div>
+                        <div class="order-status">
+                            <span class="status-badge" id="order-status">Delivered</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Order Progress -->
+                <div class="order-progress" id="order-progress">
+                    <div class="progress-step completed">
+                        <div class="step-icon"><i class="fas fa-check"></i></div>
+                        <div class="step-info">
+                            <h4>Order Placed</h4>
+                            <p id="order-placed-date">Jan 15, 2024 10:30 AM</p>
+                        </div>
+                    </div>
+                    <div class="progress-step completed">
+                        <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                        <div class="step-info">
+                            <h4>Payment Confirmed</h4>
+                            <p id="payment-confirmed-date">Jan 15, 2024 10:32 AM</p>
+                        </div>
+                    </div>
+                    <div class="progress-step completed">
+                        <div class="step-icon"><i class="fas fa-box"></i></div>
+                        <div class="step-info">
+                            <h4>Order Shipped</h4>
+                            <p id="order-shipped-date">Jan 16, 2024 2:15 PM</p>
+                        </div>
+                    </div>
+                    <div class="progress-step completed">
+                        <div class="step-icon"><i class="fas fa-truck"></i></div>
+                        <div class="step-info">
+                            <h4>Delivered</h4>
+                            <p id="order-delivered-date">Jan 18, 2024 11:45 AM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Items -->
+                <div class="order-items-section">
+                    <h3>Order Items</h3>
+                    <div class="order-items-list" id="order-items-list">
+                        <!-- Items will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Shipping Information -->
+                <div class="shipping-info-section">
+                    <h3>Shipping Information</h3>
+                    <div class="shipping-details" id="shipping-details">
+                        <div class="shipping-address">
+                            <h4>Delivery Address</h4>
+                            <div class="address-info" id="delivery-address">
+                                <!-- Address will be loaded dynamically -->
+                            </div>
+                        </div>
+                        <div class="shipping-method">
+                            <h4>Shipping Method</h4>
+                            <p id="shipping-method">Standard Delivery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Information -->
+                <div class="payment-info-section">
+                    <h3>Payment Information</h3>
+                    <div class="payment-details" id="payment-details">
+                        <div class="payment-method">
+                            <h4>Payment Method</h4>
+                            <p id="payment-method">Credit Card ending in ****1234</p>
+                        </div>
+                        <div class="payment-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal-amount">€0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="shipping-amount">Free</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span><strong>Total:</strong></span>
+                                <span id="total-amount"><strong>€0.00</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Actions -->
+                <div class="order-actions-section" id="order-actions">
+                    <button class="btn btn-outline" onclick="printOrder()">
+                        <i class="fas fa-print"></i>
+                        Print Order
+                    </button>
+                    <button class="btn btn-outline" onclick="downloadInvoice()">
+                        <i class="fas fa-download"></i>
+                        Download Invoice
+                    </button>
+                    <button class="btn btn-primary" onclick="reorderItems()">
+                        <i class="fas fa-redo"></i>
+                        Reorder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="/pages/about-us">About Us</a></li>
+                        <li><a href="/pages/contact-us">Contact Us</a></li>
+                        <li><a href="/pages/delivery-shipping">Delivery & Shipping</a></li>
+                        <li><a href="/pages/terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="/pages/privacy-policy">Privacy policy</a></li>
+                        <li><a href="/pages/return-policy">Return Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <div class="contact-info">
+                        <p><strong>VapeHub</strong></p>
+                        <p>Unit 17, George's Street Arcade</p>
+                        <p>South Great George's Street, Dublin 2,</p>
+                        <p>D02 DH79</p>
+                        <p>01 437 0320</p>
+                        <p>info@vapehub.ie</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p><strong>YOU MUST BE 18+ TO PURCHASE ANYTHING ON THIS SITE</strong></p>
+                    <p><strong>Company Registration No.:</strong> 644874</p>
+                    <p><strong>VAT Registration Number:</strong> IE3611438FH</p>
+                    <p>© VapeHub</p>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/vape-modern.js"></script>
+
+    <script>
+        // Order Detail Page JavaScript
+        let currentOrder = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initOrderDetail();
+        });
+
+        function initOrderDetail() {
+            // Get order number from URL path: /page/order/detail/{orderNo}
+            const pathParts = window.location.pathname.split('/');
+            const orderNo = pathParts[pathParts.length - 1]; // Last part of the path
+
+            if (orderNo && orderNo !== 'detail') {
+                loadOrderDetail(orderNo);
+            } else {
+                showMessage('Order not found', 'error');
+                setTimeout(() => {
+                    window.location.href = '/page/order/list';
+                }, 2000);
+            }
+        }
+
+        function loadOrderDetail(orderNo) {
+            // Load order details from backend API
+            $.get(`/order/detail/${orderNo}`, function(result) {
+                console.log('Order detail result:', result);
+                if (result.code === 0 && result.data) {
+                    currentOrder = result.data;
+
+                    // Load order items and shipping address
+                    Promise.all([
+                        loadOrderItems(orderNo),
+                        loadOrderAddress(orderNo)
+                    ]).then(([items, address]) => {
+                        console.log('Order items loaded:', items);
+                        console.log('Order address loaded:', address);
+                        currentOrder.items = items || [];
+                        currentOrder.shippingAddress = address;
+                        renderOrderDetail(currentOrder);
+                    }).catch(error => {
+                        console.error('Failed to load order details:', error);
+                        // Still render with basic info, but set empty arrays/objects for missing data
+                        currentOrder.items = [];
+                        currentOrder.shippingAddress = null;
+                        renderOrderDetail(currentOrder);
+                    });
+                } else {
+                    console.error('Failed to load order:', result.msg);
+                    showMessage('Order not found', 'error');
+                    setTimeout(() => {
+                        window.location.href = '/page/order/list';
+                    }, 2000);
+                }
+            }).fail(function(xhr) {
+                console.error('Order loading failed:', xhr);
+                if (xhr.status === 401) {
+                    window.location.href = '/page/login?redirect=' + encodeURIComponent(window.location.pathname);
+                } else {
+                    showMessage('Failed to load order details', 'error');
+                    setTimeout(() => {
+                        window.location.href = '/page/order/list';
+                    }, 2000);
+                }
+            });
+        }
+
+        function loadOrderItems(orderNo) {
+            return $.get(`/order/items/${orderNo}`).then(result => {
+                console.log('Order items API result:', result);
+                return result.code === 0 ? result.data : [];
+            }).catch(error => {
+                console.error('Failed to load order items:', error);
+                return [];
+            });
+        }
+
+        function loadOrderAddress(orderNo) {
+            return $.get(`/order/address/${orderNo}`).then(result => {
+                console.log('Order address API result:', result);
+                return result.code === 0 ? result.data : null;
+            }).catch(error => {
+                console.error('Failed to load order address:', error);
+                return null;
+            });
+        }
+
+        function renderOrderDetail(order) {
+            // Map backend fields to frontend format
+            const orderNo = order.orderNo || order.order_no;
+            const createTime = order.createTime || order.create_time;
+            const paymentAmount = order.paymentAmount || order.payment_amount;
+
+            // Update page title
+            document.title = `Order ${orderNo} - VapeHub`;
+
+            // Update order header
+            document.getElementById('order-number').textContent = `Order ${orderNo}`;
+            document.getElementById('order-date').textContent = `Placed on ${formatDate(createTime)}`;
+            document.getElementById('order-status').textContent = getStatusText(order.status);
+            document.getElementById('order-status').className = `status-badge ${getStatusClass(order.status)}`;
+
+            // Update order progress (simplified since we don't have timeline from backend)
+            renderOrderProgress([], order.status);
+
+            // Update order items
+            renderOrderItems(order.items || []);
+
+            // Update shipping information
+            renderShippingInfo(order);
+
+            // Update payment information
+            renderPaymentInfo(order);
+        }
+
+        function renderOrderProgress(timeline, currentStatus) {
+            const progressContainer = document.getElementById('order-progress');
+
+            let html = '';
+            timeline.forEach((step, index) => {
+                const isCompleted = getStatusOrder(step.status) <= getStatusOrder(currentStatus);
+
+                html += `
+                    <div class="progress-step ${isCompleted ? 'completed' : ''}">
+                        <div class="step-icon">
+                            <i class="${getStepIcon(step.status)}"></i>
+                        </div>
+                        <div class="step-info">
+                            <h4>${step.title}</h4>
+                            <p>${formatDateTime(step.date)}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            progressContainer.innerHTML = html;
+        }
+
+        function renderOrderItems(items) {
+            const itemsList = document.getElementById('order-items-list');
+
+            if (!items || items.length === 0) {
+                itemsList.innerHTML = '<p>No items found for this order.</p>';
+                return;
+            }
+
+            let html = '';
+            items.forEach(item => {
+                // Map backend fields to frontend format
+                const itemName = item.productName || item.name;
+                const itemImage = item.productImage || item.image;
+                const unitPrice = item.currentUnitPrice || item.price;
+                const totalPrice = item.totalPrice || (unitPrice * item.quantity);
+
+                html += `
+                    <div class="order-item">
+                        <div class="item-image">
+                            <img src="${itemImage || '/images/default-product.jpg'}" alt="${itemName}">
+                        </div>
+                        <div class="item-details">
+                            <h4>${itemName}</h4>
+                            <p>Quantity: ${item.quantity}</p>
+                            <p>Price: €${unitPrice} each</p>
+                        </div>
+                        <div class="item-total">
+                            €${parseFloat(totalPrice).toFixed(2)}
+                        </div>
+                    </div>
+                `;
+            });
+
+            itemsList.innerHTML = html;
+        }
+
+        function renderShippingInfo(order) {
+            const addressElement = document.getElementById('delivery-address');
+            const shippingMethodElement = document.getElementById('shipping-method');
+
+            // Handle shipping address from backend
+            const address = order.shippingAddress || order.deliveryAddress;
+
+            if (address) {
+                const receiverName = address.receiverName || address.receiver_name || address.name;
+                const addressLine1 = address.addressLine1 || address.address_line_1 || address.address;
+                const addressLine2 = address.addressLine2 || address.address_line_2;
+                const townCity = address.townCity || address.town_city || address.city;
+                const county = address.county;
+                const eircode = address.eircode;
+                const phone = address.receiverPhone || address.receiver_phone || address.phone;
+
+                addressElement.innerHTML = `
+                    <p><strong>${receiverName || 'N/A'}</strong></p>
+                    <p>${addressLine1 || 'N/A'}</p>
+                    ${addressLine2 ? `<p>${addressLine2}</p>` : ''}
+                    <p>${townCity || 'N/A'}${county ? `, ${county}` : ''}</p>
+                    ${eircode ? `<p>${eircode}</p>` : ''}
+                    <p>Phone: ${phone || 'N/A'}</p>
+                `;
+            } else {
+                addressElement.innerHTML = '<p>Shipping address not available</p>';
+            }
+
+            shippingMethodElement.textContent = order.shippingMethod || 'Standard Delivery';
+        }
+
+        function renderPaymentInfo(order) {
+            // Map backend fields to frontend format
+            const paymentAmount = order.paymentAmount || order.payment_amount || 0;
+            const postageFee = order.postageFee || order.postage_fee || 0;
+            const subtotal = paymentAmount - postageFee;
+            const paymentType = order.paymentType || order.payment_type;
+
+            // Map payment type to readable text
+            let paymentMethodText = 'Unknown';
+            if (paymentType === 1) {
+                paymentMethodText = 'Credit Card';
+            } else if (paymentType === 2) {
+                paymentMethodText = 'PayPal';
+            } else if (order.paymentMethod) {
+                paymentMethodText = order.paymentMethod;
+            }
+
+            document.getElementById('payment-method').textContent = paymentMethodText;
+            document.getElementById('subtotal-amount').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('shipping-amount').textContent = postageFee === 0 ? 'Free' : `€${postageFee.toFixed(2)}`;
+            document.getElementById('total-amount').innerHTML = `<strong>€${paymentAmount.toFixed(2)}</strong>`;
+        }
+
+        function getStatusText(status) {
+            // Handle both string and numeric status values
+            const statusTexts = {
+                // String values
+                'pending': 'Pending Payment',
+                'processing': 'Processing',
+                'shipped': 'Shipped',
+                'delivered': 'Delivered',
+                'cancelled': 'Cancelled',
+                // Numeric values (backend format)
+                1: 'Pending Payment',
+                2: 'Processing',
+                3: 'Shipped',
+                4: 'Delivered',
+                5: 'Cancelled'
+            };
+            return statusTexts[status] || 'Unknown';
+        }
+
+        function getStatusClass(status) {
+            // Handle both string and numeric status values
+            const statusClasses = {
+                // String values
+                'pending': 'status-pending',
+                'processing': 'status-processing',
+                'shipped': 'status-shipped',
+                'delivered': 'status-delivered',
+                'cancelled': 'status-cancelled',
+                // Numeric values (backend format)
+                1: 'status-pending',
+                2: 'status-processing',
+                3: 'status-shipped',
+                4: 'status-delivered',
+                5: 'status-cancelled'
+            };
+            return statusClasses[status] || 'status-pending';
+        }
+
+        function showMessage(message, type = 'info') {
+            // Simple message display
+            let messageEl = document.getElementById('order-detail-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'order-detail-message';
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    color: white;
+                    font-weight: bold;
+                    z-index: 1000;
+                    max-width: 300px;
+                `;
+                document.body.appendChild(messageEl);
+            }
+
+            // Set message and styling based on type
+            messageEl.textContent = message;
+            messageEl.style.backgroundColor = type === 'success' ? '#28a745' :
+                                            type === 'error' ? '#dc3545' : '#17a2b8';
+            messageEl.style.display = 'block';
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 3000);
+        }
+
+        function getStatusOrder(status) {
+            const statusOrder = {
+                'placed': 1,
+                'confirmed': 2,
+                'shipped': 3,
+                'delivered': 4
+            };
+            return statusOrder[status] || 0;
+        }
+
+        function getStepIcon(status) {
+            const icons = {
+                'placed': 'fas fa-check',
+                'confirmed': 'fas fa-credit-card',
+                'shipped': 'fas fa-box',
+                'delivered': 'fas fa-truck'
+            };
+            return icons[status] || 'fas fa-circle';
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-IE', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function formatDateTime(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-IE', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function printOrder() {
+            window.print();
+        }
+
+        function downloadInvoice() {
+            showMessage('Invoice download feature coming soon!', 'info');
+        }
+
+        function reorderItems() {
+            if (!currentOrder) return;
+
+            if (confirm('Add all items from this order to your cart?')) {
+                // Simulate adding items to cart
+                currentOrder.items.forEach(item => {
+                    addToCart(item.id, item.name, item.price, item.image, item.quantity);
+                });
+
+                showMessage('Items added to cart!', 'success');
+            }
+        }
+    </script>
+
+    <style>
+        /* Order Detail Specific Styles */
+        .order-detail-main {
+            padding: 20px 0;
+            min-height: 60vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .order-detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .order-summary-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .order-info h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .order-info p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-processing { background: #d1ecf1; color: #0c5460; }
+        .status-shipped { background: #d4edda; color: #155724; }
+        .status-delivered { background: #d4edda; color: #155724; }
+        .status-cancelled { background: #f8d7da; color: #721c24; }
+
+        .order-progress {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .order-progress::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 60px;
+            right: 60px;
+            height: 2px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9ecef;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.completed .step-icon {
+            background: #ff6a00;
+            color: white;
+        }
+
+        .step-info h4 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .step-info p {
+            font-size: 12px;
+            color: #666;
+            margin: 0;
+        }
+
+        .order-items-section,
+        .shipping-info-section,
+        .payment-info-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            padding: 25px;
+        }
+
+        .order-items-section h3,
+        .shipping-info-section h3,
+        .payment-info-section h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item .item-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .order-item .item-details {
+            flex: 1;
+        }
+
+        .order-item .item-details h4 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .order-item .item-details p {
+            font-size: 14px;
+            color: #666;
+            margin: 2px 0;
+        }
+
+        .order-item .item-total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff6a00;
+        }
+
+        .shipping-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .shipping-address h4,
+        .shipping-method h4 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .address-info p {
+            font-size: 14px;
+            color: #666;
+            margin: 2px 0;
+        }
+
+        .payment-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .payment-method h4 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .payment-method p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .payment-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .summary-row.total {
+            font-size: 18px;
+            padding-top: 10px;
+            border-top: 1px solid #e9ecef;
+            margin-top: 10px;
+        }
+
+        .order-actions-section {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .order-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .order-progress {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .order-progress::before {
+                display: none;
+            }
+
+            .shipping-details,
+            .payment-details {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .order-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .order-actions-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</body>
+</html>
+
+

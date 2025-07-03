@@ -2,7 +2,7 @@
 .clear{clear: both;}
 li{list-style: none;}
 a{text-decoration: none;color: #ccc;cursor:pointer;}
-/*头部*/
+/* Header */
 .header{height: 40px;width: 100%;background: #333;}
 .header_menu{width: 1226px;height: 40px; margin:0px auto;}
 .header_menu span{margin: 0px 10px;color: #6C6D69;}
@@ -38,19 +38,19 @@ a{text-decoration: none;color: #ccc;cursor:pointer;}
 .content-form .botton:hover{border: none;width: 62px;height: 52px; background:#FF6700;color:#fff;}
 .content-form .botton:hover i{color:#fff;}
 
-/*下拉*/
-.mi_phone{width:100%;height:230px;border-bottom: 1px solid #ccc; border-top: 1px solid #ccc;position:absolute;top:126px; left: 0px;z-index: 2; background: #fff;display: none;}
-.content_menu_ul li:hover .mi_phone{display: block;}
-.mi_phone_div .mi_phone_shop{width: 120px; height: 160px;margin-top: 30px;line-height: 30px;}
-.mi_phone_div{width: 1226px;height: 230px;margin:0px auto;}
-.mi_phone_div_1{margin:0px auto;padding:0px 50px;}
-.mi_phone_div a{color: #000;font-size: 9px;}
-.mi_phone_div span{border-right: 1px solid #ccc;margin:0px 30px;margin-top: 30px;height: 80px;width: 0px;float: left;}
+/* Dropdown menu */
+.product_dropdown{width:100%;height:230px;border-bottom: 1px solid #ccc; border-top: 1px solid #ccc;position:absolute;top:126px; left: 0px;z-index: 2; background: #fff;display: none;}
+.content_menu_ul li:hover .product_dropdown{display: block;}
+.product_dropdown_div .product_shop{width: 120px; height: 160px;margin-top: 30px;line-height: 30px;}
+.product_dropdown_div{width: 1226px;height: 230px;margin:0px auto;}
+.product_dropdown_div_1{margin:0px auto;padding:0px 50px;}
+.product_dropdown_div a{color: #000;font-size: 9px;}
+.product_dropdown_div span{border-right: 1px solid #ccc;margin:0px 30px;margin-top: 30px;height: 80px;width: 0px;float: left;}
 .new{width: 60px;height: 18px;font-size: 9px;position: absolute;top:0px;left:25px; border: 1px solid #FF6A00;color:#FF6A00; line-height: 18px;text-align: center;}
-.mi_phone_div .mi_phone1{float: left;width: 181px;height:230px; position: relative;text-align: center;}
-.mi_phone_shop {float: left}
+.product_dropdown_div .product_item{float: left;width: 181px;height:230px; position: relative;text-align: center;}
+.product_shop {float: left}
 
-/*左边导航*/
+/* Left navigation */
 .content_pic{width: 1226px;height:460px;background:url(../img/mi.jpg) ;}
 .content_pic_menu{width: 246px;height:460px; float: left;background: #424242;position: relative; }
 .layui-carousel{width: 980px;height:460px;float: right; }
@@ -68,7 +68,7 @@ a{text-decoration: none;color: #ccc;cursor:pointer;}
 .content_div_1 div a{color:#000;float: left;margin-top: 17px;}
 .content_div_1 div:hover a{color:#FF6A00;}
 /*
-小米闪购*/
+Flash sales section */
 .content-picli{height: 170px;width:1226px;margin-top: 10px;}
 .content-picli_1{height: 170px;width: 235px; float: left;background:#5F5750;margin-right: 14.3px;}
 .content-picli_2{height: 170px;width: 316px;float: left;background:url(../img/midAD1.jpg);margin-right:14.3px;}
@@ -142,7 +142,7 @@ a{text-decoration: none;color: #ccc;cursor:pointer;}
 .content-bottom0_2{margin-right:12.7px;background:#fff;float: left;}
 .content-bottom0_3{margin-right:12.7px;background:#fff;float: left;}
 .content-bottom0_4{background:#fff;float: left;}
-/*底部*/
+/* Footer */
 .footer-top{}
 .footer-top_li{width: 1226px;margin: 0px auto;}
 .footer-top_li_1{width: 1126px;height: 80px;margin: 0px auto;line-height: 80px;}

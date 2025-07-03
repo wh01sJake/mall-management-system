@@ -4,858 +4,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小米商城 - 小米11、Redmi Note 9、小米MIX Alpha，小米电视官方网站</title>
+    <title>VapeHub - Premium E-Cigarettes & Vaping Products</title>
     <link rel="shortcut icon" href="/images/favicon/favicon.ico" type="image/x-icon">
-    <!-- 采用html , css , js 分开写的原则
-    这里属于自己写的 css 部分 -->
-    <link rel="stylesheet" href="/css/General style.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/iconfont.css">
-    <link rel="stylesheet" href="/css/slideshow.css">
-    <link rel="stylesheet" href="/css/home-hero.css">
-    <link rel="stylesheet" href="/css/home-main.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <!-- 根据窗口大小动态的改变工具栏的样式，以及大小 -->
-    <link rel="stylesheet" href="/css/subbar.css" media="all and (max-width:1499.99999px)">   <!-- 媒体查询1 -->
-    <link rel="stylesheet" href="/css/subbar2.css" media="all and (min-width:1500px)">  <!-- 媒体查询2 -->
+
+    <!-- Modern CSS Framework -->
+    <link rel="stylesheet" href="/css/vape-modern.css">
+    <link rel="stylesheet" href="/css/vape-product-list.css">
+    <link rel="stylesheet" href="/css/vape-responsive.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>  
-    <!-- 采用html , css , js 分开写的原则
-    这里属于自己写的 html 部分 -->
-    <!-- 头部 -->
-    <div class="header">
-        <div class="site-topbar">
-            <div class="container w clearfix">
-                <!-- 头部导航 -->
-                <div class="topbar-nav fl">
-                    <a href="#">小米商城</a>
-                    <span>|</span>
-                    <a href="#">MIUI</a>
-                    <span>|</span>
-                    <a href="#">IoT</a>
-                    <span>|</span>
-                    <a href="#">云服务</a>
-                    <span>|</span>
-                    <a href="#"> 天星数科</a>
-                    <span>|</span>
-                    <a href="#">有品</a>
-                    <span>|</span>
-                    <a href="#">小爱开放平台</a>
-                    <span>|</span>
-                    <a href="#">企业团购</a>
-                    <span>|</span>
-                    <a href="#">资质证照</a>
-                    <span>|</span>
-                    <a href="#">协议规则</a>
-                    <span>|</span>
-                    <a href="#" id="j-app" class="topbar-download">
-                        下载app
-                        <div class="appcode">
-                            <img src="images/download.png" alt="小米商城" width="90" height="90">
-                            小米商城app
-                        </div>
-                    </a>
-                    <span>|</span>
-                    <a href="#">智能生活</a>
-                    <span>|</span>
-                    <a href="#">Select Location</a>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span>Need help? Call us 01 437 0320</span>
+                    <a href="mailto:info@vapehub.ie">info@vapehub.ie</a>
                 </div>
-                <div class="site-shop fr">
-                    <a href="cart_list.html" class="cart">
-                        <em class="iconfont">&#xe61c;</em>购物车
-                        <span class="J-sp"> (0) </span>
-                    </a>
-                    <div class="j-menu">
-                        购物车中还没有商品，赶紧选购吧！
-                    </div>
-                </div>
-                <div class="topbar-info fr">
-                    <a href="./login.html">登录</a>
-                    <span>|</span>
-                    <a href="#">注册</a>
-                    <span>|</span>
-                    <span class="site-info-span">
-                        <a href="#">消息通知</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="site-header">
-            <div class="container w clearfix">
-                <!-- logo -->
-                <div class="head-logo fl">
-                    <a href="#" class="logo text">
-                        小米官网
-                    </a>
-                </div>
-                <!-- nav -->
-                <div class="header-nav fl">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">小米手机</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/1-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/1-02.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/1-03.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/1-04.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/1-05.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">Redmi 红米</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/2-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/2-01.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/2-01.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/2-01.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/2-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/2-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">电视</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/3-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/3-01.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/3-01.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/3-01.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/3-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/3-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">笔记本</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/4-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/4-01.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/4-01.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/4-01.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/4-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/4-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">家电</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/5-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/5-01.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/5-01.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/5-01.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/5-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/5-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">路由器</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/6-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/6-01.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/6-01.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/6-01.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/6-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/6-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="link">
-                                <span class="text">智能硬件</span>
-                            </a>
-                            <!-- nav - js -->
-                            <div class="header-nav-menu">
-                                <div class="container w">
-                                    <ul>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure figure-none">
-                                                    <img src="images/7-01.webp" alt="小米11" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米11</div>
-                                                <p>3999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/7-01.webp" alt="小米10至尊纪念版" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10至尊纪念版</div>
-                                                <p>5299元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/7-01.webp" alt="小米10" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10</div>
-                                                <p>3399元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <em></em>
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/7-01.webp" alt="小米10 青春版 5G" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米10 青春版 5G</div>
-                                                <p>1999元起</p>
-                                            </a>
-                                        </li>
-                                        <li class="menu-nav">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="images/7-01.webp" alt="小米MIX Alpha" width="160" height="110">
-                                                </div>
-                                                <div class="title">小米MIX Alpha</div>
-                                                <p>19999元起</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" class="link">
-                                <span class="text">服务</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="link">
-                                <span class="text">社区</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- 搜索框 -->
-                <div class="header-search fr">
-                    <form action="" method="GET" class="search-form">
-                        <input type="text" class="search-text" placeholder="小米11">
-                        <input type="submit" class="search-btn iconfont" value="&#xe652;">
-                    </form>
+                <div class="top-bar-right">
+                    <span>Follow Us</span>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- home-main首页主体 -->
-    <div class="home-main">
-        <div class="container w">
-            <!-- 手机 -->
-            <div class="home-mobile-box">
-                <!-- 下 -->
-                <div class="box-bd">
-                    <div class="row clearfix">
-                        <div class="mobile-right2 fl">
-                            <ul id="productList" class="brick-list2 clearfix">
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/vapehub-logo.png" alt="VapeHub" class="logo-img">
+                        <span class="logo-text">VapeHub</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." class="search-input" id="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <div class="account-menu">
+                        <a href="/page/login" class="account-link">
+                            <i class="fas fa-user"></i>
+                            <span>Login / Signup</span>
+                        </a>
+                    </div>
+                    <div class="cart-menu">
+                        <a href="/page/cart/list" class="cart-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                            <span>Cart</span>
+                        </a>
+                        <div class="cart-dropdown">
+                            <p>Your cart is empty</p>
+                            <a href="/page/product/list" class="btn btn-primary">Shop our products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/collections/new-in" class="nav-link">New In</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/disposable-vape-bar" class="nav-link">Disposable Vape Bars</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-liquids" class="nav-link">E-Liquids</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>50ML SHORTFILL</h4>
+                            <ul>
+                                <li><a href="/collections/50ml-shortfills">Shop All 50ml's</a></li>
+                                <li><a href="/collections/dinner-lady">Dinner Lady</a></li>
+                                <li><a href="/collections/nasty-juice">Nasty Juice</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>100ML SHORTFILLS</h4>
+                            <ul>
+                                <li><a href="/collections/100ml-shortfills">Shop All 100ml's</a></li>
+                                <li><a href="/collections/ultimate-puff">Ultimate Puff</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-cigarettes" class="nav-link">E-Cigarettes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/coils" class="nav-link">Coils</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/nic-salts" class="nav-link">Nic Salts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/pods" class="nav-link">Pods</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/tanks" class="nav-link">Tanks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/accessories" class="nav-link">Accessories</a>
+                </li>
+            </ul>
         </div>
-    </div>
-    <!-- 底部 -->
-    <div class="footer-box">
-        <div class="site-footer clearfix">
-            <div class="w">
-                <!-- 服务部分 -->
-                <div class="footer-service">
-                    <ul class="list-service clearfix">
-                        <li><a href="#"><em class="iconfont">&#xe629;</em>预约维修服务</a></li>
-                        <li><a href="#"><em class="iconfont">&#xe61f;</em>7天无理由退货</a></li>
-                        <li><a href="#"><em class="iconfont iconfont-circle-15">&#xe606;</em>15天免费换货</a></li>
-                        <li><a href="#"><em class="iconfont">&#xe633;</em>满99元包邮</a></li>
-                        <li><a href="#"><em class="iconfont">&#xe632;</em>520余家售后网点</a></li>
-                    </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="product-list-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span id="category-name">All Products</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 id="page-title">All Products</h1>
+                <p id="page-description">Discover our premium collection of vaping products</p>
+            </div>
+
+            <!-- Filters and Sort -->
+            <div class="filters-section">
+                <div class="filters-left">
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="1">E-Liquids</option>
+                            <option value="2">E-Cigarettes</option>
+                            <option value="3">Disposable Vapes</option>
+                            <option value="4">Coils</option>
+                            <option value="5">Accessories</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="price-filter">Price Range:</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-10">€0 - €10</option>
+                            <option value="10-25">€10 - €25</option>
+                            <option value="25-50">€25 - €50</option>
+                            <option value="50-100">€50 - €100</option>
+                            <option value="100+">€100+</option>
+                        </select>
+                    </div>
                 </div>
-                <!-- 友情链接 -->
-                <div class="footer-links">
-                    <dl class="col-links">
-                        <dt>帮助中心</dt>
-                        <dd><a href="#">账户管理</a></dd>
-                        <dd><a href="#">购物指南</a></dd>
-                        <dd><a href="#">订单操作</a></dd>
-                    </dl>
-                    <dl class="col-links">
-                        <dt>服务支持</dt>
-                        <dd><a href="#">售后政策</a></dd>
-                        <dd><a href="#">自助服务</a></dd>
-                        <dd><a href="#">相关下载</a></dd>
-                    </dl>
-                    <dl class="col-links">
-                        <dt>线下门店</dt>
-                        <dd><a href="#">小米之家</a></dd>
-                        <dd><a href="#">服务网点</a></dd>
-                        <dd><a href="#">授权体验店</a></dd>
-                    </dl>
-                    <dl class="col-links">
-                        <dt>关于小米</dt>
-                        <dd><a href="#">了解小米</a></dd>
-                        <dd><a href="#">加入小米</a></dd>
-                        <dd><a href="#">投资者关系</a></dd>
-                        <dd><a href="#">企业社会责任</a></dd>
-                        <dd><a href="#">廉洁举报</a></dd>
-                    </dl>
-                    <dl class="col-links">
-                        <dt>关注我们</dt>
-                        <dd><a href="#">新狼微博</a></dd>
-                        <dd><a href="#">官方微信</a></dd>
-                        <dd><a href="#">联系我们</a></dd>
-                        <dd><a href="#">公益基金会</a></dd>
-                    </dl>
-                    <dl class="col-links">
-                        <dt>特色服务</dt>
-                        <dd><a href="#">F 码通道</a></dd>
-                        <dd><a href="#">礼物码</a></dd>
-                        <dd><a href="#">防伪查证</a></dd>
-                    </dl>
-                    <div class="col-contact">
-                        <p class="phone">400-100-5678</p>
-                        <p>8:00-18:00（仅收市话费）</p>
-                        <a href="#" class="btn-small">
-                            <em class="iconfont">&#xe604;</em> 人工客服
-                        </a>
-                        <div class="follow">
-                            关注小米
-                            <a href="#" class="wb"></a>
-                            <a href="#" class="wx" id="J_followWx"></a>
-                            <img src="images/wx-img.png" alt="" id="J_followWxImg">
-                        </div>
+
+                <div class="filters-right">
+                    <div class="sort-group">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select" class="filter-select">
+                            <option value="name">Name A-Z</option>
+                            <option value="name-desc">Name Z-A</option>
+                            <option value="price">Price Low to High</option>
+                            <option value="price-desc">Price High to Low</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                    </div>
+
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="site-info">
-            <div class="w container clearfix">
-                <div class="logo ir">小米官网</div>
-                <div class="info-text">
-                    <p class="sites">
-                        <a href="#">小米商城</a>
-                        <span>|</span>
-                        <a href="#">MIUI</a>
-                        <span>|</span>
-                        <a href="#"> 米家</a>
-                        <span>|</span>
-                        <a href="#">米聊</a>
-                        <span>|</span>
-                        <a href="#">多看</a>
-                        <span>|</span>
-                        <a href="#">游戏</a>
-                        <span>|</span>
-                        <a href="#">政企服务</a>
-                        <span>|</span>
-                        <a href="#">小米天猫店</a>
-                        <span>|</span>
-                        <a href="#">小米集团隐私政策</a>
-                        <span>|</span>
-                        <a href="#">小米公司儿童信息保护规则</a>
-                        <span>|</span>
-                        <a href="#">小米商城隐私政策</a>
-                        <span>|</span>
-                        <a href="#">小米商城用户协议</a>
-                        <span>|</span>
-                        <a href="#">问题反馈</a>
-                        <span>|</span>
-                        <a href="#">Select Location</a>
-                    </p>
-                    <p class="sites">
-                        <a href="#">北京互联网法院法律服务工作站</a>
-                        <span>|</span>
-                        <a href="#">中国消费者协会</a>
-                        <span>|</span>
-                        <a href="#">北京市消费者协会</a>
-                    </p>
-                    <p>
-                        ©
-                        <a href="#">mi.com</a> 京ICP证110507号
-                        <a href="#">京ICP备10046444号</a>
-                        <a href="#">京公网安备11010802020134号</a>
-                        <a href="#">京网文[2020]0276-042号</a>
-                        <br>
-                        <a href="#">（京）网械平台备字（2018）第00005号</a>
-                        <a href="#">互联网药品信息服务资格证 (京)-非经营性-2014-0090</a>
-                        <a href="#">营业执照</a>
-                        <a href="#">医疗器械质量公告</a>
-                        <br>
-                        <a href="#">增值电信业务许可证</a> 网络食品经营备案 京食药网食备202010048
-                        <a href="#">食品经营许可证</a>
-                        <br> 违法和不良信息举报电话：171-5104-4404
-                        <a href="#">知识产权侵权投诉</a> 本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
-                    </p>
+
+            <!-- Products Grid -->
+            <div class="products-container">
+                <div class="product-grid" id="productList">
+                    <!-- Products will be loaded dynamically -->
                 </div>
-                <div class="info-links">
-                    <a href="#"><img src="images/truste.png" alt=""></a>
-                    <a href="#"><img src="images/v-logo-1.png" alt=""></a>
-                    <a href="#"><img src="images/v-logo-2.png" alt=""></a>
-                    <a href="#"><img src="images/fx.png" alt=""></a>
-                    <a href="#" class="safe-auth  J_safeAuth"><img src="images/js-1.png" alt="" class="img1"><img src="images/js-2.png" alt="" class="img2"></a>
+
+                <!-- Loading Spinner -->
+                <div class="loading-spinner" id="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading products...</p>
+                </div>
+
+                <!-- No Results -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters or search terms</p>
                 </div>
             </div>
-            <div class="slogan">
-                <a href="tencent://message/?Menu=yes&uin=2748826916&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45">让全球每个人都能享受科技带来的美好生活</a>
+
+            <!-- Pagination -->
+            <div class="pagination-container">
+                <nav class="pagination" id="pagination">
+                    <!-- Pagination will be generated dynamically -->
+                </nav>
             </div>
         </div>
-    </div>
-    <!-- 工具条 -->
-    <div class="home-tool-bar">
-        <a href="#" class="item">
-            <div class="icon">
-                <img src="/images/tool-1.png" alt="" class="static"><img src="images/tool-01.png" alt="" class="hover">
+    </main>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="/pages/about-us">About Us</a></li>
+                        <li><a href="/pages/contact-us">Contact Us</a></li>
+                        <li><a href="/pages/delivery-shipping">Delivery & Shipping</a></li>
+                        <li><a href="/pages/terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="/pages/privacy-policy">Privacy policy</a></li>
+                        <li><a href="/pages/return-policy">Return Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <div class="contact-info">
+                        <p><strong>VapeHub</strong></p>
+                        <p>Unit 17, George's Street Arcade</p>
+                        <p>South Great George's Street, Dublin 2,</p>
+                        <p>D02 DH79</p>
+                        <p>01 437 0320</p>
+                        <p>info@vapehub.ie</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
             </div>
-            <span class="text">手机APP</span>
-            <div class="pop-content">
-                <img src="/images/APP.png" alt="">
-                <span class="desc">
-                    扫码领取新人百元礼包
-                </span>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p><strong>YOU MUST BE 18+ TO PURCHASE ANYTHING ON THIS SITE</strong></p>
+                    <p><strong>Company Registration No.:</strong> 644874</p>
+                    <p><strong>VAT Registration Number:</strong> IE3611438FH</p>
+                    <p>© VapeHub</p>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-        </a>
-        <a href="#" class="item">
-            <div class="icon">
-                <img src="/images/tool-2.png" alt="" class="static"><img src="images/tool-02.png" alt="" class="hover">
-            </div>
-            <span class="text">个人中心</span>
-        </a>
-        <a href="#" class="item">
-            <div class="icon">
-                <img src="/images/tool-3.png" alt="" class="static"><img src="images/tool-03.png" alt="" class="hover">
-            </div>
-            <span class="text">售后服务</span>
-        </a>
-        <a href="#" class="item">
-            <div class="icon"><img src="/images/tool-4.png" alt="" class="static"><img src="images/tool-04.png" alt="" class="hover"></div>
-            <span class="text">人工客服</span>
-        </a>
-        <a href="cart_list.html" class="item">
-            <div class="icon"><img src="/images/tool-5.png" alt="" class="static"><img src="images/tool-05.png" alt="" class="hover"></div>
-            <span class="text">购物车</span>
-        </a>
-        <a href="#" class="item backtop" id="J_atop">
-            <div class="icon">
-                <img src="/images/totop.png" alt="" class="static"><img src="/images/totop_hover.png" alt="" class="hover">
-            </div>
-            <span class="text">回顶部</span>
-        </a>
-    </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script src="/js/vape-modern.js"></script>
+    <script src="/js/vape-product-list.js"></script>
+
+    <script>
+        // Product List Page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            initProductList();
+            initFilters();
+            initPagination();
+        });
+
+        let currentPage = 1;
+        let currentFilters = {
+            categoryId: '',
+            priceRange: '',
+            search: '',
+            sort: 'name'
+        };
+
+        function initProductList() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryId = urlParams.get('id');
+            const search = urlParams.get('search');
+
+            if (categoryId) {
+                currentFilters.categoryId = categoryId;
+                document.getElementById('category-filter').value = categoryId;
+                updatePageTitle(categoryId);
+            }
+
+            if (search) {
+                currentFilters.search = search;
+                document.getElementById('search-input').value = search;
+                updatePageTitle(null, search);
+            }
+
+            loadProducts();
+        }
+
+        function updatePageTitle(categoryId, search) {
+            const pageTitle = document.getElementById('page-title');
+            const pageDescription = document.getElementById('page-description');
+            const categoryName = document.getElementById('category-name');
+
+            if (search) {
+                pageTitle.textContent = `Search Results for "${search}"`;
+                pageDescription.textContent = `Found products matching "${search}"`;
+                categoryName.textContent = `Search: ${search}`;
+            } else if (categoryId) {
+                const categoryNames = {
+                    '1': 'E-Liquids',
+                    '2': 'E-Cigarettes',
+                    '3': 'Disposable Vapes',
+                    '4': 'Coils',
+                    '5': 'Accessories'
+                };
+                const name = categoryNames[categoryId] || 'Products';
+                pageTitle.textContent = name;
+                pageDescription.textContent = `Discover our premium ${name.toLowerCase()} collection`;
+                categoryName.textContent = name;
+            }
+        }
+
+        function initFilters() {
+            // Category filter
+            document.getElementById('category-filter').addEventListener('change', function() {
+                currentFilters.categoryId = this.value;
+                currentPage = 1;
+                loadProducts();
+            });
+
+            // Price filter
+            document.getElementById('price-filter').addEventListener('change', function() {
+                currentFilters.priceRange = this.value;
+                currentPage = 1;
+                loadProducts();
+            });
+
+            // Sort filter
+            document.getElementById('sort-select').addEventListener('change', function() {
+                currentFilters.sort = this.value;
+                currentPage = 1;
+                loadProducts();
+            });
+
+            // View toggle
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const view = this.dataset.view;
+                    const productGrid = document.querySelector('.product-grid');
+                    productGrid.className = view === 'list' ? 'product-list' : 'product-grid';
+                });
+            });
+        }
+
+        function loadProducts() {
+            showLoading(true);
+
+            let url = '/product/list';
+            let params = {
+                page: currentPage,
+                limit: 12
+            };
+
+            if (currentFilters.categoryId) {
+                url = '/product/selectByCategoryId';
+                params.id = currentFilters.categoryId;
+            }
+
+            if (currentFilters.search) {
+                params.search = currentFilters.search;
+            }
+
+            $.get(url, params, function(result) {
+                showLoading(false);
+
+                if (result.code === 0) {
+                    if (Array.isArray(result.data)) {
+                        renderProducts(result.data);
+                        // For category-based results, hide pagination
+                        document.querySelector('.pagination-container').style.display = 'none';
+                    } else {
+                        renderProducts(result.data.records || []);
+                        renderPagination(result.data.total || 0, result.data.size || 12);
+                    }
+                } else {
+                    showNoResults();
+                }
+            }).fail(function() {
+                showLoading(false);
+                showNoResults();
+            });
+        }
+
+        function renderProducts(products) {
+            const container = document.getElementById('productList');
+            const noResults = document.getElementById('no-results');
+
+            if (!products || products.length === 0) {
+                showNoResults();
+                return;
+            }
+
+            noResults.style.display = 'none';
+
+            let html = '';
+            products.forEach(function(product) {
+                html += `
+                    <div class="product-card">
+                        <a href="/page/product/detail?id=${product.id}">
+                            <div class="product-image">
+                                <img src="${product.mainImage || product.image || '/images/default-product.jpg'}" alt="${product.name}">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-brand">${product.brand || 'VapeHub'}</div>
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-price">€${product.price}</div>
+                                <div class="product-stock">In stock</div>
+                            </div>
+                        </a>
+                        <button class="add-to-cart-btn" onclick="addToCart('${product.id}', '${product.name}', '${product.price}', '${product.mainImage || product.image || '/images/default-product.jpg'}')">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function showLoading(show) {
+            const spinner = document.getElementById('loading-spinner');
+            const productList = document.getElementById('productList');
+
+            if (show) {
+                spinner.style.display = 'flex';
+                productList.style.display = 'none';
+            } else {
+                spinner.style.display = 'none';
+                productList.style.display = 'grid';
+            }
+        }
+
+        function showNoResults() {
+            const noResults = document.getElementById('no-results');
+            const productList = document.getElementById('productList');
+
+            noResults.style.display = 'flex';
+            productList.style.display = 'none';
+        }
+
+        function renderPagination(total, pageSize) {
+            const totalPages = Math.ceil(total / pageSize);
+            const pagination = document.getElementById('pagination');
+
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let html = '';
+
+            // Previous button
+            if (currentPage > 1) {
+                html += `<button class="page-btn" onclick="changePage(${currentPage - 1})">Previous</button>`;
+            }
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    html += `<button class="page-btn active">${i}</button>`;
+                } else {
+                    html += `<button class="page-btn" onclick="changePage(${i})">${i}</button>`;
+                }
+            }
+
+            // Next button
+            if (currentPage < totalPages) {
+                html += `<button class="page-btn" onclick="changePage(${currentPage + 1})">Next</button>`;
+            }
+
+            pagination.innerHTML = html;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            loadProducts();
+            window.scrollTo(0, 0);
+        }
+
+        function initPagination() {
+            // Pagination is handled in renderPagination function
+        }
+    </script>
 </body>
-
-<!-- 采用html , css , js 分开写的原则
-这里属于自己写的 js 部分 -->
-<script src="/jquery-2.1.4.js"></script>
-<script src="/mylayer.js"></script>
-<script src="/layui/layui.js"></script>
-<!-- 主页 -->
-<script src="/js/index.js"></script>
-<!-- 轮播图 -->
-<script src="/js/slideshow.js "></script>
-<!-- 轮播图动画 -->
-<script src="/js/move.js "></script>
-<!-- 移动 -->
-<script src="/js/roll.js "></script>
-<!-- 列表 -->
-<script src="/js/tab.js"></script>
-<!-- 逻辑上合理 使js html css 代码进行分离 这样可以改变数据得类型 -->
-<script>
-  layui.use(['layer'],function () {
-
-      var layer = layui.layer;
-
-      var queryString = window.location.search;
-
-      console.log(queryString)
-
-      var urlParams = new URLSearchParams(queryString);
-
-      var id = urlParams.get('id');
-
-      console.log("id: " + id);
-
-      $.get(
-          '/product/selectByCategoryId',
-          {'id': id},
-          function (result) {
-              console.log(result);
-              if (result.code === 0){
-                  var html = '';
-               $(result.data).each(function () {
-                  html +=' <li class="brick-item brick-item-m brick-item-m-2">'
-                  html +='     <a href="/page/product/detail?id='+this.id+'">'
-                  html +='         <div class="figure figure-img">'
-                  html +='             <img src="'+this.mainImage+'" alt=""/>'
-                  html +='         </div>'
-                  html +='         <h3 class="title">'+this.name+'</h3>'
-                  html +='         <p class="desc">'+this.subtitle+'</p>'
-                  html +='         <p class="price">'
-                  html +='             <span class="num">'+this.price+'</span> euro'
-                  html +='             <span>From</span>'
-                  html +='         </p>'
-                  html +='     </a>'
-                  html +=' </li>'
-               })
-
-               $('#productList').append(html);
-              }
-          }
-      )
-
-
-  })
-
-</script>
-
-
 </html>

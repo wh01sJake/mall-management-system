@@ -41,7 +41,7 @@
                     ]
                 };
 
-                // 使用刚指定的配置项和数据显示图表。
+                // Use the specified configuration and data to display the chart.
                 myChart.setOption(option);
             }
         })

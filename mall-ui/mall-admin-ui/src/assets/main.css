@@ -1,35 +1,208 @@
 @import 'base.css';
 
+/* Admin Dashboard Styles - Shopify-inspired */
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   font-weight: normal;
+  background: #f6f6f7;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* Layout Container */
+.layout-container {
+  height: 100vh;
+  width: 100%;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+/* Sidebar Styles */
+.el-aside {
+  background: #202223 !important;
+  border-right: 1px solid #303030;
+  transition: width 0.3s ease;
+}
+
+.el-aside__logo {
+  height: 60px;
+  background: #1a1b1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #303030;
+}
+
+/* Menu Styles */
+.el-menu {
+  border: none !important;
+  background: transparent !important;
+}
+
+.el-menu-item {
+  height: 48px !important;
+  line-height: 48px !important;
+  margin: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.el-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+
+.el-menu-item.is-active {
+  background: #1890ff !important;
+  color: #fff !important;
+}
+
+.el-menu-item span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Header Styles */
+.el-header {
+  background: #fff !important;
+  border-bottom: 1px solid #e1e3e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content */
+.el-main {
+  background: #f6f6f7 !important;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Card Styles */
+.el-card {
+  border-radius: 12px !important;
+  border: 1px solid #e1e3e5 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 24px;
+}
+
+.el-card__header {
+  background: #fff;
+  border-bottom: 1px solid #e1e3e5;
+  padding: 16px 24px;
+}
+
+.el-card__body {
+  padding: 24px;
+}
+
+/* Button Styles */
+.el-button {
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.el-button--primary {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+}
+
+.el-button--primary:hover {
+  background: #40a9ff !important;
+  border-color: #40a9ff !important;
+}
+
+/* Table Styles */
+.el-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.el-table th {
+  background: #fafafa !important;
+  color: #262626 !important;
+  font-weight: 600 !important;
+}
+
+/* Form Styles */
+.el-form-item__label {
+  font-weight: 500 !important;
+  color: #262626 !important;
+}
+
+.el-input__wrapper {
+  border-radius: 6px !important;
+  border: 1px solid #d9d9d9 !important;
+}
+
+.el-input__wrapper:hover {
+  border-color: #40a9ff !important;
+}
+
+.el-input__wrapper.is-focus {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .el-aside {
+    width: 0 !important;
+    overflow: hidden;
+  }
+
+  .el-main {
+    padding: 16px;
+  }
+
+  .el-card__body {
+    padding: 16px;
+  }
+
+  .el-header {
+    padding: 0 16px;
+  }
+
+  /* Mobile menu toggle would go here */
+}
+
+@media (max-width: 480px) {
+  .el-main {
+    padding: 12px;
+  }
+
+  .el-card__body {
+    padding: 12px;
+  }
+
+  .el-card__header {
+    padding: 12px 16px;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.text-right {
+  text-align: right;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}
+
+.p-16 {
+  padding: 16px;
+}
+
+.p-24 {
+  padding: 24px;
 }

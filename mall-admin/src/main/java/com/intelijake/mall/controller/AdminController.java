@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * <p>
- *  前端控制器
+ *  Frontend Controller
  * </p>
  *
  * @author Jake
@@ -51,14 +51,14 @@ public class AdminController {
     @DeleteMapping("/deleteById/{id}")
     public Result deleteById(@PathVariable Integer id) {
         adminService.removeById(id);
-        return Result.ok("删除成功");
+        return Result.ok("Deleted successfully");
     }
 
     @MyLog(module = "admin module")
     @DeleteMapping("/deleteAll/{ids}")
     public Result deleteAll(@PathVariable Integer[] ids) {
         adminService.removeBatchByIds(Arrays.asList(ids));
-        return Result.ok("删除成功");
+        return Result.ok("Deleted successfully");
     }
 
 
@@ -68,7 +68,7 @@ public class AdminController {
 
         redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,admin.getAvatar());
 
-        return Result.ok("添加成功");
+        return Result.ok("Added successfully");
     }
 
     @GetMapping("/selectById/{id}")
@@ -81,7 +81,7 @@ public class AdminController {
     public Result update(@RequestBody Admin admin) {
         adminService.updateById(admin);
         redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,admin.getAvatar());
-        return Result.ok("更新成功");
+        return Result.ok("Updated successfully");
     }
 
     @PostMapping("/login")
@@ -92,15 +92,15 @@ public class AdminController {
         Admin loginAdmin = adminService.getOne(queryWrapper);
         //Admin loginAdmin = adminService.login(admin);
         if (loginAdmin == null) {
-            return Result.error("用户名或密码错误");
+            return Result.error("Invalid username or password");
         }
 
-        //登录成功
+        // Login successful
         Map<String, Object> map = new HashMap<>();
         map.put("id", loginAdmin.getId());
         map.put("name", loginAdmin.getUsername());
         String token = JwtUtil.createToken(map);
-        return Result.ok("登录成功", token);
+        return Result.ok("Login successful", token);
     }
 
     @GetMapping("/adminInfo")
@@ -120,14 +120,14 @@ public class AdminController {
         int id = (int) map.get("id");
         Admin admin = adminService.getById(id);
         if (!admin.getPassword().equalsIgnoreCase(adminPasswordDTO.getOldPassword())) {
-            return Result.error("原密码错误");
+            return Result.error("Incorrect old password");
         }
 
         Admin resetPasswordAdmin = new Admin();
         resetPasswordAdmin.setId(id);
         resetPasswordAdmin.setPassword(adminPasswordDTO.getNewPassword());
         adminService.updateById(resetPasswordAdmin);
-        return Result.ok("修改密码成功");
+        return Result.ok("Password changed successfully");
     }
 
 

@@ -34,4 +34,18 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
         return customerMapper.selectOne(queryWrapper);
 
     }
+
+    @Override
+    public Customer findByUsername(String username) {
+        QueryWrapper<Customer> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("username", username);
+        return customerMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public Customer findByEmail(String email) {
+        QueryWrapper<Customer> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("email", email);
+        return customerMapper.selectOne(queryWrapper);
+    }
 }

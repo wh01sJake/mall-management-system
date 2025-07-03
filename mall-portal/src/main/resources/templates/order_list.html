@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Orders - VapeHub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
+
+    <!-- Modern CSS Framework -->
+    <link rel="stylesheet" href="/css/vape-modern.css">
+    <link rel="stylesheet" href="/css/vape-order.css">
+    <link rel="stylesheet" href="/css/vape-responsive.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span>Need help? Call us 01 437 0320</span>
+                    <a href="mailto:info@vapehub.ie">info@vapehub.ie</a>
+                </div>
+                <div class="top-bar-right">
+                    <span>Follow Us</span>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/vapehub-logo.png" alt="VapeHub" class="logo-img">
+                        <span class="logo-text">VapeHub</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <div class="account-menu">
+                        <a href="/page/login" class="account-link">
+                            <i class="fas fa-user"></i>
+                            <span>My Account</span>
+                        </a>
+                    </div>
+                    <div class="cart-menu">
+                        <a href="/page/cart/list" class="cart-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                            <span>Cart</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/collections/new-in" class="nav-link">New In</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/disposable-vape-bar" class="nav-link">Disposable Vape Bars</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-liquids" class="nav-link">E-Liquids</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="/collections/e-cigarettes" class="nav-link">E-Cigarettes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/coils" class="nav-link">Coils</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/nic-salts" class="nav-link">Nic Salts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/pods" class="nav-link">Pods</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/tanks" class="nav-link">Tanks</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collections/accessories" class="nav-link">Accessories</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="order-list-main">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>My Orders</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>My Orders</h1>
+                <p>Track and manage your orders</p>
+            </div>
+
+            <!-- Order Filters -->
+            <div class="order-filters">
+                <button class="filter-btn active" data-status="all">All Orders</button>
+                <button class="filter-btn" data-status="pending">Pending</button>
+                <button class="filter-btn" data-status="processing">Processing</button>
+                <button class="filter-btn" data-status="shipped">Shipped</button>
+                <button class="filter-btn" data-status="delivered">Delivered</button>
+                <button class="filter-btn" data-status="cancelled">Cancelled</button>
+            </div>
+
+            <!-- Orders List -->
+            <div class="orders-list" id="orders-list">
+                <!-- Orders will be loaded dynamically -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-orders" id="empty-orders" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h3>No orders found</h3>
+                <p>You haven't placed any orders yet.</p>
+                <a href="/product_list.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="/pages/about-us">About Us</a></li>
+                        <li><a href="/pages/contact-us">Contact Us</a></li>
+                        <li><a href="/pages/delivery-shipping">Delivery & Shipping</a></li>
+                        <li><a href="/pages/terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="/pages/privacy-policy">Privacy policy</a></li>
+                        <li><a href="/pages/return-policy">Return Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Visit Us</h3>
+                    <div class="contact-info">
+                        <p><strong>VapeHub</strong></p>
+                        <p>Unit 17, George's Street Arcade</p>
+                        <p>South Great George's Street, Dublin 2,</p>
+                        <p>D02 DH79</p>
+                        <p>01 437 0320</p>
+                        <p>info@vapehub.ie</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email" class="newsletter-input">
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p><strong>YOU MUST BE 18+ TO PURCHASE ANYTHING ON THIS SITE</strong></p>
+                    <p><strong>Company Registration No.:</strong> 644874</p>
+                    <p><strong>VAT Registration Number:</strong> IE3611438FH</p>
+                    <p>© VapeHub</p>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/vape-modern.js"></script>
+
+    <script>
+        // Order List Page JavaScript
+        let currentFilter = 'all';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initOrderList();
+            initEventListeners();
+        });
+
+        function initOrderList() {
+            loadOrders();
+        }
+
+        function initEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active filter
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    currentFilter = this.dataset.status;
+                    loadOrders();
+                });
+            });
+        }
+
+        function loadOrders() {
+            // Show loading state
+            const ordersList = document.getElementById('orders-list');
+            ordersList.innerHTML = '<div class="loading">Loading orders...</div>';
+
+            // Load orders from backend API
+            $.get('/order/list', function(result) {
+                console.log('Orders result:', result);
+                if (result.code === 0 && result.data) {
+                    renderOrders(result.data);
+                } else {
+                    console.error('Failed to load orders:', result.msg);
+                    ordersList.innerHTML = '<div class="no-orders">No orders found</div>';
+                }
+            }).fail(function(xhr) {
+                console.error('Order loading failed:', xhr);
+                if (xhr.status === 401) {
+                    // User not logged in, redirect to login
+                    window.location.href = '/page/login?redirect=' + encodeURIComponent(window.location.pathname);
+                } else {
+                    ordersList.innerHTML = '<div class="error">Failed to load orders. Please try again.</div>';
+                    showMessage('Failed to load orders', 'error');
+                }
+            });
+        }
+
+        function renderOrders(orders) {
+            const ordersList = document.getElementById('orders-list');
+            const emptyOrders = document.getElementById('empty-orders');
+
+            if (!orders || orders.length === 0) {
+                ordersList.style.display = 'none';
+                emptyOrders.style.display = 'flex';
+                return;
+            }
+
+            ordersList.style.display = 'block';
+            emptyOrders.style.display = 'none';
+
+            let html = '';
+            orders.forEach(order => {
+                const statusClass = getStatusClass(order.status);
+                const statusText = getStatusText(order.status);
+
+                html += `
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h3>Order ${order.orderNo || order.order_no}</h3>
+                                <p>Placed on ${formatDate(order.createTime || order.create_time)}</p>
+                            </div>
+                            <div class="order-status">
+                                <span class="status-badge ${statusClass}">${statusText}</span>
+                            </div>
+                        </div>
+
+                        <div class="order-footer">
+                            <div class="order-total">
+                                <strong>Total: €${(order.paymentAmount || order.payment_amount || 0).toFixed(2)}</strong>
+                            </div>
+                            <div class="order-actions">
+                                <button class="btn btn-outline btn-sm" onclick="viewOrder('${order.orderNo || order.order_no}')">
+                                    View Details
+                                </button>
+                                ${order.status === 'delivered' ? `
+                                    <button class="btn btn-primary btn-sm" onclick="reorder('${order.orderNo || order.order_no}')">
+                                        Reorder
+                                    </button>
+                                ` : ''}
+                                ${order.status === 'pending' ? `
+                                    <button class="btn btn-secondary btn-sm" onclick="cancelOrder('${order.orderNo || order.order_no}')">
+                                        Cancel
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            ordersList.innerHTML = html;
+        }
+
+        function getStatusClass(status) {
+            // Handle both string and numeric status values
+            const statusClasses = {
+                // String values
+                'pending': 'status-pending',
+                'processing': 'status-processing',
+                'shipped': 'status-shipped',
+                'delivered': 'status-delivered',
+                'cancelled': 'status-cancelled',
+                // Numeric values (backend format)
+                1: 'status-pending',      // Unpaid
+                2: 'status-processing',   // Paid
+                3: 'status-shipped',      // Shipped
+                4: 'status-delivered',    // Delivered
+                5: 'status-cancelled'     // Cancelled
+            };
+            return statusClasses[status] || 'status-pending';
+        }
+
+        function getStatusText(status) {
+            // Handle both string and numeric status values
+            const statusTexts = {
+                // String values
+                'pending': 'Pending Payment',
+                'processing': 'Processing',
+                'shipped': 'Shipped',
+                'delivered': 'Delivered',
+                'cancelled': 'Cancelled',
+                // Numeric values (backend format)
+                1: 'Pending Payment',
+                2: 'Processing',
+                3: 'Shipped',
+                4: 'Delivered',
+                5: 'Cancelled'
+            };
+            return statusTexts[status] || 'Unknown';
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-IE', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        function viewOrder(orderNo) {
+            window.location.href = `/page/order/detail/${orderNo}`;
+        }
+
+        function reorder(orderId) {
+            if (confirm('Add all items from this order to your cart?')) {
+                // Simulate reorder - replace with actual API call
+                showMessage('Items added to cart!', 'success');
+            }
+        }
+
+        function cancelOrder(orderId) {
+            if (confirm('Are you sure you want to cancel this order?')) {
+                // Simulate cancel - replace with actual API call
+                showMessage('Order cancelled successfully', 'info');
+                loadOrders(); // Reload orders
+            }
+        }
+
+        function showMessage(message, type = 'info') {
+            // Simple message display
+            let messageEl = document.getElementById('order-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'order-message';
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 20px;
+                    border-radius: 5px;
+                    color: white;
+                    font-weight: bold;
+                    z-index: 1000;
+                    max-width: 300px;
+                `;
+                document.body.appendChild(messageEl);
+            }
+
+            // Set message and styling based on type
+            messageEl.textContent = message;
+            messageEl.style.backgroundColor = type === 'success' ? '#28a745' :
+                                            type === 'error' ? '#dc3545' : '#17a2b8';
+            messageEl.style.display = 'block';
+
+            // Auto hide after 3 seconds
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+
+    <style>
+        /* Order List Specific Styles */
+        .order-list-main {
+            padding: 20px 0;
+            min-height: 60vh;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .order-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e9ecef;
+            background: white;
+            color: #333;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: #ff6a00;
+            background: #ff6a00;
+            color: white;
+        }
+
+        .orders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .order-info h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .order-info p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-processing { background: #d1ecf1; color: #0c5460; }
+        .status-shipped { background: #d4edda; color: #155724; }
+        .status-delivered { background: #d4edda; color: #155724; }
+        .status-cancelled { background: #f8d7da; color: #721c24; }
+
+        .order-items {
+            padding: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-details h4 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            font-size: 12px;
+            color: #666;
+            margin: 0;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #ff6a00;
+        }
+
+        .order-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .order-total {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .order-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .empty-orders {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 64px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .empty-orders h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .empty-orders p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .order-header,
+            .order-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .order-actions {
+                justify-content: center;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</body>
+</html>
+

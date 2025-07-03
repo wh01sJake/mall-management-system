@@ -1,0 +1,362 @@
+/* VapeHub Responsive CSS */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header-content {
+        gap: 20px;
+    }
+    
+    .search-bar {
+        max-width: 300px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .dropdown-menu {
+        min-width: 400px;
+    }
+    
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .brand-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .search-bar {
+        max-width: 100%;
+        order: 3;
+    }
+    
+    .header-actions {
+        order: 2;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #333;
+        display: none;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 15px 20px;
+        border-bottom: 1px solid #555;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: none;
+        min-width: auto;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background: #444;
+        padding: 0;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-section {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 15px 20px;
+        border-bottom: 1px solid #555;
+    }
+    
+    .banner-image {
+        height: 250px;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .product-card {
+        border-radius: 8px;
+    }
+    
+    .product-image img {
+        height: 150px;
+    }
+    
+    .product-info {
+        padding: 15px;
+    }
+    
+    .brand-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .brand-card {
+        padding: 15px;
+    }
+    
+    .brand-card img {
+        height: 40px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .age-modal-content {
+        padding: 30px 20px;
+    }
+    
+    .age-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+    
+    .search-input {
+        padding: 10px 40px 10px 12px;
+        font-size: 14px;
+    }
+    
+    .search-btn {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .nav-link {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .banner-image {
+        height: 200px;
+    }
+    
+    .new-arrivals {
+        padding: 40px 0;
+    }
+    
+    .new-arrivals h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .brand-showcase {
+        padding: 40px 0;
+    }
+    
+    .brand-showcase h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .product-image img {
+        height: 120px;
+    }
+    
+    .product-info {
+        padding: 10px;
+    }
+    
+    .product-name {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .product-price {
+        font-size: 16px;
+    }
+    
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .brand-card {
+        padding: 10px;
+    }
+    
+    .brand-card img {
+        height: 30px;
+    }
+    
+    .newsletter-signup {
+        padding: 40px 0;
+    }
+    
+    .newsletter-signup h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .features {
+        padding: 40px 0;
+    }
+    
+    .feature-card i {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+    
+    .feature-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .main-footer {
+        padding: 40px 0 15px;
+    }
+    
+    .footer-content {
+        gap: 20px;
+    }
+    
+    .footer-section h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        position: relative;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

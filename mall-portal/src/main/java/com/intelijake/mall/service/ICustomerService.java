@@ -14,4 +14,8 @@ import com.intelijake.pojo.Customer;
 public interface ICustomerService extends IService<Customer> {
 
     Customer login(String username, String password);
+
+    Customer findByUsername(String username);
+
+    Customer findByEmail(String email);
 }

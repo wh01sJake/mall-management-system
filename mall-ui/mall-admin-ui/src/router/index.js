@@ -1,16 +1,19 @@
-// 创建一个路由器，并暴露出去
-// 第一步：引入createRouter
+// Create and export router
+// Step 1: Import createRouter
 import {createRouter, createWebHistory} from 'vue-router'
-// 引入一个一个可能要呈现组件
+// Import components that may be rendered
 import Layout from '@/views/Layout.vue'
 import Login from '@/views/Login.vue'
 import Admin from '@/views/Admin.vue'
 import Product from "@/views/Product.vue";
 import UserInfo from '@/views/UserInfo.vue'
 import Category from "@/views/Category.vue";
+import Order from "@/views/Order.vue";
+import OrderChart from "@/views/OrderChart.vue";
+import Chart from "@/views/chart.vue";
 
 
-//创建路由器
+//Create router
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -19,12 +22,14 @@ const router = createRouter({
             path: '/', component: Layout, children: [
                 {path: '/admin', component: Admin},
                 {path: '/product', component: Product},
-                {path: '/category', component: Category}
-
+                {path: '/category', component: Category},
+                {path: '/order', component: Order},
+                {path: '/order-chart', component: OrderChart},
+                {path: '/chart', component: Chart}
             ]
         }
     ]
 })
 
-// 暴露出去router
+// Export router
 export default router

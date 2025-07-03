@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - VapeHub</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
+
+    <!-- Modern CSS Framework -->
+    <link rel="stylesheet" href="/css/vape-modern.css">
+    <link rel="stylesheet" href="/css/vape-auth.css">
+    <link rel="stylesheet" href="/css/vape-responsive.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="auth-body">
+    <!-- Background Elements -->
+    <div class="auth-background">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="auth-branding">
+            <div class="branding-content">
+                <div class="logo">
+                    <img src="/images/vapehub-logo.png" alt="VapeHub" class="logo-img">
+                    <h1>VapeHub</h1>
+                </div>
+                <h2>Join Our Community</h2>
+                <p>Create your account to access premium vaping products and exclusive deals.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Shopping</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-star"></i>
+                        <span>Premium Quality</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Registration Form -->
+        <div class="auth-form-container">
+            <div class="auth-form-wrapper">
+                <div class="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Please fill in your details to register</p>
+                </div>
+
+                <!-- Registration Form -->
+                <form class="auth-form" id="register-form">
+                    <div class="form-group">
+                        <label for="invite-code">Invite Code *</label>
+                        <div class="input-group">
+                            <i class="fas fa-key"></i>
+                            <input type="text" id="invite-code" name="inviteCode" placeholder="Enter your invite code" required>
+                        </div>
+                        <small class="form-hint">You need a valid invite code to register</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username *</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Create a password" required>
+                            <button type="button" class="password-toggle" id="password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password *</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
+                            <button type="button" class="password-toggle" id="confirm-password-toggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms-agreement" name="termsAgreement" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="/pages/terms-conditions" target="_blank">Terms & Conditions</a> and <a href="/pages/privacy-policy" target="_blank">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                            Subscribe to our newsletter for exclusive offers and updates
+                        </label>
+                    </div>
+
+                    <button type="submit" class="auth-btn primary" id="register-btn">
+                        <span class="btn-text">Create Account</span>
+                        <i class="fas fa-spinner fa-spin btn-spinner" style="display: none;"></i>
+                    </button>
+
+                    <div class="auth-divider">
+                        <span>Already have an account?</span>
+                    </div>
+
+                    <a href="/page/login" class="auth-btn secondary">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Container -->
+    <div id="message-container" class="message-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initRegisterPage();
+        });
+
+        function initRegisterPage() {
+            // Password toggle functionality
+            const passwordToggle = document.getElementById('password-toggle');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordToggle = document.getElementById('confirm-password-toggle');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+
+            passwordToggle.addEventListener('click', function() {
+                togglePasswordVisibility(passwordInput, this);
+            });
+
+            confirmPasswordToggle.addEventListener('click', function() {
+                togglePasswordVisibility(confirmPasswordInput, this);
+            });
+
+            // Form submission
+            const registerForm = document.getElementById('register-form');
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleRegister();
+            });
+
+            // Real-time validation
+            document.getElementById('confirm-password').addEventListener('input', function() {
+                validatePasswordMatch();
+            });
+
+            document.getElementById('password').addEventListener('input', function() {
+                validatePasswordMatch();
+            });
+        }
+
+        function togglePasswordVisibility(input, button) {
+            const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+            input.setAttribute('type', type);
+
+            const icon = button.querySelector('i');
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        }
+
+        function validatePasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const confirmPasswordInput = document.getElementById('confirm-password');
+
+            if (confirmPassword && password !== confirmPassword) {
+                confirmPasswordInput.setCustomValidity('Passwords do not match');
+                confirmPasswordInput.classList.add('error');
+            } else {
+                confirmPasswordInput.setCustomValidity('');
+                confirmPasswordInput.classList.remove('error');
+            }
+        }
+
+        function handleRegister() {
+            const inviteCode = document.getElementById('invite-code').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const termsAgreement = document.getElementById('terms-agreement').checked;
+
+            // Validate inputs
+            if (!inviteCode || !username || !email || !password || !confirmPassword) {
+                showMessage('Please fill in all required fields', 'error');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                showMessage('Password must be at least 6 characters long', 'error');
+                return;
+            }
+
+            if (!termsAgreement) {
+                showMessage('Please agree to the Terms & Conditions', 'error');
+                return;
+            }
+
+            // Show loading state
+            const registerBtn = document.getElementById('register-btn');
+            const btnText = registerBtn.querySelector('.btn-text');
+            const btnSpinner = registerBtn.querySelector('.btn-spinner');
+            
+            registerBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnSpinner.style.display = 'inline-block';
+
+            // Prepare registration data
+            const registerData = {
+                inviteCode: inviteCode,
+                username: username,
+                email: email,
+                phone: phone,
+                password: password
+            };
+
+            // Make registration request
+            $.ajax({
+                url: '/customer/register',
+                type: 'POST',
+                data: registerData,
+                success: function(result) {
+                    if (result.code === 0) {
+                        showMessage('Registration successful! Redirecting to login...', 'success');
+                        
+                        // Redirect to login page after successful registration
+                        setTimeout(() => {
+                            window.location.href = '/page/login?message=Registration successful! Please login with your credentials.';
+                        }, 2000);
+                    } else {
+                        showMessage(result.msg || 'Registration failed. Please try again.', 'error');
+                        resetRegisterButton();
+                    }
+                },
+                error: function(xhr) {
+                    let errorMessage = 'Registration failed. Please try again.';
+
+                    if (xhr.status === 400) {
+                        errorMessage = 'Invalid registration data. Please check your inputs.';
+                    } else if (xhr.status === 409) {
+                        errorMessage = 'Username or email already exists.';
+                    } else if (xhr.status >= 500) {
+                        errorMessage = 'Server error. Please try again later.';
+                    }
+
+                    showMessage(errorMessage, 'error');
+                    resetRegisterButton();
+                }
+            });
+        }
+
+        function resetRegisterButton() {
+            const registerBtn = document.getElementById('register-btn');
+            const btnText = registerBtn.querySelector('.btn-text');
+            const btnSpinner = registerBtn.querySelector('.btn-spinner');
+            
+            registerBtn.disabled = false;
+            btnText.style.display = 'inline';
+            btnSpinner.style.display = 'none';
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showMessage(message, type) {
+            const messageContainer = document.getElementById('message-container');
+            const messageElement = document.createElement('div');
+            messageElement.className = `message message-${type}`;
+            messageElement.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button class="message-close" onclick="this.parentElement.remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            messageContainer.appendChild(messageElement);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (messageElement.parentElement) {
+                    messageElement.remove();
+                }
+            }, 5000);
+        }
+
+        // Add floating animation to background shapes
+        function animateShapes() {
+            const shapes = document.querySelectorAll('.floating-shape');
+            shapes.forEach((shape, index) => {
+                const duration = 3000 + (index * 1000);
+                const delay = index * 500;
+                
+                setInterval(() => {
+                    shape.style.transform = `translateY(${Math.sin(Date.now() / duration) * 20}px) translateX(${Math.cos(Date.now() / duration) * 15}px)`;
+                }, 50);
+            });
+        }
+
+        // Start animations
+        animateShapes();
+    </script>
+</body>
+</html>
