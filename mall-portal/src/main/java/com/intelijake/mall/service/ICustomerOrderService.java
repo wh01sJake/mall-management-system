@@ -14,4 +14,6 @@ import com.intelijake.pojo.CustomerOrder;
 public interface ICustomerOrderService extends IService<CustomerOrder> {
 
     void add(CustomerOrder order);
+
+    void cancel(Long orderNo);
 }

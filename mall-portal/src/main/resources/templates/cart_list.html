@@ -314,6 +314,10 @@
                 console.log('Cart data from backend:', result);
                 if (result.code === 0 && result.data) {
                     cart = result.data;
+                    console.log('DEBUG: Loaded cart items:', cart);
+                    cart.forEach((item, index) => {
+                        console.log(`DEBUG: Cart item ${index}:`, item, 'id:', item.id, 'productId:', item.productId);
+                    });
                     renderCart();
                     updateCartSummary();
                     updateCartCount();
@@ -486,6 +490,8 @@
         function removeItem(index) {
             if (confirm('Remove this item from your cart?')) {
                 const item = cart[index];
+                console.log('DEBUG: Removing item at index', index, 'item:', item);
+                console.log('DEBUG: item.id =', item.id, 'type:', typeof item.id);
 
                 $.ajax({
                     url: '/cart/deleteById',
