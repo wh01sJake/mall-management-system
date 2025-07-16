@@ -27,7 +27,9 @@ public class MPGenerator {
     // 1. Set the names of the database tables you want to generate code for, separated by commas.
     // I have updated this list to match the translated table names from your SQL script.
 //    private static final String DB_TABLES = "admin_user,customer,product_category,product,customer_order,order_item";
-    private static final String DB_TABLES = "customer,customer_order,order_item,product,product_category,shipping_address,shopping_cart";
+//    private static final String DB_TABLES = "customer,customer_order,order_item,product,product_category,shipping_address,shopping_cart";
+    private static final String DB_TABLES = "order";
+
 
 
     // 2. Set to true if you want to add Swagger annotations for API documentation.

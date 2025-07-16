@@ -8,6 +8,7 @@ import com.intelijake.pojo.Customer;
 import com.intelijake.pojo.ShoppingCart;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -80,12 +81,59 @@ public class ShoppingCartController {
         }
     }
 
-    @RequestMapping("/deleteById")
-    public Result deleteById(Integer id, HttpSession session) {
+    @PostMapping("/deleteById")
+    public Result deleteById(HttpSession session, jakarta.servlet.http.HttpServletRequest request) {
         Customer customer = (Customer) session.getAttribute("customer");
 
         if (customer == null) {
             return Result.error("用户未登录");
+        }
+
+        // Handle both JSON and form data
+        Integer id = null;
+        try {
+            // First try to get from request parameter (form data)
+            String idParam = request.getParameter("id");
+            System.out.println("DEBUG: Form parameter 'id' = " + idParam);
+
+            if (idParam != null && !idParam.trim().isEmpty()) {
+                id = Integer.valueOf(idParam);
+                System.out.println("DEBUG: Parsed ID from form data: " + id);
+            } else {
+                // Try to read JSON body
+                java.io.BufferedReader reader = request.getReader();
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line);
+                }
+                String jsonBody = sb.toString();
+                System.out.println("DEBUG: JSON body: " + jsonBody);
+
+                if (!jsonBody.trim().isEmpty()) {
+                    // Parse JSON manually (simple approach)
+                    if (jsonBody.contains("\"id\"")) {
+                        String idStr = jsonBody.replaceAll(".*\"id\"\\s*:\\s*([0-9]+).*", "$1");
+                        id = Integer.valueOf(idStr);
+                        System.out.println("DEBUG: Parsed ID from JSON: " + id);
+                    }
+                }
+            }
+
+            if (id == null || id <= 0) {
+                return Result.error("无效的ID参数");
+            }
+
+        } catch (Exception e) {
+            System.out.println("DEBUG: Exception parsing ID: " + e.getMessage());
+            e.printStackTrace();
+            return Result.error("ID参数格式错误: " + e.getMessage());
+        }
+
+        // Add security check: verify the cart item belongs to the current user
+        ShoppingCart cartItem = shoppingCartService.getById(id);
+        if (cartItem == null || !cartItem.getUserId().equals(customer.getId())) {
+            return Result.error("购物车项目不存在或无权限删除");
         }
 
         boolean success = shoppingCartService.removeById(id);
