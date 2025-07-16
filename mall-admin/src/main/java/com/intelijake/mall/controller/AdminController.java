@@ -64,6 +64,10 @@ public class AdminController {
 
     @PostMapping("/add")
     public Result add(@RequestBody Admin admin) {
+        // Set default status if not provided
+        if (admin.getStatus() == null) {
+            admin.setStatus(1); // Default to active
+        }
         adminService.save(admin);
 
         redisTemplate.opsForSet().add(RedisConstants.UPLOAD_IMAGE_TO_DB,admin.getAvatar());
@@ -128,6 +132,18 @@ public class AdminController {
         resetPasswordAdmin.setPassword(adminPasswordDTO.getNewPassword());
         adminService.updateById(resetPasswordAdmin);
         return Result.ok("Password changed successfully");
+    }
+
+    @MyLog(module = "admin module")
+    @PutMapping("/updateStatus/{id}/{status}")
+    public Result updateStatus(@PathVariable Integer id, @PathVariable Integer status) {
+        Admin admin = new Admin();
+        admin.setId(id);
+        admin.setStatus(status);
+        adminService.updateById(admin);
+        
+        String statusText = status == 1 ? "activated" : "blocked";
+        return Result.ok("Admin " + statusText + " successfully");
     }
 
 

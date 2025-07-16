@@ -39,6 +39,42 @@
         loadData()
     }
 
+    // Toggle admin status (activate/block)
+    const toggleStatus = (row, newValue) => {
+        const originalStatus = row.status
+        const newStatus = newValue
+        const statusText = newStatus === 1 ? 'activate' : 'block'
+
+        ElMessageBox.confirm(
+            `Are you sure to ${statusText} this admin?`,
+            'Confirm Status Change',
+            {
+                confirmButtonText: 'Confirm',
+                cancelButtonText: 'Cancel',
+                type: 'warning',
+                lockScroll: false
+            }
+        ).then(() => {
+            adminApi.updateStatus(row.id, newStatus).then(result => {
+                if (result.code === 0) {
+                    ElMessage.success(`Admin ${statusText}d successfully`)
+                    row.status = newStatus
+                } else {
+                    ElMessage.error(result.msg)
+                    // Revert switch on API error
+                    row.status = originalStatus
+                }
+            }).catch(() => {
+                ElMessage.error('Failed to update admin status')
+                // Revert switch on network error
+                row.status = originalStatus
+            })
+        }).catch(() => {
+            // User clicked cancel - revert the switch
+            row.status = originalStatus
+        })
+    }
+
     //deleteById
     const deleteById = (id) => {
         ElMessageBox.confirm(
@@ -100,7 +136,7 @@
     const showAddDialog = () => {
         dialogFormVisible.value = true
         title.value = 'add admin'
-        admin.value = {}
+        admin.value = { status: 1 } // Default to active status
     }
 
     const showUpdateDialog = (id) => {
@@ -203,6 +239,20 @@
                 <img v-if="scope.row.avatar" :src="scope.row.avatar" style="max-height: 40px; max-width: 120px;" />
             </template>
         </el-table-column>
+        <el-table-column prop="status" label="Status" width="120" align="center">
+            <template #default="scope">
+                <el-switch
+                    v-model="scope.row.status"
+                    :active-value="1"
+                    :inactive-value="0"
+                    active-color="#67C23A"
+                    inactive-color="#F56C6C"
+                    @change="(value) => toggleStatus(scope.row, value)"
+                    :loading="false"
+                    style="--el-switch-on-color: #67C23A; --el-switch-off-color: #F56C6C;"
+                />
+            </template>
+        </el-table-column>
 
         <el-table-column align="center" width="200px" fixed="right" label="Operations">
             <template #default="{ row }">
@@ -235,6 +285,16 @@
             </el-form-item>
             <el-form-item label="email" :label-width="60">
                 <el-input v-model="admin.email" autocomplete="off" />
+            </el-form-item>
+            <el-form-item label="status" :label-width="60">
+                <el-switch
+                    v-model="admin.status"
+                    :active-value="1"
+                    :inactive-value="0"
+                    active-color="#67C23A"
+                    inactive-color="#F56C6C"
+                    style="--el-switch-on-color: #67C23A; --el-switch-off-color: #F56C6C;"
+                />
             </el-form-item>
             <el-form-item label="avatar" :label-width="60">
             <el-upload
@@ -278,6 +338,17 @@
 <style scoped>
 .admin-management {
     margin: 20px;
+}
+
+/* Status switch colors */
+:deep(.el-switch.is-checked .el-switch__core) {
+    background-color: #67C23A !important;
+    border-color: #67C23A !important;
+}
+
+:deep(.el-switch .el-switch__core) {
+    background-color: #F56C6C !important;
+    border-color: #F56C6C !important;
 }
 
 .header {

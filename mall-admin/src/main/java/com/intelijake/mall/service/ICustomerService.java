@@ -1,6 +1,8 @@
 package com.intelijake.mall.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.intelijake.mall.pojo.query.CustomerQuery;
 import com.intelijake.pojo.Customer;
 
 /**
@@ -12,5 +14,6 @@ import com.intelijake.pojo.Customer;
  * @since 2025-06-11
  */
 public interface ICustomerService extends IService<Customer> {
-
+    
+    IPage<Customer> list(CustomerQuery customerQuery);
 }

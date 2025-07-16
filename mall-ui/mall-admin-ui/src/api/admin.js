@@ -28,6 +28,9 @@ const adminApi = {
     },
     resetPassword(adminPasswordDTO){
         return service.put('admin/resetPassword',adminPasswordDTO)
+    },
+    updateStatus(id, status) {
+        return service.put(`/admin/updateStatus/${id}/${status}`)
     }
 }
 

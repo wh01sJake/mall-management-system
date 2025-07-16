@@ -182,6 +182,12 @@
 					</el-icon>
 					<span>Admin portal</span>
 				</el-menu-item>
+				<el-menu-item index="/customer">
+					<el-icon>
+						<User/>
+					</el-icon>
+					<span>Customer Management</span>
+				</el-menu-item>
 				<el-menu-item index="/product">
 					<el-icon>
 						<Promotion/>
