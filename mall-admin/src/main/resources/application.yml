@@ -1,15 +1,15 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    username: root
-    password: 1234
+    url: ${DB_URL:jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
 
   data:
     redis:
-      host: 127.0.0.1
-      port: 6379
-      database: 0
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      database: ${REDIS_DATABASE:0}
 
   cache:
     type: redis
@@ -32,15 +32,15 @@ mybatis-plus:
       logic-not-delete-value: 0
 
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 
 cloud:
   aws:
     credentials:
-      accessKey: ${AWS_ACCESS_KEY_ID:***REMOVED_AWS_ACCESS_KEY***}
-      secretKey: ${AWS_SECRET_ACCESS_KEY:***REMOVED_AWS_SECRET_KEY***}
+      accessKey: ${AWS_ACCESS_KEY_ID:}
+      secretKey: ${AWS_SECRET_ACCESS_KEY:}
     region: ${AWS_REGION:eu-west-1}
     s3:
-      bucket: ${AWS_S3_BUCKET:jake-mall-bucket}
+      bucket: ${AWS_S3_BUCKET:}
 
 

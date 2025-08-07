@@ -44,7 +44,7 @@ public class MPGenerator {
         DataSourceConfig dataSourceConfig = new DataSourceConfig.Builder(
                 "jdbc:mysql://localhost:3306/mall", // Database URL
                 "root",       // Your DB username
-                "1234"        // Your DB password
+                "your_password_here"        // Your DB password - CHANGE THIS!
         ).build();
 
         // 2. GLOBAL CONFIGURATION
